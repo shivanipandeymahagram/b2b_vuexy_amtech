@@ -1,9 +1,9 @@
-@extends('theme_1.layouts.app')
+@extends('layouts.app')
 @section('title', "Company Profile")
 @section('pagetitle', "Company Profile")
 @section('bodyClass', "has-detached-left")
 
-@section('theme_1_content')
+@section('content')
 
 <div class="row">
     <div class="col-lg-12 ">
@@ -17,196 +17,181 @@
             </div>
 
             <div class="card-body">
-                <div class=" rounded p-3 mt-3">
+                <div class=" rounded mt-5">
                     <div class="row gap-4 gap-sm-0">
-                        <div class="nav-align-top nav-tabs-shadow mb-4">
-                            <!-- <ul class="nav nav-tabs nav-fill" role="tablist">
+                        <div class="">
+                            <ul class="nav nav-tabs nav-pills" role="tablist">
                                 <li class="nav-item">
-                                    <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab" data-bs-target="#navs-justified-home" aria-controls="navs-justified-home" aria-selected="true">
-                                        <i class="tf-icons ti ti-home ti-xs me-1"></i> Home
-                                        <span class="badge rounded-pill badge-center h-px-20 w-px-20 bg-label-danger ms-1">3</span>
+                                    <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab" data-bs-target="#navs-justified-profile" aria-controls="navs-justified-profile" aria-selected="true">
+                                        <i class="tf-icons ti ti-home ti-xs me-1"></i> Company Details
                                     </button>
                                 </li>
                                 <li class="nav-item">
-                                    <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#navs-justified-profile" aria-controls="navs-justified-profile" aria-selected="false">
-                                        <i class="tf-icons ti ti-user ti-xs me-1"></i> Profile
+                                    <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#navs-justified-logo" aria-controls="navs-justified-logo" aria-selected="false">
+                                        <i class="tf-icons ti ti-user ti-xs me-1"></i> Company Logo
                                     </button>
                                 </li>
                                 <li class="nav-item">
-                                    <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#navs-justified-messages" aria-controls="navs-justified-messages" aria-selected="false">
-                                        <i class="tf-icons ti ti-message-dots ti-xs me-1"></i> Messages
+                                    <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#navs-justified-news" aria-controls="navs-justified-news" aria-selected="false">
+                                        <i class="tf-icons ti ti-message-dots ti-xs me-1"></i> Company News
+                                    </button>
+                                </li>
+                                <li class="nav-item">
+                                    <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#navs-justified-notice" aria-controls="navs-justified-notice" aria-selected="false">
+                                        <i class="tf-icons ti ti-id ti-xs me-1"></i> Company Notice
+                                    </button>
+                                </li>
+                                <li class="nav-item">
+                                    <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#navs-justified-support" aria-controls="navs-justified-support" aria-selected="false">
+                                        <i class="tf-icons ti ti-file ti-xs me-1"></i> Company Support Details
                                     </button>
                                 </li>
                             </ul>
                             <div class="tab-content">
-                                <div class="tab-pane fade show active" id="navs-justified-home" role="tabpanel">
-                                    <p>
-                                        Icing pastry pudding oat cake. Lemon drops cotton candy caramels cake caramels sesame snaps
-                                        powder. Bear claw candy topping.
-                                    </p>
-                                    <p class="mb-0">
-                                        Tootsie roll fruitcake cookie. Dessert topping pie. Jujubes wafer carrot cake jelly. Bonbon
-                                        jelly-o jelly-o ice cream jelly beans candy canes cake bonbon. Cookie jelly beans marshmallow
-                                        jujubes sweet.
-                                    </p>
+                                <div class="tab-pane fade my-2 show active" id="navs-justified-profile" role="tabpanel">
+                                    <form id="profileForm" method="post">
+
+                                        <input type="hidden" name="id" value="">
+                                        <input type="hidden" name="actiontype" value="company">
+                                        <div class="row">
+                                            <div class="form-group col-md-4">
+                                                <label>Company Name</label>
+                                                <input type="text" name="companyname" class="form-control mt-1" value="Vuexy" required="" placeholder="Enter Value">
+                                            </div>
+                                            <div class="form-group  col-md-4">
+                                                <label>Company Website</label>
+                                                <input type="text" name="website" class="form-control mt-1" value="Vuexy.com" required="" placeholder="Enter Value">
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <button class="btn btn-primary mt-4" type="submit" data-loading-text="<i class='fa fa-spin fa-spinner'></i> Updating...">Update Info</button>
+
+                                            </div>
+                                        </div>
+
+                                    </form>
                                 </div>
-                                <div class="tab-pane fade" id="navs-justified-profile" role="tabpanel">
-                                    <p>
-                                        Donut dragée jelly pie halvah. Danish gingerbread bonbon cookie wafer candy oat cake ice
-                                        cream. Gummies halvah tootsie roll muffin biscuit icing dessert gingerbread. Pastry ice cream
-                                        cheesecake fruitcake.
-                                    </p>
-                                    <p class="mb-0">
-                                        Jelly-o jelly beans icing pastry cake cake lemon drops. Muffin muffin pie tiramisu halvah
-                                        cotton candy liquorice caramels.
-                                    </p>
+                                <div class="tab-pane fade my-2" id="navs-justified-logo" role="tabpanel">
+                                    <div class="col-sm-3">
+                                        <form class="dropzone" id="logoupload" method="post" enctype="multipart/form-data">
+                                            <input type="file" class="form-control my-3 bg-light" />
+                                            <input type="hidden" name="actiontype" value="company">
+                                            <input type="hidden" name="id" value="">
+                                        </form>
+                                    </div>
+                                    <p><b>Note :</b> Prefered image size is 260px * 56px</p>
                                 </div>
-                                <div class="tab-pane fade" id="navs-justified-messages" role="tabpanel">
-                                    <p>
-                                        Oat cake chupa chups dragée donut toffee. Sweet cotton candy jelly beans macaroon gummies
-                                        cupcake gummi bears cake chocolate.
-                                    </p>
-                                    <p class="mb-0">
-                                        Cake chocolate bar cotton candy apple pie tootsie roll ice cream apple pie brownie cake. Sweet
-                                        roll icing sesame snaps caramels danish toffee. Brownie biscuit dessert dessert. Pudding jelly
-                                        jelly-o tart brownie jelly.
-                                    </p>
+                                <div class="tab-pane fade my-2" id="navs-justified-news" role="tabpanel">
+                                    <form id="newsForm" method="post">
+
+                                        <input type="hidden" name="id" value="">
+                                        <input type="hidden" name="company_id" value="">
+                                        <input type="hidden" name="actiontype" value="companydata">
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
+                                                <label>News</label>
+                                                <textarea name="news" class="form-control" cols="30" rows="3" placeholder="Enter News">Hello, Everyone</textarea>
+                                            </div>
+
+                                            <div class="form-group col-md-6">
+                                                <label>Bill Notice</label>
+                                                <textarea name="billnotice" class="form-control" cols="30" rows="3" placeholder="Enter News">Something Else Here</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-8"></div>
+                                            <div class="col-sm-4">
+                                                <button class="btn btn-primary mt-4 pull-right float-end" type="submit" data-loading-text="<i class='fa fa-spin fa-spinner'></i> Updating...">Update Info</button>
+
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="tab-pane fade my-2" id="navs-justified-notice" role="tabpanel">
+                                    <form id="noticeForm" method="post">
+
+                                        <input type="hidden" name="id" value="">
+                                        <input type="hidden" name="company_id" value="">
+                                        <input type="hidden" name="actiontype" value="companydata">
+                                        <input type="hidden" name="notice">
+
+                                        <div class="form-group summernote">
+                                            {!! nl2br($companydata->notice ?? '') !!}
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-8"></div>
+                                            <div class="col-sm-4">
+                                                <button class="btn btn-primary pull-right float-end mt-3" type="submit" data-loading-text="<i class='fa fa-spin fa-spinner'></i> Updating...">Update Info</button>
+
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="tab-pane fade my-1" id="navs-justified-support" role="tabpanel">
+                                    <form id="supportForm" method="post">
+
+                                        <input type="hidden" name="company_id" value="">
+                                        <input type="hidden" name="actiontype" value="companydata">
+
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
+                                                <label>Contact Number</label>
+                                                <textarea name="number" class="form-control" cols="30" rows="3" placeholder="Enter Value" required="">9876543221</textarea>
+                                            </div>
+
+                                            <div class="form-group col-md-6">
+                                                <label>Contact Email</label>
+                                                <textarea name="email" class="form-control" cols="30" rows="3" placeholder="Enter Value" required="">abc@gmail.com</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-8"></div>
+                                            <div class="col-sm-4">
+                                                <button class="btn btn-primary pull-right float-end mt-4" type="submit" data-loading-text="<i class='fa fa-spin fa-spinner'></i> Updating...">Update Info</button>
+
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!--
+                            <div class="tab-content" id="pills-tabContent-2">
+                               
+                                <div class="tab-pane fade my-2"  id="support" role="tabpanel" aria-labelledby="pills-contact-tab">
+                                    <form id="supportForm" method="post">
+                                        
+                                        <input type="hidden" name="company_id" value="">
+                                        <input type="hidden" name="actiontype" value="companydata">
+
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
+                                                <label>Contact Number</label>
+                                                <textarea name="number" class="form-control" cols="30" rows="3" placeholder="Enter Value" required="">9876543221</textarea>
+                                            </div>
+
+                                            <div class="form-group col-md-6">
+                                                <label>Contact Email</label>
+                                                <textarea name="email" class="form-control" cols="30" rows="3" placeholder="Enter Value" required="">abc@gmail.com</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-8"></div>
+                                            <div class="col-sm-4">
+                                                <button class="btn btn-primary pull-right" type="submit" data-loading-text="<i class='fa fa-spin fa-spinner'></i> Updating...">Update Info</button>
+
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div> -->
-                            <ul class="nav nav-pills nav-tabs mb-3" id="pills-tab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#profile" role="tab" aria-controls="pills-home" aria-selected="true">Company Details</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#logo" role="tab" aria-controls="pills-profile" aria-selected="false">Company Logo</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#news" role="tab" aria-controls="pills-contact" aria-selected="false">Company News</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#notice" role="tab" aria-controls="pills-contact" aria-selected="false">Company Notice</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#support" role="tab" aria-controls="pills-contact" aria-selected="false">Company Support Details</a>
-                    </li>
-                </ul>
-                <div class="tab-content" id="pills-tabContent-2">
-                    <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="pills-home-tab">
-                        <form id="profileForm" action="{{route('resourceupdate')}}" method="post">
-                            {{ csrf_field() }}
-                            <input type="hidden" name="id" value="{{$company->id}}">
-                            <input type="hidden" name="actiontype" value="company">
-                            <div class="row">
-                                <div class="form-group col-md-4">
-                                    <label>Company Name</label>
-                                    <input type="text" name="companyname" class="form-control" value="{{$company->companyname}}" required="" placeholder="Enter Value">
-                                </div>
-                                <div class="form-group  col-md-4">
-                                    <label>Company Website</label>
-                                    <input type="text" name="website" class="form-control" value="{{$company->website}}" required="" placeholder="Enter Value">
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-sm-8"></div>
-                                <div class="col-sm-4">
-                                    <button class="btn btn-primary pull-right" type="submit" data-loading-text="<i class='fa fa-spin fa-spinner'></i> Updating...">Update Info</button>
-
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="tab-pane fade" id="logo" role="tabpanel" aria-labelledby="pills-profile-tab">
-                        <form class="dropzone" id="logoupload" action="{{route('resourceupdate')}}" method="post" enctype="multipart/form-data">
-                            {{ csrf_field() }}
-                            <input type="hidden" name="actiontype" value="company">
-                            <input type="hidden" name="id" value="{{$company->id}}">
-                        </form>
-                        <p>Note : Prefered image size is 260px * 56px</p>
-                    </div>
-                    <div class="tab-pane fade" id="news" role="tabpanel" aria-labelledby="pills-contact-tab">
-                        <form id="newsForm" action="{{route('resourceupdate')}}" method="post">
-                            {{ csrf_field() }}
-                            <input type="hidden" name="id" value="{{$companydata->id ?? 'new'}}">
-                            <input type="hidden" name="company_id" value="{{$company->id}}">
-                            <input type="hidden" name="actiontype" value="companydata">
-                            <div class="row">
-                                <div class="form-group col-md-6">
-                                    <label>News</label>
-                                    <textarea name="news" class="form-control" cols="30" rows="3" placeholder="Enter News">{{$companydata->news ?? ""}}</textarea>
-                                </div>
-
-                                <div class="form-group col-md-6">
-                                    <label>Bill Notice</label>
-                                    <textarea name="billnotice" class="form-control" cols="30" rows="3" placeholder="Enter News">{{$companydata->billnotice ?? ""}}</textarea>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-8"></div>
-                                <div class="col-sm-4">
-                                    <button class="btn btn-primary pull-right" type="submit" data-loading-text="<i class='fa fa-spin fa-spinner'></i> Updating...">Update Info</button>
-
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="tab-pane fade" id="notice" role="tabpanel" aria-labelledby="pills-contact-tab">
-                        <form id="noticeForm" action="{{route('resourceupdate')}}" method="post">
-                            {{ csrf_field() }}
-                            <input type="hidden" name="id" value="{{$companydata->id ?? 'new'}}">
-                            <input type="hidden" name="company_id" value="{{$company->id}}">
-                            <input type="hidden" name="actiontype" value="companydata">
-                            <input type="hidden" name="notice">
-
-                            <div class="form-group summernote">
-                                {!! nl2br($companydata->notice ?? '') !!}
-                            </div>
-
-                            <div class="row">
-                                <div class="col-sm-8"></div>
-                                <div class="col-sm-4">
-                                    <button class="btn btn-primary pull-right" type="submit" data-loading-text="<i class='fa fa-spin fa-spinner'></i> Updating...">Update Info</button>
-
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="tab-pane fade" id="support" role="tabpanel" aria-labelledby="pills-contact-tab">
-                        <form id="supportForm" action="{{route('resourceupdate')}}" method="post">
-                            {{ csrf_field() }}
-                            <input type="hidden" name="company_id" value="{{$company->id}}">
-                            <input type="hidden" name="actiontype" value="companydata">
-
-                            <div class="row">
-                                <div class="form-group col-md-6">
-                                    <label>Contact Number</label>
-                                    <textarea name="number" class="form-control" cols="30" rows="3" placeholder="Enter Value" required="">{{$companydata->number ?? ""}}</textarea>
-                                </div>
-
-                                <div class="form-group col-md-6">
-                                    <label>Contact Email</label>
-                                    <textarea name="email" class="form-control" cols="30" rows="3" placeholder="Enter Value" required="">{{$companydata->email ?? ""}}</textarea>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-8"></div>
-                                <div class="col-sm-4">
-                                    <button class="btn btn-primary pull-right" type="submit" data-loading-text="<i class='fa fa-spin fa-spinner'></i> Updating...">Update Info</button>
-
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
                         </div>
-
                     </div>
+
                 </div>
             </div>
         </div>
-
-
     </div>
+
 
 </div>
 

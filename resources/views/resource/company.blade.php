@@ -1,18 +1,11 @@
-@extends('theme_1.layouts.app')
+@extends('layouts.app')
 @section('title', 'Company Manager')
 @section('pagetitle', 'Company Manager')
-@php
-$table = "yes";
-$agentfilter = "hide";
 
-$status['type'] = "Company";
-$status['data'] = [
-"1" => "Active",
-"0" => "De-active"
-];
-@endphp
-@section('theme_1_content')
+@section('content')
 
+
+@include('layouts.pageheader')
 <div class="row mt-4">
     <div class="col-12 col-xl-12 col-sm-12 order-1 order-lg-2 mb-4 mb-lg-0">
         <div class="card">
@@ -24,7 +17,7 @@ $status['data'] = [
                 </div>
                 <div class="col-sm-12 col-md-2 mb-5">
                     <div class="user-list-files d-flex float-right">
-                        <button type="button" class="btn btn-success text-white ms-4" onclick="addSetup()">
+                        <button type="button" class="btn btn-success text-white ms-4" onclick="addSetup()" data-bs-toggle="modal" data-bs-target="#setupModal">
                             <i class="ti ti-plus ti-xs"></i> Add New</button>
                     </div>
                 </div>
@@ -42,7 +35,33 @@ $status['data'] = [
                         </tr>
                     </thead>
                     <tbody>
+                        <tr>
+                            <td scope="col">1</td>
+                            <td scope="col">Vuexy</td>
+                            <td scope="col">https://vuexy.com</td>
+                            <td scope="col">
+                                <label class="switch">
+                                    <input type="checkbox" class="switch-input" />
+                                    <span class="switch-toggle-slider">
+                                        <span class="switch-on"></span>
+                                        <span class="switch-off"></span>
+                                    </span>
+                                </label>
+                            </td>
+                            <td scope="col">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Action
+                                    </button>
+                                    <ul class="dropdown-menu">
 
+                                        <li><a class="dropdown-item disabled" href="javascript:void(0);">Setting</a></li>
+                                        <li><a class="dropdown-item" href="javascript:void(0);">Edit</a></li>
+                                    </ul>
+                                </div>
+
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
 
@@ -60,7 +79,7 @@ $status['data'] = [
                 <h5 class="modal-title" id="exampleModalLabel1">Add Company</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form id="setupManager" action="{{route('resourceupdate')}}" method="post">
+            <form id="setupManager" method="post">
                 <div class="modal-body">
                     <div class="row">
                         <input type="hidden" name="id">
@@ -120,7 +139,7 @@ $status['data'] = [
                 }
 
                 $.ajax({
-                        url: `{{route('resourceupdate')}}`,
+                        url: ``,
                         type: 'post',
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

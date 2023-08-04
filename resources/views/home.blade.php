@@ -1,7 +1,7 @@
-@extends('theme_1.layouts.app')
+@extends('.layouts.app')
 @section('title', 'Dashboard')
 @section('pagetitle', 'Dashboard')
-@section('theme_1_content')
+@section('content')
 <!-- Content -->
 
 
@@ -17,7 +17,7 @@
                      <i class="ti ti-wallet ti-sm"></i>
                   </span>
                </div>
-               <h5 class="card-title mb-0 mt-2">{{Auth::user()->mainwallet}}</h5>
+               <h5 class="card-title mb-0 mt-2">0</h5>
                <small>Main Wallet Balance</small>
             </div>
             <div id="revenueGenerated1"></div>
@@ -35,7 +35,7 @@
                      <i class="ti ti-brand-paypal ti-sm"></i>
                   </span>
                </div>
-               <h5 class="card-title mb-0 mt-2">{{Auth::user()->aepsbalance}}</h5>
+               <h5 class="card-title mb-0 mt-2">123</h5>
                <small>AEPS Balance</small>
             </div>
             <div id="revenueGenerated2"></div>
@@ -341,7 +341,6 @@
       </div>
       <!--/ Projects table -->
 
-      @if (in_array(Auth::user()->role->slug, ['admin']))
       <div class="col-xl-4 col-md-6 mb-4">
          <div class="card h-100">
             <div class="card-header d-flex justify-content-between">
@@ -373,10 +372,7 @@
             </div>
          </div>
       </div>
-      @endif
-
-      @if (in_array(Auth::user()->role->slug, ['whitelable', 'md', 'distributor', 'admin']))
-      <div class="col-xl-4 col-md-6 mb-4">
+        <div class="col-xl-4 col-md-6 mb-4">
          <div class="card h-100">
             <div class="card-header d-flex justify-content-between">
                <div class="card-title m-0 me-2">
@@ -386,8 +382,7 @@
             </div>
             <div class="card-body">
                <ul class="p-0 m-0">
-                  @if (in_array(Auth::user()->role->slug, ['admin']))
-                  <li class="d-flex mb-4 pb-1 align-items-center">
+                   <li class="d-flex mb-4 pb-1 align-items-center">
                     <div class="badge rounded bg-label-success me-2 p-1">
                               <i class="ti ti-refresh ti-sm "></i>
                            </div>
@@ -404,9 +399,6 @@
                         <div class="chart-progress" data-color="secondary" data-series="85"></div>
                      </div>
                   </li>
-                  @endif
-
-                  @if (in_array(Auth::user()->role->slug, ['admin', 'whitelable']))
                   <li class="d-flex mb-4 pb-1 align-items-center">
                     <div class="badge rounded bg-label-danger me-2 p-1">
                               <i class="ti ti-user ti-sm "></i>
@@ -423,8 +415,6 @@
                         <div class="chart-progress" data-color="success" data-series="70"></div>
                      </div>
                   </li>
-                  @endif
-                  @if (in_array(Auth::user()->role->slug, ['admin', 'whitelable', 'md']))
                   <li class="d-flex mb-4 pb-1 align-items-center">
                     <div class="badge rounded bg-label-warning me-2 p-1">
                               <i class="ti ti-id ti-sm "></i>
@@ -441,10 +431,7 @@
                         <div class="chart-progress" data-color="primary" data-series="25"></div>
                      </div>
                   </li>
-                  @endif
-
-                  @if (in_array(Auth::user()->role->slug, ['admin', 'whitelable', 'md', 'distributor']))
-
+                 
                   <li class="d-flex mb-4 pb-1 align-items-center">
                     <div class="badge rounded bg-label-primary me-2 p-1">
                               <i class="ti ti-brand-paypal ti-sm "></i>
@@ -462,10 +449,7 @@
                         <div class="chart-progress" data-color="danger" data-series="75"></div>
                      </div>
                   </li>
-                  @endif
-
-                  @if (in_array(Auth::user()->role->slug, ['admin']))
-                  <li class="d-flex mb-4 pb-1 align-items-center">
+                   <li class="d-flex mb-4 pb-1 align-items-center">
                     <div class="badge rounded bg-label-success me-2 p-1">
                               <i class="ti ti-check ti-sm "></i>
                            </div>
@@ -481,10 +465,6 @@
                         <div class="chart-progress" data-color="info" data-series="60"></div>
                      </div>
                   </li>
-                  @endif
-
-                  @if (in_array(Auth::user()->role->slug, ['admin']))
-
                   <li class="d-flex align-items-center">
                     <div class="badge rounded bg-label-info me-2 p-1">
                               <i class="ti ti-users ti-sm "></i>
@@ -501,14 +481,10 @@
                         <div class="chart-progress" data-color="warning" data-series="45"></div>
                      </div>
                   </li>
-                  @endif
-               </ul>
+                   </ul>
             </div>
          </div>
       </div>
-      @endif
-
-      @if (in_array(Auth::user()->role->slug, ['whitelable', 'md', 'distributor', 'admin']))
       <div class="col-xl-4 col-md-6 mb-4">
          <div class="card h-100">
             <div class="card-header d-flex justify-content-between">
@@ -519,8 +495,7 @@
             </div>
             <div class="card-body">
                <ul class="p-0 m-0">
-                  @if (in_array(Auth::user()->role->slug, ['admin']))
-                  <li class="d-flex mb-4 pb-1 align-items-center">
+                   <li class="d-flex mb-4 pb-1 align-items-center">
                     <div class="badge rounded bg-label-success me-2 p-1">
                               <i class="ti ti-refresh ti-sm "></i>
                            </div>
@@ -537,9 +512,6 @@
                         <div class="chart-progress" data-color="secondary" data-series="85"></div>
                      </div>
                   </li>
-                  @endif
-
-                  @if (in_array(Auth::user()->role->slug, ['admin', 'whitelable']))
                   <li class="d-flex mb-4 pb-1 align-items-center">
                     <div class="badge rounded bg-label-danger me-2 p-1">
                               <i class="ti ti-user ti-sm "></i>
@@ -556,9 +528,7 @@
                         <div class="chart-progress" data-color="success" data-series="70"></div>
                      </div>
                   </li>
-                  @endif
-                  @if (in_array(Auth::user()->role->slug, ['admin', 'whitelable', 'md']))
-                  <li class="d-flex mb-4 pb-1 align-items-center">
+                   <li class="d-flex mb-4 pb-1 align-items-center">
                     <div class="badge rounded bg-label-warning me-2 p-1">
                               <i class="ti ti-id ti-sm "></i>
                            </div>
@@ -574,11 +544,7 @@
                         <div class="chart-progress" data-color="primary" data-series="25"></div>
                      </div>
                   </li>
-                  @endif
-
-                  @if (in_array(Auth::user()->role->slug, ['admin', 'whitelable', 'md', 'distributor']))
-
-                  <li class="d-flex mb-4 pb-1 align-items-center">
+                   <li class="d-flex mb-4 pb-1 align-items-center">
                     <div class="badge rounded bg-label-primary me-2 p-1">
                               <i class="ti ti-brand-paypal ti-sm "></i>
                            </div>
@@ -595,9 +561,6 @@
                         <div class="chart-progress" data-color="danger" data-series="75"></div>
                      </div>
                   </li>
-                  @endif
-
-                  @if (in_array(Auth::user()->role->slug, ['admin']))
                   <li class="d-flex mb-4 pb-1 align-items-center">
                     <div class="badge rounded bg-label-success me-2 p-1">
                               <i class="ti ti-check ti-sm "></i>
@@ -614,10 +577,7 @@
                         <div class="chart-progress" data-color="info" data-series="60"></div>
                      </div>
                   </li>
-                  @endif
-
-                  @if (in_array(Auth::user()->role->slug, ['admin']))
-
+                
                   <li class="d-flex align-items-center">
                     <div class="badge rounded bg-label-info me-2 p-1">
                               <i class="ti ti-users ti-sm "></i>
@@ -634,13 +594,11 @@
                         <div class="chart-progress" data-color="warning" data-series="45"></div>
                      </div>
                   </li>
-                  @endif
-               </ul>
+                    </ul>
             </div>
          </div>
       </div>
-      @endif
-
+      
 
    </div>
 

@@ -63,13 +63,12 @@
 
             <!-- Quick links  -->
 
-            @if (Myhelper::hasRole('admin'))
-            <li class="nav-item me-2 me-xl-0 cursor-pointer">
+              <li class="nav-item me-2 me-xl-0 cursor-pointer">
                 <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#walletLoadModal">
                     Load <i class="ti ti-wallet ti-sm"></i>
                 </button>
             </li>
-            @endif
+            
 
             <li class="nav-item dropdown-shortcuts navbar-dropdown dropdown me-2 me-xl-0">
                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
@@ -88,14 +87,14 @@
                                     <i class="ti ti-calendar fs-4"></i>
                                 </span>
                                 <a href="#" class="stretched-link">Main Wallet</a>
-                                <small class="text-muted mb-0">&#8377; {{Auth::user()->mainwallet}} /-</small>
+                                <small class="text-muted mb-0">&#8377; 0</small>
                             </div>
                             <div class="dropdown-shortcuts-item col">
                                 <span class="dropdown-shortcuts-icon rounded-circle mb-2">
                                     <i class="ti ti-file-invoice fs-4"></i>
                                 </span>
                                 <a href="#" class="stretched-link">AEPS Wallet</a>
-                                <small class="text-muted mb-0"> &#8377; {{Auth::user()->aepsbalance}} /-</small>
+                                <small class="text-muted mb-0"> &#8377; 0</small>
                             </div>
                         </div>
 
@@ -166,9 +165,9 @@
                                     </div>
                                 </div>
                                 <div class="flex-grow-1">
-                                    <span class="fw-semibold d-block">Hello {{ Auth::user()->name}}</span>
-                                    <small class="text-muted d-block">{{Auth::user()->role->name}}</small>
-                                    <small class="text-muted">UserId - {{Auth::id()}}</small>
+                                    <span class="fw-semibold d-block">Hello Shivi</span>
+                                    <small class="text-muted d-block">Developer</small>
+                                    <small class="text-muted">UserId - 1</small>
                                 </div>
                             </div>
                         </a>
@@ -177,21 +176,23 @@
                         <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="{{route('profile')}}">
+                        <a class="dropdown-item"
+                         >
                             <i class="ti ti-user-check me-2 ti-sm"></i>
                             <span class="align-middle">My Profile</span>
                         </a>
                     </li>
                     <li>
-                        @if (Myhelper::hasNotRole('admin') && Myhelper::can('view_commission'))
-                        <a class="dropdown-item" href="{{route('resource', ['type' => 'commission'])}}">
+                        <a class="dropdown-item"
+                         >
                             <i class="ti ti-eye me-2 ti-sm"></i>
                             <span class="align-middle">View Commission</span>
                         </a>
-                        @endif
+                       
                     </li>
                     <li>
-                        <a class="dropdown-item" href="{{route('logout')}}">
+                        <a class="dropdown-item"
+                         >
                             <i class="ti ti-logout me-2 ti-sm"></i>
                             <span class="align-middle">Log Out</span>
                         </a>

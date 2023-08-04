@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [UserController::class, 'home'])->name('dashboard');
+
+Route::prefix('resource')->group(function () {
+    Route::get('scheme',  [UserController::class, 'scheme'])->name('scheme');
+    Route::get('company',  [UserController::class, 'company'])->name('company');
+    Route::get('companyprofile',  [UserController::class, 'companyprofile'])->name('companyprofile');
 });
