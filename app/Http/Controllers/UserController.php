@@ -25,4 +25,17 @@ class UserController extends Controller
     {
         return view('resource.companyprofile');
     }
+
+    function whitelabel()
+    {
+        return view('member.index');
+    }
+    function create()
+    {
+        return view('member.create');
+    }
+    function md()
+    {
+        return view('member.md');
+    }
 }

@@ -225,13 +225,13 @@
             </a>
             <ul class="menu-sub" id="member">
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('whitelabel')}}" class="menu-link">
                         <div data-i18n="Whitelabel">Whitelabel</div>
                     </a>
                 </li>
 
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('md')}}" class="menu-link">
                          <div data-i18n="Master Distributor">Master Distributor</div>
                     </a>
                 </li>

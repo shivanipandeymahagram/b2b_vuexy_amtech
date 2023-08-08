@@ -5,7 +5,7 @@
 'use strict';
 
 (function () {
-  let cardColor, headingColor, labelColor, shadeColor, grayColor;
+  let cardColor, headingColor, labelColor, shadeColor, grayColor, isDarkStyle;
   if (isDarkStyle) {
     cardColor = config.colors_dark.cardColor;
     labelColor = config.colors_dark.textMuted;

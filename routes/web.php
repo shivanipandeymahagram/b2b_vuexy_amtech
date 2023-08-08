@@ -21,3 +21,9 @@ Route::prefix('resource')->group(function () {
     Route::get('company',  [UserController::class, 'company'])->name('company');
     Route::get('companyprofile',  [UserController::class, 'companyprofile'])->name('companyprofile');
 });
+
+Route::prefix('member')->group(function () {
+    Route::get('whitelabel',  [UserController::class, 'whitelabel'])->name('whitelabel');
+    Route::get('create',  [UserController::class, 'create'])->name('create');
+    Route::get('md',  [UserController::class, 'md'])->name('md');
+});

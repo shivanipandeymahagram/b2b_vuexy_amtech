@@ -53,7 +53,7 @@
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{asset('theme_1/assets/js/config.js')}}"></script>
 
-   
+
     @stack('script')
 
 </head>
@@ -146,8 +146,6 @@
 
     <!-- Page JS -->
     <script src="{{asset('theme_1/assets/js/dashboards-analytics.js')}}"></script>
-    <script src="{{asset('')}}assets/js/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
-
     @yield('custom_Script')
 </body>
 

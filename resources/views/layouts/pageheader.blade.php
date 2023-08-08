@@ -29,12 +29,12 @@
 
                                         <div class="col-md-2">
                                             <label for="html5-date-input">From Date</label>
-                                            <input class="form-control mydate mt-1" name="from_date" type="date" value="04-08-2023" id="html5-date-input" required />
+                                            <input class="form-control mydate mt-1" name="from_date" type="date" id="html5-date-input" required />
                                         </div>
 
                                         <div class="col-md-2">
                                             <label for="html5-date-input">To Date</label>
-                                            <input class="form-control mydate  mt-1" name="to_date" type="date" value="04-08-2023" id="html5-date-input" required />
+                                            <input class="form-control mydate  mt-1" name="to_date" type="date" id="html5-date-input" required />
                                         </div>
 
                                         <div class="form-group col-md-2 m-b-10">
@@ -48,16 +48,17 @@
 
                                         <div class="form-group col-md-2">
                                             <label for="exampleInputdate">Status</label>
-                                            <select name="status" class="form-control  mt-1">
-                                                <option value="">Select Status</option>
+
+                                            <select name="status" class="form-select mt-1" aria-label="Status">
+                                                <option selected>Select status</option>
                                                 <option value="active">Active</option>
                                                 <option value="inactive">InActive</option>
                                             </select>
                                         </div>
                                         <div class="form-group col-md-2">
                                             <label for="exampleInputdate">Product</label>
-                                            <select name="product" class="form-control  mt-1">
-                                                <option value="">Select</option>
+                                            <select name="product" class="form-select  mt-1">
+                                                <option selected>Select</option>
 
                                             </select>
                                         </div>
@@ -114,18 +115,11 @@
 @push('script')
 <!-- Vendors JS -->
 <script src="{{asset('theme_1/assets/vendor/libs/select2/select2.js')}}"></script>
-<script src="{{asset('theme_1/assets/vendor/libs/bootstrap-select/bootstrap-select.js')}}"></script>
+<!-- <script src="{{asset('theme_1/assets/vendor/libs/bootstrap-select/bootstrap-select.js')}}"></script> -->
 <script src="{{asset('theme_1/assets/vendor/libs/moment/moment.js')}}"></script>
 <script src="{{asset('theme_1/assets/vendor/libs/flatpickr/flatpickr.js')}}"></script>
-<script src="{{asset('theme_1/assets/vendor/libs/typeahead-js/typeahead.js')}}"></script>
 <script src="{{asset('theme_1/assets/vendor/libs/tagify/tagify.js')}}"></script>
 <script src="{{asset('theme_1/assets/vendor/libs/formvalidation/dist/js/FormValidation.min.js')}}"></script>
 <script src="{{asset('theme_1/assets/vendor/libs/formvalidation/dist/js/plugins/Bootstrap5.min.js')}}"></script>
 <script src="{{asset('theme_1/assets/vendor/libs/formvalidation/dist/js/plugins/AutoFocus.min.js')}}"></script>
-
-<!-- Main JS -->
-<script src="{{asset('theme_1/assets/js/main.js')}}"></script>
-
-<!-- Page JS -->
-<script src="{{asset('theme_1/assets/js/form-validation.js')}}"></script>
 @endpush

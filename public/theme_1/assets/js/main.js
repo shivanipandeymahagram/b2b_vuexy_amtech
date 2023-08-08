@@ -1,7 +1,3 @@
-/**
- * Main
- */
-
 'use strict';
 
 let isRtl = window.Helpers.isRtl(),
