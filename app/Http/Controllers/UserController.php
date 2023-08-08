@@ -38,4 +38,54 @@ class UserController extends Controller
     {
         return view('member.md');
     }
+    function mdcreate()
+    {
+        return view('member.mdcreate');
+    }
+    function distributor()
+    {
+        return view('member.distributor');
+    }
+    function dcreate()
+    {
+        return view('member.dcreate');
+    }
+    function retailer(){
+        return view('member.retailer');
+    }
+    function rcreate()
+    {
+        return view('member.rcreate');
+    }
+    function allmember(){
+        return view('member.allmember');
+    }
+    function allmcreate()
+    {
+        return view('member.allmcreate');
+    }
+    function kycsubmit()
+    {
+        return view('member.kycsubmit');
+    }
+    function kycsubmitcreate()
+    {
+        return view('member.kycsubmitcreate');
+    }
+    function kycreject()
+    {
+        return view('member.kycreject');
+    }
+    function kycrejectcreate()
+    {
+        return view('member.kycrejectcreate');
+    }
+    function kycpending()
+    {
+        return view('member.kycpending');
+    }
+    function kycpendingcreate()
+    {
+        return view('member.kycpendingcreate');
+    }
 }

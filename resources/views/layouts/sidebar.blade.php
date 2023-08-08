@@ -33,8 +33,7 @@
 
         </li>
 
-
-        <li class="menu-item ">
+        <!-- <li class="menu-item ">
             <a href="#menu-design" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-file-dollar"></i>
                 <div data-i18n="Utility Recharge">Utility Recharge</div>
@@ -191,7 +190,8 @@
                     </a>
                 </li>
             </ul>
-        </li>
+        </li> -->
+
         <li class="menu-item ">
             <a href="#tables" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-file"></i>
@@ -237,41 +237,41 @@
                 </li>
 
                 <li class="menu-item">
-                    <a href="" class="menu-link"> <div data-i18n=" Distributor"> Distributor</div>
+                    <a href="{{route('distributor')}}" class="menu-link"> <div data-i18n=" Distributor"> Distributor</div>
                     </a>
                 </li>
 
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('retailer')}}" class="menu-link">
                         <div data-i18n="Retailer">Retailer</div>
                     </a>
                 </li>
 
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('allmember')}}" class="menu-link">
                         <div data-i18n="All Member">All Member</div>
                     </a>
                 </li>
 
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('kycsubmit')}}" class="menu-link">
                         <div data-i18n="Kycsubmited User">Kycsubmited User</div>
                     </a>
                 </li>
 
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('kycreject')}}" class="menu-link">
                         <div data-i18n="Kyc Rejected User">Kyc Rejected User</div>
                     </a>
                 </li>
 
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('kycpending')}}" class="menu-link">
                         <div data-i18n="Kyc Pending User">Kyc Pending User</div>
                     </a>
                 </li>
 
-                <li class="menu-item">
+                <!-- <li class="menu-item">
                     <a href="" class="menu-link">
                         <div data-i18n="Other User">Other User</div>
                     </a>
@@ -281,10 +281,11 @@
                     <a href="" class="menu-link">
                         <div data-i18n="Employee">Employee</div>
                     </a>
-                </li>
+                </li> -->
 
             </ul>
         </li>
+
         <li class="menu-item ">
             <a href="#funds" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-id"></i>
@@ -297,19 +298,17 @@
                     </a>
                 </li>
 
-
                 <li class="menu-item">
                     <a href="" class="menu-link">
                         <div data-i18n="Request">Request</div>
                     </a>
                 </li>
 
-
-                <li class="menu-item">
+                <!-- <li class="menu-item">
                     <a href="" class="menu-link">
                         <div data-i18n="Load Main Wallet">Load Main Wallet</div>
                     </a>
-                </li>
+                </li> -->
 
 
                 <li class="menu-item">
@@ -326,13 +325,63 @@
 
             </ul>
         </li>
+
+        <li class="menu-item ">
+            <a href="#funds" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-id"></i>
+                <div data-i18n="Investment Fund">Investment Fund</div>
+            </a>
+            <ul class="menu-sub" id="funds">
+
+                <li class="menu-item">
+                    <a href="" class="menu-link">
+                        <div data-i18n="Request">Request</div>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="" class="menu-link">
+                        <div data-i18n="All Fund Report">All Fund Report</div>
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+        
+        <li class="menu-item ">
+            <a href="#funds" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-id"></i>
+                <div data-i18n="Investment Service">Investment Service</div>
+            </a>
+            <ul class="menu-sub" id="funds">
+
+                <li class="menu-item">
+                    <a href="" class="menu-link">
+                        <div data-i18n="Banner">Banner</div>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="" class="menu-link">
+                        <div data-i18n="Video">Video</div>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="" class="menu-link">
+                        <div data-i18n="Investment">Investment</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
         <li class="menu-item ">
             <a href="#aepsfund" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-square"></i>
                 <div data-i18n="AEPS Fund">AEPS Fund</div>
             </a>
             <ul class="menu-sub" id="aepsfund">
-                <li class="menu-item">
+                <!-- <li class="menu-item">
                     <a href="" class="menu-link">
                         <div data-i18n="Request">Request</div>
                     </a>
@@ -341,7 +390,7 @@
                     <a href="" class="menu-link">
                         <div data-i18n="Add Bank">Add Bank</div>
                     </a>
-                </li>
+                </li> -->
 
 
                 <li class="menu-item">
@@ -505,12 +554,14 @@
                 <div data-i18n="Complaints">Complaints</div>
             </a>
         </li>
-        <li class="menu-item">
+
+        <!-- <li class="menu-item">
             <a href="" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-smart-home"></i>
                 <div data-i18n="Loan Enquiry">Loan Enquiry</div>
             </a>
-        </li>
+        </li> -->
+
         <li class="menu-item ">
             <a href="#setuptools" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-text-wrap-disabled"></i>
@@ -560,7 +611,8 @@
 
             </ul>
         </li>
-        <li class="menu-item ">
+
+        <!-- <li class="menu-item ">
             <a href="#mappingManager" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-map"></i>
                 <div data-i18n="Mapping Manager">Mapping Manager</div>
@@ -572,7 +624,7 @@
                     </a>
                 </li>
             </ul>
-        </li>
+        </li> -->
 
         <li class="menu-item ">
             <a href="#accountSetting" class="menu-link menu-toggle">
@@ -592,7 +644,7 @@
                 </li>
             </ul>
         </li>
-        <li class="menu-item ">
+        <!-- <li class="menu-item ">
             <a href="#apiSetting" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-settings"></i>
                 <div data-i18n="Api Settings">Api Settings</div>
@@ -609,7 +661,7 @@
                     </a>
                 </li>
             </ul>
-        </li>
+        </li> -->
 
         <li class="menu-item ">
             <a href="#driverLink" class="menu-link menu-toggle">

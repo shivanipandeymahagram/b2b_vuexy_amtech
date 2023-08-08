@@ -26,4 +26,17 @@ Route::prefix('member')->group(function () {
     Route::get('whitelabel',  [UserController::class, 'whitelabel'])->name('whitelabel');
     Route::get('create',  [UserController::class, 'create'])->name('create');
     Route::get('md',  [UserController::class, 'md'])->name('md');
+    Route::get('md/create',  [UserController::class, 'mdcreate'])->name('mdcreate');
+    Route::get('distributor',  [UserController::class, 'distributor'])->name('distributor');
+    Route::get('distributor/create',  [UserController::class, 'dcreate'])->name('dcreate');
+    Route::get('retailer',  [UserController::class, 'retailer'])->name('retailer');
+    Route::get('retailer/create',  [UserController::class, 'rcreate'])->name('rcreate');
+    Route::get('allmember',  [UserController::class, 'allmember'])->name('allmember');
+    Route::get('allmember/create',  [UserController::class, 'allmcreate'])->name('allmcreate');
+    Route::get('kycsubmit',  [UserController::class, 'kycsubmit'])->name('kycsubmit');
+    Route::get('kycsubmitcreate',  [UserController::class, 'kycsubmitcreate'])->name('kycsubmitcreate');
+    Route::get('kycreject',  [UserController::class, 'kycreject'])->name('kycreject');
+    Route::get('kycrejectcreate',  [UserController::class, 'kycrejectcreate'])->name('kycrejectcreate');
+    Route::get('kycpending',  [UserController::class, 'kycpending'])->name('kycpending');
+    Route::get('kycpendingcreate',  [UserController::class, 'kycpendingcreate'])->name('kycpendingcreate');
 });
