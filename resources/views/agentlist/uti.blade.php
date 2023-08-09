@@ -45,7 +45,7 @@
                             <td scope="col">
                                 <div class="btn-group ">
                                     <button type="button" class="btn btn-success dropdown-toggle btn-xs me-1" data-bs-toggle="dropdown" aria-expanded="false">
-                                       Succeess
+                                       Success
                                     </button>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#editutiModal">Edit</a></li>
