@@ -106,4 +106,12 @@ class UserController extends Controller
     {
         return view('fund.allfundreport');
     }
+    function fundrequest()
+    {
+        return view('investmentfund.request');
+    }
+    function fundreport()
+    {
+        return view('investmentfund.allfundreport');
+    }
 }

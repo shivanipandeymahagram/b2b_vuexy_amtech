@@ -335,13 +335,13 @@
             <ul class="menu-sub" id="funds">
 
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('fundrequest')}}" class="menu-link">
                         <div data-i18n="Request">Request</div>
                     </a>
                 </li>
 
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('fundreport')}}" class="menu-link">
                         <div data-i18n="All Fund Report">All Fund Report</div>
                     </a>
                 </li>

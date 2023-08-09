@@ -18,7 +18,7 @@
             </div>
             <div class="card-datatable table-responsive">
                 <table width="100%" class="table border-top mb-5" id="datatable" role="grid" aria-describedby="user-list-page-info">
-                    <thead class=" text-center">
+                    <thead class=" text-center bg-light">
                         <tr>
                             <th>#</th>
                             <th>Requested By</th>

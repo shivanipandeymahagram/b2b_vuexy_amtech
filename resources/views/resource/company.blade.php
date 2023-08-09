@@ -25,7 +25,7 @@
 
             <div class="card-datatable table-responsive">
                 <table width="100%" class="table border-top mb-5" id="datatable" role="grid" aria-describedby="user-list-page-info">
-                    <thead>
+                    <thead class="bg-light">
                         <tr>
                             <th>#</th>
                             <th>Name</th>

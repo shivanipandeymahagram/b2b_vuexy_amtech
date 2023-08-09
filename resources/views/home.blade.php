@@ -324,7 +324,7 @@
       <div class="card">
          <div class="card-datatable table-responsive">
             <table class="datatables-projects table border-top">
-               <thead>
+               <thead class="bg-light">
                   <tr>
                      <th></th>
                      <th></th>

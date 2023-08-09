@@ -26,7 +26,7 @@
             <div class="card-datatable table-responsive">
 
                 <table class="table text-center border-top mb-5" id="datatable">
-                    <thead>
+                    <thead class="bg-light">
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
@@ -93,7 +93,7 @@
                 <h5 class="modal-title" id="exampleModalLabel1">Add Scheme</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form id="setupManager" >
+            <form id="setupManager">
                 <div class="modal-body">
                     <div class="row">
                         <input type="hidden" name="id">
@@ -123,7 +123,7 @@
                 <h5 class="modal-title" id="exampleModalLabel1">Update Scheme</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form id="setupManager" >
+            <form id="setupManager">
                 <div class="modal-body">
                     <div class="row">
                         <input type="hidden" name="id">
@@ -155,7 +155,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="commissionForm" >
+            <form class="commissionForm">
 
                 <div class="modal-body">
 
@@ -163,14 +163,16 @@
                     <input type="hidden" name="actiontype" value="commission">
                     <input type="hidden" name="scheme_id" value="">
                     <table class="table table-bordered m-0">
-                        <thead>
-                            <th>Operator</th>
-                            <th>Commission Type</th>
+                        <thead class="bg-light">
+                            <tr>
+                                <th>Operator</th>
+                                <th>Commission Type</th>
 
-                            <th>Whitelable</th>
-                            <th>Master Distributor</th>
-                            <th>Distributor</th>
-                            <th>Retailer</th>
+                                <th>Whitelable</th>
+                                <th>Master Distributor</th>
+                                <th>Distributor</th>
+                                <th>Retailer</th>
+                            </tr>
                         </thead>
                         <tbody>
                             <tr>
@@ -223,17 +225,19 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="commissionForm" >
+            <form class="commissionForm">
                 <div class="modal-body"> <input type="hidden" name="actiontype" value="commission">
                     <input type="hidden" name="scheme_id" value="">
                     <table class="table table-bordered m-0">
-                        <thead>
-                            <th>Operator</th>
-                            <th>Commission Type</th>
-                            <th>Whitelable</th>
-                            <th>Master Distributor</th>
-                            <th>Distributor</th>
-                            <th>Retailer</th>
+                        <thead class="bg-light">
+                            <tr>
+                                <th>Operator</th>
+                                <th>Commission Type</th>
+                                <th>Whitelable</th>
+                                <th>Master Distributor</th>
+                                <th>Distributor</th>
+                                <th>Retailer</th>
+                            </tr>
                         </thead>
                         <tbody>
                             <tr>
@@ -280,22 +284,24 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="commissionForm" >
+            <form class="commissionForm">
                 <div class="modal-body">
 
 
                     <input type="hidden" name="actiontype" value="commission">
                     <input type="hidden" name="scheme_id" value="">
                     <table class="table table-bordered m-0">
-                        <thead>
-                            <th>Operator</th>
+                        <thead class="bg-light">
+                            <tr>
+                                <th>Operator</th>
 
-                            <th>Commission Type</th>
+                                <th>Commission Type</th>
 
-                            <th>Whitelable</th>
-                            <th>Master Distributor</th>
-                            <th>Distributor</th>
-                            <th>Retailer</th>
+                                <th>Whitelable</th>
+                                <th>Master Distributor</th>
+                                <th>Distributor</th>
+                                <th>Retailer</th>
+                            </tr>
                         </thead>
                         <tbody>
 
@@ -350,22 +356,24 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="commissionForm" >
+            <form class="commissionForm">
                 <div class="modal-body">
 
 
                     <input type="hidden" name="actiontype" value="commission">
                     <input type="hidden" name="scheme_id" value="">
                     <table class="table table-bordered m-0">
-                        <thead>
-                            <th>Operator</th>
+                        <thead class="bg-light">
+                            <tr>
+                                <th>Operator</th>
 
-                            <th>Commission Type</th>
+                                <th>Commission Type</th>
 
-                            <th>Whitelable</th>
-                            <th>Master Distributor</th>
-                            <th>Distributor</th>
-                            <th>Retailer</th>
+                                <th>Whitelable</th>
+                                <th>Master Distributor</th>
+                                <th>Distributor</th>
+                                <th>Retailer</th>
+                            </tr>
                         </thead>
                         <tbody>
 
@@ -422,22 +430,24 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="commissionForm" >
+            <form class="commissionForm">
                 <div class="modal-body">
 
 
                     <input type="hidden" name="actiontype" value="commission">
                     <input type="hidden" name="scheme_id" value="">
                     <table class="table table-bordered m-0">
-                        <thead>
-                            <th>Operator</th>
+                        <thead class="bg-light">
+                            <tr>
+                                <th>Operator</th>
 
-                            <th>Commission Type</th>
+                                <th>Commission Type</th>
 
-                            <th>Whitelable</th>
-                            <th>Master Distributor</th>
-                            <th>Distributor</th>
-                            <th>Retailer</th>
+                                <th>Whitelable</th>
+                                <th>Master Distributor</th>
+                                <th>Distributor</th>
+                                <th>Retailer</th>
+                            </tr>
                         </thead>
                         <tbody>
 
@@ -492,21 +502,23 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="commissionForm" >
+            <form class="commissionForm">
                 <div class="modal-body">
 
                     <input type="hidden" name="actiontype" value="commission">
                     <input type="hidden" name="scheme_id" value="">
                     <table class="table table-bordered m-0">
-                        <thead>
-                            <th>Operator</th>
+                        <thead class="bg-light">
+                            <tr>
+                                <th>Operator</th>
 
-                            <th>Commission Type</th>
+                                <th>Commission Type</th>
 
-                            <th>Whitelable</th>
-                            <th>Master Distributor</th>
-                            <th>Distributor</th>
-                            <th>Retailer</th>
+                                <th>Whitelable</th>
+                                <th>Master Distributor</th>
+                                <th>Distributor</th>
+                                <th>Retailer</th>
+                            </tr>
                         </thead>
                         <tbody>
 
@@ -562,21 +574,23 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="commissionForm" >
+            <form class="commissionForm">
                 <div class="modal-body">
 
                     <input type="hidden" name="actiontype" value="commission">
                     <input type="hidden" name="scheme_id" value="">
                     <table class="table table-bordered m-0">
-                        <thead>
-                            <th>Operator</th>
+                        <thead class="bg-light">
+                            <tr>
+                                <th>Operator</th>
 
-                            <th>Commission Type</th>
+                                <th>Commission Type</th>
 
-                            <th>Whitelable</th>
-                            <th>Master Distributor</th>
-                            <th>Distributor</th>
-                            <th>Retailer</th>
+                                <th>Whitelable</th>
+                                <th>Master Distributor</th>
+                                <th>Distributor</th>
+                                <th>Retailer</th>
+                            </tr>
                         </thead>
                         <tbody>
 
@@ -629,21 +643,23 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="commissionForm" >
+            <form class="commissionForm">
                 <div class="modal-body">
 
                     <input type="hidden" name="actiontype" value="commission">
                     <input type="hidden" name="scheme_id" value="">
                     <table class="table table-bordered m-0">
-                        <thead>
-                            <th>Operator</th>
+                        <thead class="bg-light">
+                            <tr>
+                                <th>Operator</th>
 
-                            <th>Commission Type</th>
+                                <th>Commission Type</th>
 
-                            <th>Whitelable</th>
-                            <th>Master Distributor</th>
-                            <th>Distributor</th>
-                            <th>Retailer</th>
+                                <th>Whitelable</th>
+                                <th>Master Distributor</th>
+                                <th>Distributor</th>
+                                <th>Retailer</th>
+                            </tr>
                         </thead>
                         <tbody>
 
@@ -696,22 +712,24 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="commissionForm" >
+            <form class="commissionForm">
 
                 <div class="modal-body">
 
                     <input type="hidden" name="actiontype" value="commission">
                     <input type="hidden" name="scheme_id" value="">
                     <table class="table table-bordered m-0">
-                        <thead>
-                            <th>Operator</th>
+                        <thead class="bg-light">
+                            <tr>
+                                <th>Operator</th>
 
-                            <th>Commission Type</th>
+                                <th>Commission Type</th>
 
-                            <th>Whitelable</th>
-                            <th>Master Distributor</th>
-                            <th>Distributor</th>
-                            <th>Retailer</th>
+                                <th>Whitelable</th>
+                                <th>Master Distributor</th>
+                                <th>Distributor</th>
+                                <th>Retailer</th>
+                            </tr>
                         </thead>
 
                         <tbody>
@@ -770,21 +788,23 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="commissionForm" >
+            <form class="commissionForm">
                 <div class="modal-body">
 
                     <input type="hidden" name="actiontype" value="commission">
                     <input type="hidden" name="scheme_id" value="">
                     <table class="table table-bordered m-0">
-                        <thead>
-                            <th>Operator</th>
+                        <thead class="bg-light">
+                            <tr>
+                                <th>Operator</th>
 
-                            <th>Commission Type</th>
+                                <th>Commission Type</th>
 
-                            <th>Whitelable</th>
-                            <th>Master Distributor</th>
-                            <th>Distributor</th>
-                            <th>Retailer</th>
+                                <th>Whitelable</th>
+                                <th>Master Distributor</th>
+                                <th>Distributor</th>
+                                <th>Retailer</th>
+                            </tr>
                         </thead>
                         <tbody>
 
@@ -837,38 +857,40 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="commissionForm" >
+            <form class="commissionForm">
                 <div class="modal-body">
 
                     <input type="hidden" name="actiontype" value="commission">
                     <input type="hidden" name="scheme_id" value="">
                     <table class="table table-bordered m-0">
-                        <thead>
-                            <th>Operator</th>
-                            <th>Whitelable</th>
-                            <th>Master Distributor</th>
-                            <th>Distributor</th>
-                            <th>Retailer</th>
+                        <thead class="bg-light">
+                            <tr>
+                                <th>Operator</th>
+                                <th>Whitelable</th>
+                                <th>Master Distributor</th>
+                                <th>Distributor</th>
+                                <th>Retailer</th>
+                            </tr>
                         </thead>
                         <tbody>
-
-                            <td>
-                                <input type="hidden" name="slab[]">
-                                <input type="hidden" name="type[]" value="flat">
-                                Dummy
-                            </td>
-                            <td class="p-t-0 p-b-0">
-                                <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control" required="">
-                            </td>
-                            <td class="p-t-0 p-b-0">
-                                <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control" required="">
-                            </td>
-                            <td class="p-t-0 p-b-0">
-                                <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control" required="">
-                            </td>
-                            <td class="p-t-0 p-b-0">
-                                <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control" required="">
-                            </td>
+                            <tr>
+                                <td>
+                                    <input type="hidden" name="slab[]">
+                                    <input type="hidden" name="type[]" value="flat">
+                                    Dummy
+                                </td>
+                                <td class="p-t-0 p-b-0">
+                                    <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control" required="">
+                                </td>
+                                <td class="p-t-0 p-b-0">
+                                    <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control" required="">
+                                </td>
+                                <td class="p-t-0 p-b-0">
+                                    <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control" required="">
+                                </td>
+                                <td class="p-t-0 p-b-0">
+                                    <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control" required="">
+                                </td>
                             </tr>
 
 
@@ -892,7 +914,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="commissionForm" >
+            <form class="commissionForm">
 
                 <div class="modal-body">
 
@@ -900,44 +922,46 @@
                     <input type="hidden" name="actiontype" value="commission">
                     <input type="hidden" name="scheme_id" value="">
                     <table class="table table-bordered m-0">
-                        <thead>
-                            <th>Operator</th>
+                        <thead class="bg-light">
+                            <tr>
+                                <th>Operator</th>
 
-                            <th>Commission Type</th>
+                                <th>Commission Type</th>
 
-                            <th>Whitelable</th>
-                            <th>Master Distributor</th>
-                            <th>Distributor</th>
-                            <th>Retailer</th>
+                                <th>Whitelable</th>
+                                <th>Master Distributor</th>
+                                <th>Distributor</th>
+                                <th>Retailer</th>
+                            </tr>
                         </thead>
                         <tbody>
+                            <tr>
+                                <td>
+                                    <input type="hidden" name="slab[]">
+                                    Dummy
+                                </td>
 
-                            <td>
-                                <input type="hidden" name="slab[]">
-                                Dummy
-                            </td>
-
-                            <td class="p-t-0 p-b-0">
-                                <select class="form-control" name="type[]" required="">
-                                    <option value="">Select Type</option>
-                                    <option value="percent">Percent (%)</option>
-                                    <option value="flat">Flat (Rs)</option>
-                                </select>
-                            </td>
+                                <td class="p-t-0 p-b-0">
+                                    <select class="form-control" name="type[]" required="">
+                                        <option value="">Select Type</option>
+                                        <option value="percent">Percent (%)</option>
+                                        <option value="flat">Flat (Rs)</option>
+                                    </select>
+                                </td>
 
 
-                            <td class="p-t-0 p-b-0">
-                                <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control" required="">
-                            </td>
-                            <td class="p-t-0 p-b-0">
-                                <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control" required="">
-                            </td>
-                            <td class="p-t-0 p-b-0">
-                                <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control" required="">
-                            </td>
-                            <td class="p-t-0 p-b-0">
-                                <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control" required="">
-                            </td>
+                                <td class="p-t-0 p-b-0">
+                                    <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control" required="">
+                                </td>
+                                <td class="p-t-0 p-b-0">
+                                    <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control" required="">
+                                </td>
+                                <td class="p-t-0 p-b-0">
+                                    <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control" required="">
+                                </td>
+                                <td class="p-t-0 p-b-0">
+                                    <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control" required="">
+                                </td>
                             </tr>
 
 
@@ -961,55 +985,57 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="commissionForm" >
+            <form class="commissionForm">
 
                 <div class="modal-body">
 
                     <input type="hidden" name="actiontype" value="commission">
                     <input type="hidden" name="scheme_id" value="">
                     <table class="table table-bordered m-0">
-                        <thead>
-                            <th>Operator</th>
+                        <thead class="bg-light">
+                            <tr>
+                                <th>Operator</th>
 
-                            <th>Type</th>
+                                <th>Type</th>
 
-                            <th>Whitelable</th>
-                            <th>Master Distributor</th>
-                            <th>Distributor</th>
-                            <th>Retailer</th>
+                                <th>Whitelable</th>
+                                <th>Master Distributor</th>
+                                <th>Distributor</th>
+                                <th>Retailer</th>
+                            </tr>
                         </thead>
                         <tbody>
+                            <tr>
+                                <td>
+                                    <input type="hidden" name="slab[]">
+                                    Dummy
+                                </td>
 
-                            <td>
-                                <input type="hidden" name="slab[]">
-                                Dummy
-                            </td>
+                                <td>
 
-                            <td>
+                                    <input type="hidden" name="type[]" value="flat">
+                                    Flat
 
-                                <input type="hidden" name="type[]" value="flat">
-                                Flat
+                                    <select class="form-control" name="type[]" required="">
+                                        <option value="">Select Type</option>
+                                        <option value="percent">Percent (%)</option>
+                                        <option value="flat">Flat (Rs)</option>
+                                    </select>
 
-                                <select class="form-control" name="type[]" required="">
-                                    <option value="">Select Type</option>
-                                    <option value="percent">Percent (%)</option>
-                                    <option value="flat">Flat (Rs)</option>
-                                </select>
+                                </td>
 
-                            </td>
-
-                            <td class="p-t-0 p-b-0">
-                                <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control" required="">
-                            </td>
-                            <td class="p-t-0 p-b-0">
-                                <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control" required="">
-                            </td>
-                            <td class="p-t-0 p-b-0">
-                                <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control" required="">
-                            </td>
-                            <td class="p-t-0 p-b-0">
-                                <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control" required="">
-                            </td>
+                                <td class="p-t-0 p-b-0">
+                                    <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control" required="">
+                                </td>
+                                <td class="p-t-0 p-b-0">
+                                    <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control" required="">
+                                </td>
+                                <td class="p-t-0 p-b-0">
+                                    <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control" required="">
+                                </td>
+                                <td class="p-t-0 p-b-0">
+                                    <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control" required="">
+                                </td>
                             </tr>
 
 
@@ -1034,7 +1060,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="commissionForm" >
+            <form class="commissionForm">
 
                 <div class="modal-body">
 
@@ -1042,16 +1068,18 @@
                     <input type="hidden" name="actiontype" value="commission">
                     <input type="hidden" name="scheme_id" value="">
                     <table class="table table-bordered m-0">
-                        <thead>
-                            <th>Operator</th>
+                        <thead class="bg-light">
+                            <tr>
+                                <th>Operator</th>
 
-                            <th>Type</th>
+                                <th>Type</th>
 
-                            <th>Whitelable</th>
+                                <th>Whitelable</th>
 
-                            <th>Master Distributor</th>
-                            <th>Distributor</th>
-                            <th>Retailer</th>
+                                <th>Master Distributor</th>
+                                <th>Distributor</th>
+                                <th>Retailer</th>
+                            </tr>
                         </thead>
                         <tbody>
 
@@ -1112,56 +1140,58 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="commissionForm" >
+            <form class="commissionForm">
                 <div class="modal-body">
 
                     <input type="hidden" name="actiontype" value="commission">
                     <input type="hidden" name="scheme_id" value="">
                     <table class="table table-bordered m-0">
-                        <thead>
-                            <th>Operator</th>
+                        <thead class="bg-light">
+                            <tr>
+                                <th>Operator</th>
 
-                            <th>Type</th>
+                                <th>Type</th>
 
-                            <th>Whitelable</th>
+                                <th>Whitelable</th>
 
-                            <th>Master Distributor</th>
-                            <th>Distributor</th>
-                            <th>Retailer</th>
+                                <th>Master Distributor</th>
+                                <th>Distributor</th>
+                                <th>Retailer</th>
+                            </tr>
                         </thead>
                         <tbody>
+                            <tr>
+                                <td>
+                                    <input type="hidden" name="slab[]">
+                                    Dummy
+                                </td>
 
-                            <td>
-                                <input type="hidden" name="slab[]">
-                                Dummy
-                            </td>
+                                <td>
 
-                            <td>
+                                    <input type="hidden" name="type[]" value="flat">
+                                    Flat
 
-                                <input type="hidden" name="type[]" value="flat">
-                                Flat
+                                    <select class="form-control" name="type[]" required="">
+                                        <option value="">Select Type</option>
+                                        <option value="percent">Percent (%)</option>
+                                        <option value="flat">Flat (Rs)</option>
+                                    </select>
 
-                                <select class="form-control" name="type[]" required="">
-                                    <option value="">Select Type</option>
-                                    <option value="percent">Percent (%)</option>
-                                    <option value="flat">Flat (Rs)</option>
-                                </select>
+                                </td>
 
-                            </td>
+                                <td class="p-t-0 p-b-0">
+                                    <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control" required="">
+                                </td>
 
-                            <td class="p-t-0 p-b-0">
-                                <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control" required="">
-                            </td>
-
-                            <td class="p-t-0 p-b-0">
-                                <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control" required="">
-                            </td>
-                            <td class="p-t-0 p-b-0">
-                                <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control" required="">
-                            </td>
-                            <td class="p-t-0 p-b-0">
-                                <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control" required="">
-                            </td>
+                                <td class="p-t-0 p-b-0">
+                                    <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control" required="">
+                                </td>
+                                <td class="p-t-0 p-b-0">
+                                    <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control" required="">
+                                </td>
+                                <td class="p-t-0 p-b-0">
+                                    <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control" required="">
+                                </td>
                             </tr>
 
 
