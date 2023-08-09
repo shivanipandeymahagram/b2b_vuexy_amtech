@@ -70,3 +70,8 @@ Route::prefix('matm-fund')->group(function () {
     Route::get('matmpendingreq',  [UserController::class, 'mpendingreq'])->name('mpendingreq');
     Route::get('matmreqreport',  [UserController::class, 'mreqreport'])->name('mreqreport');
 });
+
+Route::prefix('agentlist')->group(function () {
+    Route::get('aeps',  [UserController::class, 'aeps'])->name('aeps');
+    Route::get('uti',  [UserController::class, 'uti'])->name('uti');
+});

@@ -446,6 +446,7 @@
 
             </ul>
         </li>
+        
         <li class="menu-item ">
             <a href="#agentList" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-id"></i>
@@ -454,20 +455,21 @@
             <ul class="menu-sub" id="agentList">
 
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('aeps')}}" class="menu-link">
                         <div data-i18n="AePS">AePS</div>
                     </a>
                 </li>
 
 
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('uti')}}" class="menu-link">
                         <div data-i18n="UTI">UTI</div>
                     </a>
                 </li>
 
             </ul>
         </li>
+
         <li class="menu-item ">
             <a href="#txnreport" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-file"></i>

@@ -164,5 +164,13 @@ class UserController extends Controller
         return view('matmfund.reqreport');
     }
 
-
+    // Agent List
+    function aeps()
+    {
+        return view('agentlist.aeps');
+    }
+    function uti()
+    {
+        return view('agentlist.uti');
+    }
 }
