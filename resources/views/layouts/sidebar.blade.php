@@ -395,13 +395,13 @@
 
 
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('pendingreq')}}" class="menu-link">
                         <div data-i18n="Pending Request">Pending Request</div>
                     </a>
                 </li>
 
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('pendingpayoutreq')}}" class="menu-link">
                         <div data-i18n="Pending Payout Request">Pending Payout Request</div>
                     </a>
                 </li>
@@ -409,7 +409,7 @@
 
 
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('reqreport')}}" class="menu-link">
                         <div data-i18n="Request Report">Request Report</div>
                     </a>
                 </li>

@@ -58,3 +58,9 @@ Route::prefix('investment-service')->group(function () {
     Route::get('video',  [UserController::class, 'video'])->name('video');
     Route::get('investment',  [UserController::class, 'investment'])->name('investment');
 });
+
+Route::prefix('aeps-fund')->group(function () {
+    Route::get('pendingreq',  [UserController::class, 'pendingreq'])->name('pendingreq');
+    Route::get('pendingpayoutreq',  [UserController::class, 'pendingpayoutreq'])->name('pendingpayoutreq');
+    Route::get('reqreport',  [UserController::class, 'reqreport'])->name('reqreport');
+});

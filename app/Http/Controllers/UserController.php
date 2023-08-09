@@ -6,11 +6,13 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    // Dashboard
     function home()
     {
         return view('home');
     }
 
+    // Resource
     function scheme()
     {
         return view('resource.scheme');
@@ -26,6 +28,7 @@ class UserController extends Controller
         return view('resource.companyprofile');
     }
 
+    // Member
     function whitelabel()
     {
         return view('member.index');
@@ -90,6 +93,8 @@ class UserController extends Controller
     {
         return view('member.kycpendingcreate');
     }
+
+    // fund
     function tr()
     {
         return view('fund.tr');
@@ -106,6 +111,8 @@ class UserController extends Controller
     {
         return view('fund.allfundreport');
     }
+
+    // Investment Fund
     function fundrequest()
     {
         return view('investmentfund.request');
@@ -114,6 +121,8 @@ class UserController extends Controller
     {
         return view('investmentfund.allfundreport');
     }
+
+    // Investment Service
     function banner()
     {
         return view('investmentservice.banner');
@@ -125,5 +134,19 @@ class UserController extends Controller
     function investment()
     {
         return view('investmentservice.investment');
+    }
+
+    // Aeps funds
+    function pendingreq()
+    {
+        return view('aepsfund.pendingreq');
+    }
+    function pendingpayoutreq()
+    {
+        return view('aepsfund.pendingpayoutreq');
+    }
+    function reqreport()
+    {
+        return view('aepsfund.reqreport');
     }
 }
