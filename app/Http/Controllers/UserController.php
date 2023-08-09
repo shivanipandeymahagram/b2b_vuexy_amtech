@@ -15,12 +15,12 @@ class UserController extends Controller
     {
         return view('resource.scheme');
     }
-    
+
     function company()
     {
         return view('resource.company');
     }
-    
+
     function companyprofile()
     {
         return view('resource.companyprofile');
@@ -50,14 +50,16 @@ class UserController extends Controller
     {
         return view('member.dcreate');
     }
-    function retailer(){
+    function retailer()
+    {
         return view('member.retailer');
     }
     function rcreate()
     {
         return view('member.rcreate');
     }
-    function allmember(){
+    function allmember()
+    {
         return view('member.allmember');
     }
     function allmcreate()
@@ -87,5 +89,21 @@ class UserController extends Controller
     function kycpendingcreate()
     {
         return view('member.kycpendingcreate');
+    }
+    function tr()
+    {
+        return view('fund.tr');
+    }
+    function request()
+    {
+        return view('fund.request');
+    }
+    function requestreport()
+    {
+        return view('fund.requestreport');
+    }
+    function allfundreport()
+    {
+        return view('fund.allfundreport');
     }
 }

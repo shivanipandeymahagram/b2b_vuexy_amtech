@@ -40,3 +40,10 @@ Route::prefix('member')->group(function () {
     Route::get('kycpending',  [UserController::class, 'kycpending'])->name('kycpending');
     Route::get('kycpendingcreate',  [UserController::class, 'kycpendingcreate'])->name('kycpendingcreate');
 });
+
+Route::prefix('fund')->group(function () {
+    Route::get('tr',  [UserController::class, 'tr'])->name('tr');
+    Route::get('request',  [UserController::class, 'request'])->name('request');
+    Route::get('requestreport',  [UserController::class, 'requestreport'])->name('requestreport');
+    Route::get('allfundreport',  [UserController::class, 'allfundreport'])->name('allfundreport');
+});

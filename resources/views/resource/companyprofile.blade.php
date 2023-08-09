@@ -49,7 +49,7 @@
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane fade my-2 show active" id="navs-justified-profile" role="tabpanel">
-                                    <form id="profileForm" method="post">
+                                    <form id="profileForm">
 
                                         <input type="hidden" name="id" value="">
                                         <input type="hidden" name="actiontype" value="company">
@@ -72,7 +72,7 @@
                                 </div>
                                 <div class="tab-pane fade my-2" id="navs-justified-logo" role="tabpanel">
                                     <div class="col-sm-3">
-                                        <form class="dropzone" id="logoupload" method="post" enctype="multipart/form-data">
+                                        <form class="dropzone" id="logoupload"  enctype="multipart/form-data">
                                             <input type="file" class="form-control my-3 bg-light" />
                                             <input type="hidden" name="actiontype" value="company">
                                             <input type="hidden" name="id" value="">
@@ -81,7 +81,7 @@
                                     <p><b>Note :</b> Prefered image size is 260px * 56px</p>
                                 </div>
                                 <div class="tab-pane fade my-2" id="navs-justified-news" role="tabpanel">
-                                    <form id="newsForm" method="post">
+                                    <form id="newsForm" >
 
                                         <input type="hidden" name="id" value="">
                                         <input type="hidden" name="company_id" value="">
@@ -107,7 +107,7 @@
                                     </form>
                                 </div>
                                 <div class="tab-pane fade my-2" id="navs-justified-notice" role="tabpanel">
-                                    <form id="noticeForm" method="post">
+                                    <form id="noticeForm" >
 
                                         <input type="hidden" name="id" value="">
                                         <input type="hidden" name="company_id" value="">
@@ -128,7 +128,7 @@
                                     </form>
                                 </div>
                                 <div class="tab-pane fade my-1" id="navs-justified-support" role="tabpanel">
-                                    <form id="supportForm" method="post">
+                                    <form id="supportForm" >
 
                                         <input type="hidden" name="company_id" value="">
                                         <input type="hidden" name="actiontype" value="companydata">

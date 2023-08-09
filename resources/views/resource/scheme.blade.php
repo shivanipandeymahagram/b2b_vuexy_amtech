@@ -93,7 +93,7 @@
                 <h5 class="modal-title" id="exampleModalLabel1">Add Scheme</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form id="setupManager" method="post">
+            <form id="setupManager" >
                 <div class="modal-body">
                     <div class="row">
                         <input type="hidden" name="id">
@@ -123,7 +123,7 @@
                 <h5 class="modal-title" id="exampleModalLabel1">Update Scheme</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form id="setupManager" method="post">
+            <form id="setupManager" >
                 <div class="modal-body">
                     <div class="row">
                         <input type="hidden" name="id">
@@ -155,7 +155,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="commissionForm" method="post">
+            <form class="commissionForm" >
 
                 <div class="modal-body">
 
@@ -223,7 +223,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="commissionForm" method="post">
+            <form class="commissionForm" >
                 <div class="modal-body"> <input type="hidden" name="actiontype" value="commission">
                     <input type="hidden" name="scheme_id" value="">
                     <table class="table table-bordered m-0">
@@ -280,7 +280,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="commissionForm" method="post">
+            <form class="commissionForm" >
                 <div class="modal-body">
 
 
@@ -350,7 +350,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="commissionForm" method="post">
+            <form class="commissionForm" >
                 <div class="modal-body">
 
 
@@ -422,7 +422,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="commissionForm" method="post">
+            <form class="commissionForm" >
                 <div class="modal-body">
 
 
@@ -492,7 +492,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="commissionForm" method="post">
+            <form class="commissionForm" >
                 <div class="modal-body">
 
                     <input type="hidden" name="actiontype" value="commission">
@@ -562,7 +562,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="commissionForm" method="post">
+            <form class="commissionForm" >
                 <div class="modal-body">
 
                     <input type="hidden" name="actiontype" value="commission">
@@ -629,7 +629,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="commissionForm" method="post">
+            <form class="commissionForm" >
                 <div class="modal-body">
 
                     <input type="hidden" name="actiontype" value="commission">
@@ -696,7 +696,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="commissionForm" method="post">
+            <form class="commissionForm" >
 
                 <div class="modal-body">
 
@@ -770,7 +770,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="commissionForm" method="post">
+            <form class="commissionForm" >
                 <div class="modal-body">
 
                     <input type="hidden" name="actiontype" value="commission">
@@ -837,7 +837,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="commissionForm" method="post">
+            <form class="commissionForm" >
                 <div class="modal-body">
 
                     <input type="hidden" name="actiontype" value="commission">
@@ -892,7 +892,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="commissionForm" method="post">
+            <form class="commissionForm" >
 
                 <div class="modal-body">
 
@@ -961,7 +961,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="commissionForm" method="post">
+            <form class="commissionForm" >
 
                 <div class="modal-body">
 
@@ -1034,7 +1034,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="commissionForm" method="post">
+            <form class="commissionForm" >
 
                 <div class="modal-body">
 
@@ -1112,7 +1112,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="commissionForm" method="post">
+            <form class="commissionForm" >
                 <div class="modal-body">
 
                     <input type="hidden" name="actiontype" value="commission">

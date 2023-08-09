@@ -232,12 +232,13 @@
 
                 <li class="menu-item">
                     <a href="{{route('md')}}" class="menu-link">
-                         <div data-i18n="Master Distributor">Master Distributor</div>
+                        <div data-i18n="Master Distributor">Master Distributor</div>
                     </a>
                 </li>
 
                 <li class="menu-item">
-                    <a href="{{route('distributor')}}" class="menu-link"> <div data-i18n=" Distributor"> Distributor</div>
+                    <a href="{{route('distributor')}}" class="menu-link">
+                        <div data-i18n=" Distributor"> Distributor</div>
                     </a>
                 </li>
 
@@ -293,13 +294,13 @@
             </a>
             <ul class="menu-sub" id="funds">
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('tr')}}" class="menu-link">
                         <div data-i18n="Transfer/Return">Transfer/Return</div>
                     </a>
                 </li>
 
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('request')}}" class="menu-link">
                         <div data-i18n="Request">Request</div>
                     </a>
                 </li>
@@ -312,13 +313,13 @@
 
 
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('requestreport')}}" class="menu-link">
                         <div data-i18n="Request Report">Request Report</div>
                     </a>
                 </li>
 
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('allfundreport')}}" class="menu-link">
                         <div data-i18n="All Fund Report">All Fund Report</div>
                     </a>
                 </li>
@@ -347,7 +348,7 @@
 
             </ul>
         </li>
-        
+
         <li class="menu-item ">
             <a href="#funds" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-id"></i>
@@ -409,7 +410,7 @@
 
                 <li class="menu-item">
                     <a href="" class="menu-link">
-                         <div data-i18n="Request Report">Request Report</div>
+                        <div data-i18n="Request Report">Request Report</div>
                     </a>
                 </li>
 
@@ -459,7 +460,8 @@
 
 
                 <li class="menu-item">
-                    <a href="" class="menu-link"> <div data-i18n="UTI">UTI</div>
+                    <a href="" class="menu-link">
+                        <div data-i18n="UTI">UTI</div>
                     </a>
                 </li>
 

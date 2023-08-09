@@ -16,7 +16,7 @@
 
             <div class="card-body">
                 <div class=" rounded mt-5">
-                    <form class="memberForm" action="{{ route('rcreate') }}" method="post">
+                    <form class="memberForm" action="{{ route('rcreate') }}">
                         {{ csrf_field() }}
                         <div class="row">
 
@@ -55,12 +55,33 @@
                                 <label for="cname">State : <span class="text-danger fw-bold h6">*</span></label>
                                 <select name="state" class="form-control my-1" required="">
                                     <option value="">Select State</option>
-
                                     <option value="Uttar Pradesh">Uttar Pradesh</option>
-                                    <option value="MP">MP</option>
-                                    <option value="Uttrakhand">Uttrakhand</option>
                                     <option value="Assam">Assam</option>
                                     <option value="Bihar">Bihar</option>
+                                    <option value="Australia">Australia</option>
+                                    <option value="Bangladesh">Bangladesh</option>
+                                    <option value="Belarus">Belarus</option>
+                                    <option value="Brazil">Brazil</option>
+                                    <option value="Canada">Canada</option>
+                                    <option value="China">China</option>
+                                    <option value="France">France</option>
+                                    <option value="Germany">Germany</option>
+                                    <option value="India">India</option>
+                                    <option value="Indonesia">Indonesia</option>
+                                    <option value="Israel">Israel</option>
+                                    <option value="Italy">Italy</option>
+                                    <option value="Japan">Japan</option>
+                                    <option value="Korea">Korea, Republic of</option>
+                                    <option value="Mexico">Mexico</option>
+                                    <option value="Philippines">Philippines</option>
+                                    <option value="Russia">Russian Federation</option>
+                                    <option value="South Africa">South Africa</option>
+                                    <option value="Thailand">Thailand</option>
+                                    <option value="Turkey">Turkey</option>
+                                    <option value="Ukraine">Ukraine</option>
+                                    <option value="United Arab Emirates">United Arab Emirates</option>
+                                    <option value="United Kingdom">United Kingdom</option>
+                                    <option value="United States">United States</option>
 
                                 </select>
                             </div>
@@ -106,7 +127,7 @@
                         </div>
                         <hr>
 
-                        
+
                         <h5 class="mb-3">Upload Your Documents</h5>
                         <div class="row">
                             <div class="form-group col-md-4 my-1">
@@ -154,7 +175,7 @@
 
 
                         </div>
-                  
+
                         <button type="submit" class="btn btn-primary mt-2">Add New User</button>
                     </form>
                 </div>
