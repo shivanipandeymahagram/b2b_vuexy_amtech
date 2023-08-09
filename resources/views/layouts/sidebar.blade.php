@@ -446,7 +446,7 @@
 
             </ul>
         </li>
-        
+
         <li class="menu-item ">
             <a href="#agentList" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-id"></i>
@@ -478,59 +478,60 @@
             <ul class="menu-sub" id="txnreport">
 
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('aepsstatement')}}" class="menu-link">
                         <div data-i18n="AePS Statement">AePS Statement</div>
                     </a>
                 </li>
 
 
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('billpaystatement')}}" class="menu-link">
                         <div data-i18n="Billpay Statement">Billpay Statement</div>
                     </a>
                 </li>
 
 
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('dmtstatement')}}" class="menu-link">
                         <div data-i18n="DMT Statement">DMT Statement</div>
                     </a>
                 </li>
 
 
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('matmstatement')}}" class="menu-link">
                         <div data-i18n="Micro ATM Statement">Micro ATM Statement</div>
                     </a>
                 </li>
 
 
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('rechargestatement')}}" class="menu-link">
                         <div data-i18n="Recharge Statement">Recharge Statement</div>
                     </a>
                 </li>
 
 
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('panstatement')}}" class="menu-link">
                         <div data-i18n="Uti Pancard Statement">Uti Pancard Statement</div>
                     </a>
                 </li>
 
 
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('loanstatement')}}" class="menu-link">
                         <div data-i18n="Loanenquiry Statement">Loanenquiry Statement</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('cmsreport')}}" class="menu-link">
                         <div data-i18n="CMS Report">CMS Report</div>
                     </a>
                 </li>
             </ul>
         </li>
+        
         <li class="menu-item ">
             <a href="#walletreport" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-id"></i>

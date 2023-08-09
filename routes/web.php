@@ -75,3 +75,14 @@ Route::prefix('agentlist')->group(function () {
     Route::get('aeps',  [UserController::class, 'aeps'])->name('aeps');
     Route::get('uti',  [UserController::class, 'uti'])->name('uti');
 });
+
+Route::prefix('tr-report')->group(function () {
+    Route::get('aepsstatement',  [UserController::class, 'aepsstatement'])->name('aepsstatement');
+    Route::get('billpaystatement',  [UserController::class, 'billpaystatement'])->name('billpaystatement');
+    Route::get('cmsreport',  [UserController::class, 'cmsreport'])->name('cmsreport');
+    Route::get('dmtstatement',  [UserController::class, 'dmtstatement'])->name('dmtstatement');
+    Route::get('loanstatement',  [UserController::class, 'loanstatement'])->name('loanstatement');
+    Route::get('matmstatement',  [UserController::class, 'matmstatement'])->name('matmstatement');
+    Route::get('panstatement',  [UserController::class, 'panstatement'])->name('panstatement');
+    Route::get('rechargestatement',  [UserController::class, 'rechargestatement'])->name('rechargestatement');
+});

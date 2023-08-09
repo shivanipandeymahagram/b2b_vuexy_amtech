@@ -173,4 +173,38 @@ class UserController extends Controller
     {
         return view('agentlist.uti');
     }
+
+    // Transaction Report
+    function aepsstatement()
+    {
+        return view('transactionreport.aepsstatement');
+    }
+    function billpaystatement()
+    {
+        return view('transactionreport.billpaystatement');
+    }
+    function cmsreport()
+    {
+        return view('transactionreport.cmsreport');
+    }
+    function dmtstatement()
+    {
+        return view('transactionreport.dmtstatement');
+    }
+    function loanstatement()
+    {
+        return view('transactionreport.loanstatement');
+    }
+    function matmstatement()
+    {
+        return view('transactionreport.matmstatement');
+    }
+    function panstatement()
+    {
+        return view('transactionreport.panstatement');
+    }
+    function rechargestatement()
+    {
+        return view('transactionreport.rechargestatement');
+    }
 }
