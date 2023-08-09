@@ -149,4 +149,20 @@ class UserController extends Controller
     {
         return view('aepsfund.reqreport');
     }
+
+    // Matm funds
+    function mrequest()
+    {
+        return view('matmfund.request');
+    }
+    function mpendingreq()
+    {
+        return view('matmfund.pendingreq');
+    }
+    function mreqreport()
+    {
+        return view('matmfund.reqreport');
+    }
+
+
 }

@@ -64,3 +64,9 @@ Route::prefix('aeps-fund')->group(function () {
     Route::get('pendingpayoutreq',  [UserController::class, 'pendingpayoutreq'])->name('pendingpayoutreq');
     Route::get('reqreport',  [UserController::class, 'reqreport'])->name('reqreport');
 });
+
+Route::prefix('matm-fund')->group(function () {
+    Route::get('matmrequest',  [UserController::class, 'mrequest'])->name('mrequest');
+    Route::get('matmpendingreq',  [UserController::class, 'mpendingreq'])->name('mpendingreq');
+    Route::get('matmreqreport',  [UserController::class, 'mreqreport'])->name('mreqreport');
+});

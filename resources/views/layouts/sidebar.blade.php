@@ -416,6 +416,7 @@
 
             </ul>
         </li>
+
         <li class="menu-item ">
             <a href="#matmfund" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-file-description"></i>
@@ -424,21 +425,21 @@
             <ul class="menu-sub" id="matmfund">
 
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('mrequest')}}" class="menu-link">
                         <div data-i18n="Request">Request</div>
                     </a>
                 </li>
 
 
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('mpendingreq')}}" class="menu-link">
                         <div data-i18n="Pending Request">Pending Request</div>
                     </a>
                 </li>
 
 
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('mreqreport')}}" class="menu-link">
                         <div data-i18n="Request Report">Request Report</div>
                     </a>
                 </li>
