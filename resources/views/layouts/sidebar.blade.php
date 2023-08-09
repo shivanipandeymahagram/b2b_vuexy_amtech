@@ -357,19 +357,19 @@
             <ul class="menu-sub" id="funds">
 
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('banner')}}" class="menu-link">
                         <div data-i18n="Banner">Banner</div>
                     </a>
                 </li>
 
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('video')}}" class="menu-link">
                         <div data-i18n="Video">Video</div>
                     </a>
                 </li>
 
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('investment')}}" class="menu-link">
                         <div data-i18n="Investment">Investment</div>
                     </a>
                 </li>

@@ -48,7 +48,13 @@ Route::prefix('fund')->group(function () {
     Route::get('allfundreport',  [UserController::class, 'allfundreport'])->name('allfundreport');
 });
 
-Route::prefix('investment')->group(function () {
+Route::prefix('investment-fund')->group(function () {
     Route::get('fundrequest',  [UserController::class, 'fundrequest'])->name('fundrequest');
     Route::get('fundreport',  [UserController::class, 'fundreport'])->name('fundreport');
+});
+
+Route::prefix('investment-service')->group(function () {
+    Route::get('banner',  [UserController::class, 'banner'])->name('banner');
+    Route::get('video',  [UserController::class, 'video'])->name('video');
+    Route::get('investment',  [UserController::class, 'investment'])->name('investment');
 });
