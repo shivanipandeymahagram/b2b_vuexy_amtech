@@ -86,3 +86,20 @@ Route::prefix('tr-report')->group(function () {
     Route::get('panstatement',  [UserController::class, 'panstatement'])->name('panstatement');
     Route::get('rechargestatement',  [UserController::class, 'rechargestatement'])->name('rechargestatement');
 });
+
+Route::prefix('wallet-history')->group(function () {
+    Route::get('mwallet',  [UserController::class, 'mwallet'])->name('mwallet');
+    Route::get('awallet',  [UserController::class, 'awallet'])->name('awallet');
+});
+
+Route::get('complaints',  [UserController::class, 'complaints'])->name('complaints');
+
+Route::prefix('setup-tools')->group(function () {
+    Route::get('muserlogout',  [UserController::class, 'muserlogout'])->name('muserlogout');
+    Route::get('apimanager',  [UserController::class, 'apimanager'])->name('apimanager');
+    Route::get('bankaccount',  [UserController::class, 'bankaccount'])->name('bankaccount');
+    Route::get('complaintsub',  [UserController::class, 'complaintsub'])->name('complaintsub');
+    Route::get('operator',  [UserController::class, 'operator'])->name('operator');
+    Route::get('portalsetting',  [UserController::class, 'portalsetting'])->name('portalsetting');
+    Route::get('quicklink',  [UserController::class, 'quicklink'])->name('quicklink');
+});

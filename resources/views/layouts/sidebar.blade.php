@@ -540,13 +540,13 @@
             <ul class="menu-sub" id="walletreport">
 
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('mwallet')}}" class="menu-link">
                         <div data-i18n="Main Wallet">Main Wallet</div>
                     </a>
                 </li>
 
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('awallet')}}" class="menu-link">
                         <div data-i18n="Aeps Wallet">Aeps Wallet</div>
                     </a>
                 </li>
@@ -555,7 +555,7 @@
         </li>
 
         <li class="menu-item">
-            <a href="" class="menu-link">
+            <a href="{{route('complaints')}}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-layout-navbar"></i>
                 <div data-i18n="Complaints">Complaints</div>
             </a>
@@ -575,42 +575,42 @@
             </a>
             <ul class="menu-sub" id="setuptools">
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('muserlogout')}}" class="menu-link">
                         <div data-i18n="Mobile User Logout">Mobile User Logout</div>
                     </a>
                 </li>
 
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('apimanager')}}" class="menu-link">
                         <div data-i18n="API Manager">API Manager</div>
                     </a>
                 </li>
 
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('bankaccount')}}" class="menu-link">
                         <div data-i18n="Bank Account">Bank Account</div>
                     </a>
                 </li>
 
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('complaintsub')}}" class="menu-link">
                         <div data-i18n="Complaint Subject">Complaint Subject</div>
                     </a>
                 </li>
 
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('operator')}}" class="menu-link">
                         <div data-i18n="Operator Manager">Operator Manager</div>
                     </a>
                 </li>
 
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('portalsetting')}}" class="menu-link">
                         <div data-i18n="Portal Setting">Portal Setting</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('quicklink')}}" class="menu-link">
                         <div data-i18n="Quick Links">Quick Links</div>
                     </a>
                 </li>

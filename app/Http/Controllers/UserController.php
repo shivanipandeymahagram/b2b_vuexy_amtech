@@ -207,4 +207,43 @@ class UserController extends Controller
     {
         return view('transactionreport.rechargestatement');
     }
+
+    // Wallet History
+    function mwallet()
+    {
+        return view('wallethistory.mwallet');
+    }
+    function awallet()
+    {
+        return view('wallethistory.awallet');
+    }
+
+    function complaints(){
+        return view('complaints');
+    }
+
+    // Setup tools
+    function muserlogout()
+    {
+        return view('setuptools.muserlogout');
+    }
+    function bankaccount()
+    {
+        return view('setuptools.bankaccount');
+    }
+    function apimanager(){
+        return view('setuptools.apimanager');
+    }
+    function complaintsub(){
+        return view('setuptools.complaintsub');
+    }
+    function operator(){
+        return view('setuptools.operator');
+    }
+    function portalsetting(){
+        return view('setuptools.portalsetting');
+    }
+    function quicklink(){
+        return view('setuptools.quicklink');
+    }
 }
