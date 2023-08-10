@@ -103,3 +103,13 @@ Route::prefix('setup-tools')->group(function () {
     Route::get('portalsetting',  [UserController::class, 'portalsetting'])->name('portalsetting');
     Route::get('quicklink',  [UserController::class, 'quicklink'])->name('quicklink');
 });
+
+Route::prefix('account-setting')->group(function () {
+    Route::get('certificate',  [UserController::class, 'certificate'])->name('certificate');
+    Route::get('profile',  [UserController::class, 'profile'])->name('profile');
+});
+
+Route::prefix('role-permission')->group(function () {
+    Route::get('roles',  [UserController::class, 'roles'])->name('roles');
+    Route::get('permission',  [UserController::class, 'permission'])->name('permission');
+});

@@ -63,12 +63,12 @@
 
             <!-- Quick links  -->
 
-              <li class="nav-item me-2 me-xl-0 cursor-pointer">
-                <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#walletLoadModal">
+            <li class="nav-item me-2 me-xl-0 cursor-pointer">
+                <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#walletloadModal">
                     Load <i class="ti ti-wallet ti-sm"></i>
                 </button>
             </li>
-            
+
 
             <li class="nav-item dropdown-shortcuts navbar-dropdown dropdown me-2 me-xl-0">
                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
@@ -176,23 +176,22 @@
                         <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                        <a class="dropdown-item"
-                         >
+                        <a href="{{route('profile')}}" class="dropdown-item">
                             <i class="ti ti-user-check me-2 ti-sm"></i>
-                            <span class="align-middle">My Profile</span>
+                            <span class="align-middle">
+                                My Profile
+                            </span>
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item"
-                         >
+                        <a class="dropdown-item">
                             <i class="ti ti-eye me-2 ti-sm"></i>
                             <span class="align-middle">View Commission</span>
                         </a>
-                       
+
                     </li>
                     <li>
-                        <a class="dropdown-item"
-                         >
+                        <a class="dropdown-item">
                             <i class="ti ti-logout me-2 ti-sm"></i>
                             <span class="align-middle">Log Out</span>
                         </a>
@@ -201,7 +200,11 @@
             </li>
             <!--/ User -->
         </ul>
+
+
     </div>
+
+
 
     <!-- Search Small Screens -->
     <div class="navbar-search-wrapper search-input-wrapper d-none">

@@ -246,4 +246,21 @@ class UserController extends Controller
     function quicklink(){
         return view('setuptools.quicklink');
     }
+
+    // Account Setting
+
+    function certificate(){
+        return view('accountsetting.certificate');
+    }
+    function profile(){
+        return view('accountsetting.profile');
+    }
+    
+// Roles And Permission
+    function roles(){
+        return view('permissionallot.roles');
+    }
+    function permission(){
+        return view('permissionallot.permission');
+    }
 }

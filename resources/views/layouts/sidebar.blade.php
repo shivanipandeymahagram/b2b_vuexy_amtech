@@ -639,12 +639,12 @@
             </a>
             <ul class="menu-sub" id="accountSetting">
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('profile')}}" class="menu-link">
                         <div data-i18n="Profile Setting">Profile Setting</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('certificate')}}" class="menu-link">
                         <div data-i18n="Certificate">Certificate</div>
                     </a>
                 </li>
@@ -701,12 +701,12 @@
             <ul class="menu-sub" id="roles">
 
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('roles')}}" class="menu-link">
                         <div data-i18n="Roles">Roles</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('permission')}}" class="menu-link">
                         <div data-i18n="Permission">Permission</div>
                     </a>
                 </li>

@@ -115,7 +115,37 @@
 
         <!-- Drag Target Area To SlideIn Menu On Small Screens -->
         <div class="drag-target"></div>
+        <div class="modal fade" id="walletloadModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog  modal-simple modal-edit-user">
+                <div class="modal-content p-md-5">
+                    <div class="modal-body">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <div class="text-center mb-3">
+                            <h3 class="mb-2">Edit Role</h3>
+                        </div>
 
+                        <form id="setupManager" action="{{route('dashboard')}}">
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="form-group col-md-12 my-1">
+                                        <label>Scheme</label>
+                                        <input type="text" class="form-control" placeholder="Enter Amount" />
+                                    </div>
+                                    <div class="form-group col-md-12 my-1">
+                                        <label>Remark</label>
+                                        <textarea type="text" class="form-control" placeholder="Enter Amount"></textarea>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" type="submit" data-loading-text="<i class='fa fa-spin fa-spinner'></i> Submitting">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
     <!-- / Layout wrapper -->
