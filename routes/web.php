@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [UserController::class, 'home'])->name('dashboard');
 
+// Admin End Routing
+
 Route::prefix('resource')->group(function () {
     Route::get('scheme',  [UserController::class, 'scheme'])->name('scheme');
     Route::get('company',  [UserController::class, 'company'])->name('company');
@@ -43,6 +45,8 @@ Route::prefix('member')->group(function () {
 
 Route::prefix('fund')->group(function () {
     Route::get('tr',  [UserController::class, 'tr'])->name('tr');
+    Route::get('loadwallet',  [UserController::class, 'loadwallet'])->name('loadwallet');
+    Route::get('runpaisa',  [UserController::class, 'runpaisa'])->name('runpaisa');
     Route::get('request',  [UserController::class, 'request'])->name('request');
     Route::get('requestreport',  [UserController::class, 'requestreport'])->name('requestreport');
     Route::get('allfundreport',  [UserController::class, 'allfundreport'])->name('allfundreport');
@@ -60,6 +64,7 @@ Route::prefix('investment-service')->group(function () {
 });
 
 Route::prefix('aeps-fund')->group(function () {
+    Route::get('req',  [UserController::class, 'req'])->name('req');
     Route::get('pendingreq',  [UserController::class, 'pendingreq'])->name('pendingreq');
     Route::get('pendingpayoutreq',  [UserController::class, 'pendingpayoutreq'])->name('pendingpayoutreq');
     Route::get('reqreport',  [UserController::class, 'reqreport'])->name('reqreport');
@@ -112,4 +117,13 @@ Route::prefix('account-setting')->group(function () {
 Route::prefix('role-permission')->group(function () {
     Route::get('roles',  [UserController::class, 'roles'])->name('roles');
     Route::get('permission',  [UserController::class, 'permission'])->name('permission');
+});
+
+
+
+// User End Routing
+
+Route::prefix('utility-recharge')->group(function () {
+    Route::get('mobile',  [UserController::class, 'mobile'])->name('mobile');
+    Route::get('dth',  [UserController::class, 'dth'])->name('dth');
 });

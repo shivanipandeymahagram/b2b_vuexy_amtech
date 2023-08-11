@@ -12,6 +12,8 @@ class UserController extends Controller
         return view('home');
     }
 
+    // User End Controller Function
+
     // Resource
     function scheme()
     {
@@ -95,6 +97,14 @@ class UserController extends Controller
     }
 
     // fund
+    function loadwallet()
+    {
+        return view('fund.loadwallet');
+    }
+    function runpaisa()
+    {
+        return view('fund.runpaisa');
+    }
     function tr()
     {
         return view('fund.tr');
@@ -136,7 +146,12 @@ class UserController extends Controller
         return view('investmentservice.investment');
     }
 
-    // Aeps funds
+    // Aeps funds'
+    function req()
+    {
+        return view('aepsfund.req');
+    }
+
     function pendingreq()
     {
         return view('aepsfund.pendingreq');
@@ -218,7 +233,8 @@ class UserController extends Controller
         return view('wallethistory.awallet');
     }
 
-    function complaints(){
+    function complaints()
+    {
         return view('complaints');
     }
 
@@ -231,36 +247,56 @@ class UserController extends Controller
     {
         return view('setuptools.bankaccount');
     }
-    function apimanager(){
+    function apimanager()
+    {
         return view('setuptools.apimanager');
     }
-    function complaintsub(){
+    function complaintsub()
+    {
         return view('setuptools.complaintsub');
     }
-    function operator(){
+    function operator()
+    {
         return view('setuptools.operator');
     }
-    function portalsetting(){
+    function portalsetting()
+    {
         return view('setuptools.portalsetting');
     }
-    function quicklink(){
+    function quicklink()
+    {
         return view('setuptools.quicklink');
     }
 
     // Account Setting
 
-    function certificate(){
+    function certificate()
+    {
         return view('accountsetting.certificate');
     }
-    function profile(){
+    function profile()
+    {
         return view('accountsetting.profile');
     }
-    
-// Roles And Permission
-    function roles(){
+
+    // Roles And Permission
+    function roles()
+    {
         return view('permissionallot.roles');
     }
-    function permission(){
+    function permission()
+    {
         return view('permissionallot.permission');
+    }
+
+    // User End Controller Function
+
+    function mobile()
+    {
+        return view('utilityrecharge.mobile');
+    }
+    function dth()
+    {
+        return view('utilityrecharge.dth');
     }
 }

@@ -33,7 +33,7 @@
 
         </li>
 
-        <!-- <li class="menu-item ">
+        <li class="menu-item ">
             <a href="#menu-design" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-file-dollar"></i>
                 <div data-i18n="Utility Recharge">Utility Recharge</div>
@@ -41,19 +41,19 @@
             <ul class="menu-sub" id="menu-design">
 
                 <li class="menu-item ">
-                    <a href="" class="menu-link">
+                    <a href="{{route('mobile')}}" class="menu-link">
                         <div data-i18n="Mobile">Mobile</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('dth')}}" class="menu-link">
                         <div data-i18n="DTH">DTH</div>
                     </a>
                 </li>
 
             </ul>
         </li>
-        <li class="menu-item ">
+        <!--<li class="menu-item ">
             <a href="#userinfo" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-smart-home"></i>
                 <div data-i18n="Bill Payment">Bill Payment</div>
@@ -294,6 +294,11 @@
             </a>
             <ul class="menu-sub" id="funds">
                 <li class="menu-item">
+                    <a href="{{route('runpaisa')}}" class="menu-link">
+                        <div data-i18n="Run Paisa PG">Run Paisa PG</div>
+                    </a>
+                </li>
+                <li class="menu-item">
                     <a href="{{route('tr')}}" class="menu-link">
                         <div data-i18n="Transfer/Return">Transfer/Return</div>
                     </a>
@@ -305,11 +310,11 @@
                     </a>
                 </li>
 
-                <!-- <li class="menu-item">
-                    <a href="" class="menu-link">
+                <li class="menu-item">
+                    <a href="{{route('loadwallet')}}" class="menu-link">
                         <div data-i18n="Load Main Wallet">Load Main Wallet</div>
                     </a>
-                </li> -->
+                </li>
 
 
                 <li class="menu-item">
@@ -382,12 +387,12 @@
                 <div data-i18n="AEPS Fund">AEPS Fund</div>
             </a>
             <ul class="menu-sub" id="aepsfund">
-                <!-- <li class="menu-item">
-                    <a href="" class="menu-link">
+                <li class="menu-item">
+                    <a href="{{route('req')}}" class="menu-link">
                         <div data-i18n="Request">Request</div>
                     </a>
                 </li>
-                <li class="menu-item">
+                <!--   <li class="menu-item">
                     <a href="" class="menu-link">
                         <div data-i18n="Add Bank">Add Bank</div>
                     </a>
@@ -531,7 +536,7 @@
                 </li>
             </ul>
         </li>
-        
+
         <li class="menu-item ">
             <a href="#walletreport" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-id"></i>
