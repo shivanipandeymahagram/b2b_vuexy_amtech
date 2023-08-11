@@ -291,6 +291,7 @@ class UserController extends Controller
 
     // User End Controller Function
 
+    // Utility Recharge
     function mobile()
     {
         return view('utilityrecharge.mobile');
@@ -298,5 +299,20 @@ class UserController extends Controller
     function dth()
     {
         return view('utilityrecharge.dth');
+    }
+
+    // Banking Services
+
+    function bsdmt()
+    {
+        return view('bankingservice.bsdmt');
+    }
+    function bsaeps()
+    {
+        return view('bankingservice.bsaeps');
+    }
+    function panuti()
+    {
+        return view('panuti');
     }
 }

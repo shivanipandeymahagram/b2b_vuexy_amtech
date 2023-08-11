@@ -127,3 +127,11 @@ Route::prefix('utility-recharge')->group(function () {
     Route::get('mobile',  [UserController::class, 'mobile'])->name('mobile');
     Route::get('dth',  [UserController::class, 'dth'])->name('dth');
 });
+
+Route::prefix('banking-service')->group(function () {
+    Route::get('bsdmt',  [UserController::class, 'bsdmt'])->name('bsdmt');
+    Route::get('bsaeps',  [UserController::class, 'bsaeps'])->name('bsaeps');
+});
+
+
+Route::get('panuti',  [UserController::class, 'panuti'])->name('panuti');

@@ -53,95 +53,80 @@
 
             </ul>
         </li>
-        <!--<li class="menu-item ">
+
+        <li class="menu-item ">
             <a href="#userinfo" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-smart-home"></i>
                 <div data-i18n="Bill Payment">Bill Payment</div>
             </a>
             <ul class="menu-sub" id="userinfo">
                 <li class="menu-item ">
-                    <a href="" class="menu-link">
+                    <a href="{{route('bsaeps')}}" class="menu-link">
                         <div data-i18n="Electricity">Electricity</div>
                     </a>
                 </li>
                 <li class="menu-item ">
-                    <a href="" class="menu-link">
+                    <a href="{{route('bsaeps')}}" class="menu-link">
                         <div data-i18n="Postpaid">Postpaid</div>
                     </a>
                 </li>
                 <li class="menu-item ">
-                    <a href="" class="menu-link">
+                    <a href="{{route('bsaeps')}}" class="menu-link">
                         <div data-i18n="Water">Water</div>
                     </a>
                 </li>
                 <li class="menu-item ">
-                    <a href="" class="menu-link">
+                    <a href="{{route('bsaeps')}}" class="menu-link">
                         <div data-i18n="Broadband">Broadband</div>
                     </a>
                 </li>
                 <li class="menu-item ">
-                    <a href="" class="menu-link">
+                    <a href="{{route('bsaeps')}}" class="menu-link">
                         <div data-i18n="LPG Gas">LPG Gas</div>
                     </a>
                 </li>
                 <li class="menu-item ">
-                    <a href="" class="menu-link">
+                    <a href="{{route('bsaeps')}}" class="menu-link">
                         <div data-i18n="Piped Gas">Piped Gas</div>
                     </a>
                 </li>
                 <li class="menu-item ">
-                    <a href="" class="menu-link">
+                    <a href="{{route('bsaeps')}}" class="menu-link">
                         <div data-i18n="Landline">Landline</div>
                     </a>
                 </li>
                 <li class="menu-item ">
-                    <a href="" class="menu-link">
+                    <a href="{{route('bsaeps')}}" class="menu-link">
                         <div data-i18n="Education Fees">Education Fees</div>
                     </a>
                 </li>
-
-            </ul>
-        </li>
-        <li class="menu-item ">
-            <a href="" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-file-description"></i>
-                <div data-i18n="LIC Billpay">LIC Billpay</div>
-            </a>
-
-        </li>
-        <li class="menu-item ">
-            <a href="" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-user"></i>
-                <div data-i18n="FASTag">FASTag</div>
-            </a>
-        </li>
-
-        <li class="menu-item ">
-            <a href="#finance" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons ti ti-file"></i>
-                <div data-i18n="Financial & Taxes">Financial & Taxes</div>
-            </a>
-            <ul class="menu-sub" id="finance">
                 <li class="menu-item ">
-                    <a href="" class="menu-link">
+                    <a href="{{route('bsaeps')}}" class="menu-link">
+                        <i class="menu-icon tf-icons ti ti-user"></i>
+                        <div data-i18n="FASTag">FASTag</div>
+                    </a>
+                </li>
+                <li class="menu-item ">
+                    <a href="{{route('bsaeps')}}" class="menu-link">
                         <div data-i18n="Loan Repayment">Loan Repayment</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('bsaeps')}}" class="menu-link">
                         <div data-i18n="LIC/Insurance">LIC/Insurance</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('bsaeps')}}" class="menu-link">
                         <div data-i18n="Municipal Tax">Municipal Tax</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('bsaeps')}}" class="menu-link">
                         <div data-i18n="Housing Tax">Housing Tax</div>
                     </a>
                 </li>
+
             </ul>
         </li>
 
@@ -152,7 +137,7 @@
             </a>
             <ul class="menu-sub" id="utiPan">
                 <li class="menu-item ">
-                    <a href="" class="menu-link">
+                    <a href="{{route('panuti')}}" class="menu-link">
                         <div data-i18n="UTI">UTI</div>
                     </a>
                 </li>
@@ -166,12 +151,12 @@
             </a>
             <ul class="menu-sub" id="bankingService">
                 <li class="menu-item ">
-                    <a href="" class="menu-link">
+                    <a href="{{route('bsdmt')}}" class="menu-link">
                         <div data-i18n="DMT">DMT</div>
                     </a>
                 </li>
                 <li class="menu-item ">
-                    <a href="" class="menu-link">
+                    <a href="{{route('bsaeps')}}" class="menu-link">
                         <div data-i18n="AEPS">AEPS</div>
                     </a>
                 </li>
@@ -186,11 +171,16 @@
             <ul class="menu-sub" id="serviceLink">
                 <li class="menu-item">
                     <a href="" class="menu-link" target="_blank">
-                        <div data-i18n="link">link</div>
+                        <div data-i18n="Test">Test</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{url('https://www.youtube.com')}}" class="menu-link" target="_blank">
+                        <div data-i18n="Youtube">Youtube</div>
                     </a>
                 </li>
             </ul>
-        </li> -->
+        </li>
 
         <li class="menu-item ">
             <a href="#tables" class="menu-link menu-toggle">
