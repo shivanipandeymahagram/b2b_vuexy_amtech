@@ -121,19 +121,19 @@
                     <div class="modal-body">
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         <div class="text-center mb-3">
-                            <h3 class="mb-2">Edit Role</h3>
+                            <h3 class="mb-2">Load Wallet</h3>
                         </div>
 
                         <form id="setupManager" action="{{route('dashboard')}}">
                             <div class="modal-body">
                                 <div class="row">
                                     <div class="form-group col-md-12 my-1">
-                                        <label>Scheme</label>
-                                        <input type="text" class="form-control" placeholder="Enter Amount" />
+                                        <label>Amount</label>
+                                        <input type="text" class="form-control my-1" placeholder="Enter Amount" />
                                     </div>
                                     <div class="form-group col-md-12 my-1">
                                         <label>Remark</label>
-                                        <textarea type="text" class="form-control" placeholder="Enter Amount"></textarea>
+                                        <textarea type="text" class="form-control my-1" placeholder="Enter Remark"></textarea>
                                     </div>
                                 </div>
 

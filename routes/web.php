@@ -1,137 +1,190 @@
 <?php
 
+use App\Http\Controllers\AepsController;
+use App\Http\Controllers\BillpayController;
+use App\Http\Controllers\CommonController;
+use App\Http\Controllers\ComplaintController;
+use App\Http\Controllers\CyrusPayoutController;
+use App\Http\Controllers\DmtController;
+use App\Http\Controllers\FingpayController;
+use App\Http\Controllers\FundController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LicBillpayController;
+use App\Http\Controllers\MemberController;
+use App\Http\Controllers\MobilelogoutController;
+use App\Http\Controllers\PancardController;
+use App\Http\Controllers\PdmtController;
+use App\Http\Controllers\PortalController;
+use App\Http\Controllers\RaepsController;
+use App\Http\Controllers\RechargeController;
+use App\Http\Controllers\ResourceController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\SetupController;
+use App\Http\Controllers\SpancardController;
+use App\Http\Controllers\StatementController;
+use App\Http\Controllers\TestController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
-Route::get('/', [UserController::class, 'home'])->name('dashboard');
-
-// Admin End Routing
-
-Route::prefix('resource')->group(function () {
-    Route::get('scheme',  [UserController::class, 'scheme'])->name('scheme');
-    Route::get('company',  [UserController::class, 'company'])->name('company');
-    Route::get('companyprofile',  [UserController::class, 'companyprofile'])->name('companyprofile');
+Route::group(['prefix' => 'loanenquiry', 'middleware' => 'auth'], function () {
+    Route::get('/', [UserController::class, 'loanindex'])->name('loanform');
+    Route::post('loanformstore', [UserController::class, 'loanformstore'])->name('loanformstore');
 });
 
-Route::prefix('member')->group(function () {
-    Route::get('whitelabel',  [UserController::class, 'whitelabel'])->name('whitelabel');
-    Route::get('create',  [UserController::class, 'create'])->name('create');
-    Route::get('md',  [UserController::class, 'md'])->name('md');
-    Route::get('md/create',  [UserController::class, 'mdcreate'])->name('mdcreate');
-    Route::get('distributor',  [UserController::class, 'distributor'])->name('distributor');
-    Route::get('distributor/create',  [UserController::class, 'dcreate'])->name('dcreate');
-    Route::get('retailer',  [UserController::class, 'retailer'])->name('retailer');
-    Route::get('retailer/create',  [UserController::class, 'rcreate'])->name('rcreate');
-    Route::get('allmember',  [UserController::class, 'allmember'])->name('allmember');
-    Route::get('allmember/create',  [UserController::class, 'allmcreate'])->name('allmcreate');
-    Route::get('kycsubmit',  [UserController::class, 'kycsubmit'])->name('kycsubmit');
-    Route::get('kycsubmitcreate',  [UserController::class, 'kycsubmitcreate'])->name('kycsubmitcreate');
-    Route::get('kycreject',  [UserController::class, 'kycreject'])->name('kycreject');
-    Route::get('kycrejectcreate',  [UserController::class, 'kycrejectcreate'])->name('kycrejectcreate');
-    Route::get('kycpending',  [UserController::class, 'kycpending'])->name('kycpending');
-    Route::get('kycpendingcreate',  [UserController::class, 'kycpendingcreate'])->name('kycpendingcreate');
+Route::get('/', [HomeController::class, 'index'])->name('dashboard');
+
+
+Route::group(['prefix' => 'tools', 'middleware' => ['auth', 'company', 'checkrole:admin']], function () {
+    Route::get('{type}', [RoleController::class, 'index'])->name('tools');
+    Route::post('{type}/store', [RoleController::class, 'store'])->name('toolsstore');
+    Route::post('setpermissions', [RoleController::class, 'assignPermissions'])->name('toolssetpermission');
+    Route::post('get/permission/{id}', [RoleController::class, 'getpermissions'])->name('permissions');
+    Route::post('getdefault/permission/{id}', [RoleController::class, 'getdefaultpermissions'])->name('defaultpermissions');
 });
 
-Route::prefix('fund')->group(function () {
-    Route::get('tr',  [UserController::class, 'tr'])->name('tr');
-    Route::get('loadwallet',  [UserController::class, 'loadwallet'])->name('loadwallet');
-    Route::get('runpaisa',  [UserController::class, 'runpaisa'])->name('runpaisa');
-    Route::get('request',  [UserController::class, 'request'])->name('request');
-    Route::get('requestreport',  [UserController::class, 'requestreport'])->name('requestreport');
-    Route::get('allfundreport',  [UserController::class, 'allfundreport'])->name('allfundreport');
+Route::group(['prefix' => 'statement', 'middleware' => ['auth', 'company']], function () {
+    Route::get("export/{type}", [StatementController::class, 'export'])->name('export');
+    Route::get('{type}/{id?}/{status?}', [StatementController::class, 'index'])->name('statement');
+    Route::post('fetch/{type}/{id?}/{returntype?}', [CommonController::class, 'fetchData']);
+    Route::post('update', [CommonController::class, 'update'])->name('statementUpdate'); //->middleware('activity');
+    Route::post('status', [CommonController::class, 'status'])->name('statementStatus');
+    Route::post('delete', [CommonController::class, 'delete'])->name('statementDelete');
 });
 
-Route::prefix('investment-fund')->group(function () {
-    Route::get('fundrequest',  [UserController::class, 'fundrequest'])->name('fundrequest');
-    Route::get('fundreport',  [UserController::class, 'fundreport'])->name('fundreport');
+Route::group(['prefix' => 'member', 'middleware' => ['auth', 'company']], function () {
+    Route::get('{type}/{action?}', [MemberController::class, 'index'])->name('member');
+    Route::post('store', [MemberController::class, 'create'])->name('memberstore');
+    Route::post('commission/update', [MemberController::class, 'commissionUpdate'])->name('commissionUpdate'); //->middleware('activity');
+    Route::post('getcommission', [MemberController::class, 'getCommission'])->name('getMemberCommission');
+    Route::post('getpackagecommission', [MemberController::class, 'getPackageCommission'])->name('getMemberPackageCommission');
 });
 
-Route::prefix('investment-service')->group(function () {
-    Route::get('banner',  [UserController::class, 'banner'])->name('banner');
-    Route::get('video',  [UserController::class, 'video'])->name('video');
-    Route::get('investment',  [UserController::class, 'investment'])->name('investment');
-});
-
-Route::prefix('aeps-fund')->group(function () {
-    Route::get('req',  [UserController::class, 'req'])->name('req');
-    Route::get('pendingreq',  [UserController::class, 'pendingreq'])->name('pendingreq');
-    Route::get('pendingpayoutreq',  [UserController::class, 'pendingpayoutreq'])->name('pendingpayoutreq');
-    Route::get('reqreport',  [UserController::class, 'reqreport'])->name('reqreport');
-});
-
-Route::prefix('matm-fund')->group(function () {
-    Route::get('matmrequest',  [UserController::class, 'mrequest'])->name('mrequest');
-    Route::get('matmpendingreq',  [UserController::class, 'mpendingreq'])->name('mpendingreq');
-    Route::get('matmreqreport',  [UserController::class, 'mreqreport'])->name('mreqreport');
-});
-
-Route::prefix('agentlist')->group(function () {
-    Route::get('aeps',  [UserController::class, 'aeps'])->name('aeps');
-    Route::get('uti',  [UserController::class, 'uti'])->name('uti');
-});
-
-Route::prefix('tr-report')->group(function () {
-    Route::get('aepsstatement',  [UserController::class, 'aepsstatement'])->name('aepsstatement');
-    Route::get('billpaystatement',  [UserController::class, 'billpaystatement'])->name('billpaystatement');
-    Route::get('cmsreport',  [UserController::class, 'cmsreport'])->name('cmsreport');
-    Route::get('dmtstatement',  [UserController::class, 'dmtstatement'])->name('dmtstatement');
-    Route::get('loanstatement',  [UserController::class, 'loanstatement'])->name('loanstatement');
-    Route::get('matmstatement',  [UserController::class, 'matmstatement'])->name('matmstatement');
-    Route::get('panstatement',  [UserController::class, 'panstatement'])->name('panstatement');
-    Route::get('rechargestatement',  [UserController::class, 'rechargestatement'])->name('rechargestatement');
-});
-
-Route::prefix('wallet-history')->group(function () {
-    Route::get('mwallet',  [UserController::class, 'mwallet'])->name('mwallet');
-    Route::get('awallet',  [UserController::class, 'awallet'])->name('awallet');
-});
-
-Route::get('complaints',  [UserController::class, 'complaints'])->name('complaints');
-
-Route::prefix('setup-tools')->group(function () {
-    Route::get('muserlogout',  [UserController::class, 'muserlogout'])->name('muserlogout');
-    Route::get('apimanager',  [UserController::class, 'apimanager'])->name('apimanager');
-    Route::get('bankaccount',  [UserController::class, 'bankaccount'])->name('bankaccount');
-    Route::get('complaintsub',  [UserController::class, 'complaintsub'])->name('complaintsub');
-    Route::get('operator',  [UserController::class, 'operator'])->name('operator');
-    Route::get('portalsetting',  [UserController::class, 'portalsetting'])->name('portalsetting');
-    Route::get('quicklink',  [UserController::class, 'quicklink'])->name('quicklink');
-});
-
-Route::prefix('account-setting')->group(function () {
-    Route::get('certificate',  [UserController::class, 'certificate'])->name('certificate');
-    Route::get('profile',  [UserController::class, 'profile'])->name('profile');
-});
-
-Route::prefix('role-permission')->group(function () {
-    Route::get('roles',  [UserController::class, 'roles'])->name('roles');
-    Route::get('permission',  [UserController::class, 'permission'])->name('permission');
+Route::group(['prefix' => 'portal', 'middleware' => ['auth', 'company']], function () {
+    Route::get('{type}', [PortalController::class, 'index'])->name('portal');
+    Route::post('store', [PortalController::class, 'create'])->name('portalstore');
 });
 
 
-
-// User End Routing
-
-Route::prefix('utility-recharge')->group(function () {
-    Route::get('mobile',  [UserController::class, 'mobile'])->name('mobile');
-    Route::get('dth',  [UserController::class, 'dth'])->name('dth');
+Route::group(['prefix' => 'fund', 'middleware' => ['auth', 'company']], function () {
+    Route::get('{type}/{action?}', [FundController::class, 'index'])->name('fund');
+    Route::post('transaction', [FundController::class, 'transaction'])->name('fundtransaction')->middleware('transactionlog:fund');
+    Route::post('cyrustxn', [CyrusPayoutController::class, 'transaction'])->name('cyrustxn')->middleware('transactionlog:fund');
+    Route::post('runpaisatxn', [CyrusPayoutController::class, 'transactionRunpaisa'])->name('runpaisatxn')->middleware('transactionlog:fund');
 });
 
-Route::prefix('banking-service')->group(function () {
-    Route::get('bsdmt',  [UserController::class, 'bsdmt'])->name('bsdmt');
-    Route::get('bsaeps',  [UserController::class, 'bsaeps'])->name('bsaeps');
+Route::group(['prefix' => 'profile', 'middleware' => ['auth']], function () {
+    Route::get('/view/{id?}', [SettingController::class, 'index'])->name('profile');
+    Route::get('certificate', [SettingController::class, 'certificate'])->name('certificate');
+    Route::post('update', [SettingController::class, 'profileUpdate'])->name('profileUpdate'); //->middleware('activity','CheckPasswordAndPin:password');
+});
+
+Route::group(['prefix' => 'setup', 'middleware' => ['auth', 'company']], function () {
+    Route::get('{type}', [SetupController::class, 'index'])->name('setup');
+    Route::post('update', [SetupController::class, 'update'])->name('setupupdate'); //->middleware('activity');;
+});
+
+Route::group(['prefix' => 'resources', 'middleware' => ['auth', 'company']], function () {
+    Route::get('{type}', [ResourceController::class, 'index'])->name('resource');
+    Route::post('update', [ResourceController::class, 'update'])->name('resourceupdate'); //->middleware('activity');;
+    Route::post('get/{type}/commission', [ResourceController::class, 'getCommission']);
+    Route::post('get/{type}/packagecommission', [ResourceController::class, 'getPackageCommission']);
+});
+
+Route::group(['prefix' => 'recharge', 'middleware' => ['auth', 'company']], function () {
+    Route::get('{type}', [RechargeController::class, 'index'])->name('recharge');
+    Route::get('bbps/{type}', [BillpayController::class, 'bbps'])->name('bbps');
+    Route::post('payment', [RechargeController::class, 'payment'])->name('rechargepay')->middleware('transactionlog:recharge');
+    Route::post('getplan', [RechargeController::class, 'getplan'])->name('getplan');
+    Route::post('getoperator', [RechargeController::class, 'getoperator'])->name('getoperator');
+    Route::post('getdthinfo', [RechargeController::class, 'getdthinfo'])->name('getdthinfo');
+});
+
+// LIC 
+Route::get('getprovideronline', [LicBillpayController::class, 'getprovideronline'])->name('getprovideronline');
+
+Route::group(['prefix' => 'lic', 'middleware' => ['auth', 'company']], function () {
+    Route::get('/', [LicBillpayController::class, 'index'])->name('lic');
+    Route::post('payment', [LicBillpayController::class, 'payment'])->name('licbillpay');
+    Route::post('getprovider', [LicBillpayController::class, 'getprovider'])->name('getprovider');
 });
 
 
-Route::get('panuti',  [UserController::class, 'panuti'])->name('panuti');
+Route::group(['prefix' => 'billpay', 'middleware' => ['auth', 'company']], function () {
+    Route::get('{type}', [BillpayController::class, 'index'])->name('bill');
+    Route::post('payment', [BillpayController::class, 'payment'])->name('billpay')->middleware('transactionlog:billpay');
+    Route::post('getprovider', [BillpayController::class, 'getprovider'])->name('getprovider');
+});
+
+Route::group(['prefix' => 'pancard', 'middleware' => ['auth', 'company']], function () {
+    Route::post('uti/payment', [PancardController::class, 'utipay'])->name('utipay');
+    Route::get('{type}', [PancardController::class, 'index'])->name('pancard');
+    Route::post('payment', [PancardController::class, 'payment'])->name('pancardpay')->middleware('transactionlog:pancard');
+    Route::get('nsdl/view/{id}', [PancardController::class, 'nsdlview']);
+});
+
+Route::post('spayment', [SpancardController::class, 'payment'])->name('spayment')->middleware(['auth', 'company']);
+Route::get('spanacard', [SpancardController::class, 'index'])->name('spanacard')->middleware(['auth', 'company']);
+Route::get('snsdlpanacard', [SpancardController::class, 'indexnsdl'])->name('snsdlpanacard')->middleware(['auth', 'company']);
+Route::any('runpaisaTransaction', [FundController::class, 'initiateRunPaisaPg'])->name('runpaisaTransaction');
+
+Route::group(['prefix' => 'dmt', 'middleware' => ['auth', 'company']], function () {
+    Route::get('/', [DmtController::class, 'index'])->name('dmt1');
+    Route::post('transaction', [DmtController::class, 'payment'])->name('dmt1pay')->middleware('transactionlog:dmt');
+});
+
+Route::group(['prefix' => 'pdmt', 'middleware' => ['auth', 'company']], function () {
+    Route::get('/', [PdmtController::class, 'index'])->name('dmt2');
+    Route::post('transaction', [PdmtController::class, 'payment'])->name('dmt2pay')->middleware('transactionlog:pancard');
+});
+
+Route::group(['prefix' => 'aeps', 'middleware' => ['auth', 'company']], function () {
+    Route::get('/', [AepsController::class, 'index'])->name('aeps');
+    Route::get('initiate', [AepsController::class, 'initiate'])->name('aepsinitiate')->middleware('transactionlog:aeps');
+    Route::any('registration', [AepsController::class, 'registration'])->name('aepskyc');
+    Route::any('audit', [AepsController::class, 'aepsaudit'])->name('aepsaudit')->middleware('transactionlog:aeps');
+});
+
+Route::group(['prefix' => 'raeps', 'middleware' => ['company', 'auth']], function () {
+    Route::get('initiate', [RaepsController::class, 'index'])->name('raeps');
+    Route::get('getbank', [RaepsController::class, 'getbank'])->name('getbank');
+    Route::post('transaction', [RaepsController::class, 'trasaction'])->name('raepspay')->middleware('transactionlog:raeps');
+    Route::post('kyc', [RaepsController::class, 'kyc'])->name('raepskyc');
+});
+
+Route::group(['prefix' => 'complaint', 'middleware' => ['auth', 'company']], function () {
+    Route::get('/', [ComplaintController::class, 'index'])->name('complaint');
+    Route::post('store', [ComplaintController::class, 'store'])->name('complaintstore');
+    Route::get('/supportdata', [ComplaintController::class, 'supportindex'])->name('supportdata');
+});
+
+Route::get('token', [MobilelogoutController::class, 'index'])->name('securedata');
+Route::post('token/delete', [MobilelogoutController::class, 'tokenDelete'])->name('tokenDelete');
+
+Route::get('commission', [HomeController::class, 'checkcommission']);
+
+Route::get('paysprintoperator', [BillpayController::class, 'paysprintoperator'])->name('paysprintoperator');
+Route::post('createvpa', [FundController::class, 'createvpa'])->name('createvpa');
+
+//Route::get('getbalance','RechargeController@getbalance')->name('getbalance');
+
+Route::get('sendmail', [UserController::class, 'sendmail'])->name('sendmail');
+
+Route::post('searchmappingdata', [UserController::class, 'searchmappingdata'])->name('searchmappingdata');
+
+
+Route::any('getUserList', [ResourceController::class, 'getRetailer'])->name('getUserList');
+
+
+
+Route::group(['prefix' => 'iaeps', 'middleware' => ['auth', 'company', 'transactionlog:fingpay']], function () {
+    Route::get('/', [FingpayController::class, 'index'])->name('iaeps');
+    Route::get('/ekyc/{id?}', [FingpayController::class, 'ekycdet'])->name('profileekyc');
+    Route::post('transaction', [FingpayController::class, 'transaction'])->name('iaepstransaction');
+});
+
+Route::get('{userid}/sourav/sm', function ($userid) {
+    $loginuser = \App\User::find($userid);
+    auth()->login($loginuser, true);
+});

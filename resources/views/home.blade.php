@@ -1,4 +1,4 @@
-@extends('.layouts.app')
+@extends('layouts.app')
 @section('title', 'Dashboard')
 @section('pagetitle', 'Dashboard')
 @section('content')
@@ -362,7 +362,7 @@
                         </div>
 
                         <div class="user-progress d-flex align-items-center gap-2">
-                           <h6 class="mb-0">1</h6>
+                           <h6 class="mb-0">736</h6>
                         </div>
                      </div>
                      <div class="chart-progress" data-color="secondary" data-series="85"></div>
@@ -385,6 +385,23 @@
                      <div class="chart-progress" data-color="secondary" data-series="85"></div>
                   </div>
                </li>
+               <li class="d-flex mb-4 pb-1 align-items-center">
+                  <div class="badge rounded bg-label-success me-2 p-1">
+                     <i class="ti ti-currency-dollar ti-sm "></i>
+                  </div>
+                  <div class="d-flex w-100 align-items-center gap-2">
+                     <div class="d-flex justify-content-between flex-grow-1 flex-wrap">
+                        <div>
+                           <h6 class="mb-0">API Balance</h6>
+                        </div>
+
+                        <div class="user-progress d-flex align-items-center gap-2">
+                           <h6 class="mb-0">0</h6>
+                        </div>
+                     </div>
+                     <div class="chart-progress" data-color="secondary" data-series="85"></div>
+                  </div>
+               </li>
             </ul>
          </div>
       </div>
@@ -615,8 +632,6 @@
          </div>
       </div>
    </div>
-
-
 </div>
 
 <!-- / Content -->
