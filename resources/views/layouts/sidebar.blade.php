@@ -24,7 +24,6 @@
     <ul class="menu-inner py-1">
 
 
-        @if(Auth::user()->kyc == "verified")
         <li class="menu-item active ">
             <a href="{{route('dashboard')}}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-smart-home"></i>
@@ -41,129 +40,143 @@
                 <div data-i18n="Utility Recharge">Utility Recharge</div>
             </a>
             <ul class="menu-sub" id="menu-design">
-            @if (Myhelper::can('recharge_service'))
+                @if (Myhelper::can('recharge_service'))
                 <li class="menu-item ">
-                    <a href="{{route('mobile')}}" class="menu-link">
+                    <a href="{{route('recharge' , ['type' => 'mobile'])}}" class="menu-link">
                         <div data-i18n="Mobile">Mobile</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{route('dth')}}" class="menu-link">
+                    <a href="{{route('recharge' , ['type' => 'dth'])}}" class="menu-link">
                         <div data-i18n="DTH">DTH</div>
                     </a>
                 </li>
-
+                @endif
             </ul>
         </li>
+        @endif
 
+        @if (Myhelper::can(['billpayment_service']))
         <li class="menu-item ">
             <a href="#userinfo" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-smart-home"></i>
                 <div data-i18n="Bill Payment">Bill Payment</div>
             </a>
             <ul class="menu-sub" id="userinfo">
+                @if (Myhelper::can('billpayment_service'))
                 <li class="menu-item ">
-                    <a href="{{route('bsaeps')}}" class="menu-link">
+                    <a href="{{route('bill' , ['type' => 'electricity'])}}" class="menu-link">
                         <div data-i18n="Electricity">Electricity</div>
                     </a>
                 </li>
                 <li class="menu-item ">
-                    <a href="{{route('bsaeps')}}" class="menu-link">
+                    <a href="{{route('bill' , ['type' => 'postpaid'])}}" class="menu-link">
                         <div data-i18n="Postpaid">Postpaid</div>
                     </a>
                 </li>
                 <li class="menu-item ">
-                    <a href="{{route('bsaeps')}}" class="menu-link">
+                    <a href="{{route('bill' , ['type' => 'water'])}}" class="menu-link">
                         <div data-i18n="Water">Water</div>
                     </a>
                 </li>
                 <li class="menu-item ">
-                    <a href="{{route('bsaeps')}}" class="menu-link">
+                    <a href="{{route('bill' , ['type' => 'broadband'])}}" class="menu-link">
                         <div data-i18n="Broadband">Broadband</div>
                     </a>
                 </li>
                 <li class="menu-item ">
-                    <a href="{{route('bsaeps')}}" class="menu-link">
+                    <a href="{{route('bill' , ['type' => 'lpg'])}}" class="menu-link">
                         <div data-i18n="LPG Gas">LPG Gas</div>
                     </a>
                 </li>
                 <li class="menu-item ">
-                    <a href="{{route('bsaeps')}}" class="menu-link">
+                    <a href="{{route('bill' , ['type' => 'gas'])}}" class="menu-link">
                         <div data-i18n="Piped Gas">Piped Gas</div>
                     </a>
                 </li>
                 <li class="menu-item ">
-                    <a href="{{route('bsaeps')}}" class="menu-link">
+                    <a href="{{route('bill' , ['type' => 'landline'])}}" class="menu-link">
                         <div data-i18n="Landline">Landline</div>
                     </a>
                 </li>
                 <li class="menu-item ">
-                    <a href="{{route('bsaeps')}}" class="menu-link">
+                    <a href="{{route('bill' , ['type' => 'schoolfees'])}}" class="menu-link">
                         <div data-i18n="Education Fees">Education Fees</div>
                     </a>
                 </li>
                 <li class="menu-item ">
-                    <a href="{{route('bsaeps')}}" class="menu-link">
+                    <a href="{{route('bill' , ['type' => 'fasttag'])}}" class="menu-link">
                         <i class="menu-icon tf-icons ti ti-user"></i>
                         <div data-i18n="FASTag">FASTag</div>
                     </a>
                 </li>
                 <li class="menu-item ">
-                    <a href="{{route('bsaeps')}}" class="menu-link">
+                    <a href="{{route('bill' , ['type' => 'loanrepay'])}}" class="menu-link">
                         <div data-i18n="Loan Repayment">Loan Repayment</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{route('bsaeps')}}" class="menu-link">
+                    <a href="{{route('bill' , ['type' => 'insurance'])}}" class="menu-link">
                         <div data-i18n="LIC/Insurance">LIC/Insurance</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{route('bsaeps')}}" class="menu-link">
+                    <a href="{{route('bill' , ['type' => 'muncipal'])}}" class="menu-link">
                         <div data-i18n="Municipal Tax">Municipal Tax</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{route('bsaeps')}}" class="menu-link">
+                    <a href="{{route('bill' , ['type' => 'housing'])}}" class="menu-link">
                         <div data-i18n="Housing Tax">Housing Tax</div>
                     </a>
                 </li>
-
+                @endif
             </ul>
         </li>
 
+        @if (Myhelper::can(['utipancard_service', 'nsdl_service']))
         <li class="menu-item ">
             <a href="#utiPan" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-id"></i>
                 <div data-i18n="PAN Card">PAN Card</div>
             </a>
             <ul class="menu-sub" id="utiPan">
+                @if (Myhelper::can('utipancard_service'))
                 <li class="menu-item ">
-                    <a href="{{route('panuti')}}" class="menu-link">
+                    <a href="{{ route('pancard', ['type' => 'uti']) }}" class="menu-link">
                         <div data-i18n="UTI">UTI</div>
                     </a>
                 </li>
-
+                @endif
             </ul>
         </li>
+        @endif
+
+        @if (Myhelper::can(['dmt1_service', 'aeps_service']))
         <li class="menu-item ">
             <a href="#bankingService" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-file-dollar"></i>
                 <div data-i18n="Banking Service">Banking Service</div>
             </a>
             <ul class="menu-sub" id="bankingService">
+                @if (Myhelper::can('dmt1_service'))
                 <li class="menu-item ">
-                    <a href="{{route('bsdmt')}}" class="menu-link">
+                    <a href="{{route('dmt1')}}" class="menu-link">
                         <div data-i18n="DMT">DMT</div>
                     </a>
                 </li>
+                @endif
+
+                @if (Myhelper::can('aeps_service'))
                 <li class="menu-item ">
-                    <a href="{{route('bsaeps')}}" class="menu-link">
+                    <a href="{{route('aeps')}}" class="menu-link">
                         <div data-i18n="AEPS">AEPS</div>
                     </a>
                 </li>
+                @endif
             </ul>
         </li>
+        @endif
 
         <li class="menu-item ">
             <a href="#serviceLink" class="menu-link menu-toggle">
@@ -171,98 +184,124 @@
                 <div data-i18n="Service Links">Service Links</div>
             </a>
             <ul class="menu-sub" id="serviceLink">
+                @if(sizeof($mydata['links']) > 0)
+                @foreach($mydata['links'] as $link)
+
                 <li class="menu-item">
-                    <a href="" class="menu-link" target="_blank">
-                        <div data-i18n="Test">Test</div>
+                    <a href="{{$link->value}}" class="menu-link" target="_blank">
+                        <div data-i18n="{{$link->name}}">{{$link->name}}</div>
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="{{url('https://www.youtube.com')}}" class="menu-link" target="_blank">
-                        <div data-i18n="Youtube">Youtube</div>
-                    </a>
-                </li>
+                @endforeach
+                @endif
             </ul>
         </li>
+        @endif
 
+        @if ((Myhelper::can(['company_manager', 'change_company_profile'])) || (Myhelper::hasNotRole('retailer') && isset($mydata['schememanager']) && $mydata['schememanager']->value == "all"))
         <li class="menu-item ">
             <a href="#tables" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-file"></i>
                 <div data-i18n="Resources">Resources</div>
             </a>
             <ul class="menu-sub" id="tables">
+                @if (Myhelper::hasNotRole('retailer') && isset($mydata['schememanager']) && $mydata['schememanager']->value == "all")
+
                 <li class="menu-item">
-                    <a href="{{route('scheme')}}" class="menu-link">
+                    <a href="{{route('resource', ['type' => 'package'])}}" class="menu-link">
                         <div data-i18n="Scheme Manager">Scheme Manager</div>
                     </a>
                 </li>
-
+                @elseif (Myhelper::hasRole('admin'))
                 <li class="menu-item">
-                    <a href="{{route('company')}}" class="menu-link">
+                    <a href="{{route('resource', ['type' => 'scheme'])}}" class="menu-link">
+                        <div data-i18n="Scheme Manager">Scheme Manager</div>
+                    </a>
+                </li>
+                @endif
+                @if (Myhelper::can('company_manager'))
+                <li class="menu-item">
+                    <a href="{{route('resource', ['type' => 'company'])}}" class="menu-link">
                         <div data-i18n="Company Manager">Company Manager</div>
                     </a>
                 </li>
+                @endif
+
+                @if (Myhelper::can('change_company_profile'))
                 <li class="menu-item">
-                    <a href="{{route('companyprofile')}}" class="menu-link">
+                    <a href="{{route('resource', ['type' => 'companyprofile'])}}" class="menu-link">
                         <div data-i18n="Company Profile">Company Profile</div>
                     </a>
                 </li>
-
+                @endif
             </ul>
         </li>
+        @endif
 
+        @if (Myhelper::can(['view_whitelable', 'view_md', 'view_distributor', 'view_retailer', 'view_apiuser', 'view_other', 'view_kycpending', 'view_kycsubmitted', 'view_kycrejected']))
         <li class="menu-item ">
             <a href="#member" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-users"></i>
                 <div data-i18n="Member">Member</div>
             </a>
             <ul class="menu-sub" id="member">
+                @if (Myhelper::can(['view_whitelable']))
                 <li class="menu-item">
-                    <a href="{{route('whitelabel')}}" class="menu-link">
+                    <a href="{{route('member', ['type' => 'whitelable'])}}" class="menu-link">
                         <div data-i18n="Whitelabel">Whitelabel</div>
                     </a>
                 </li>
 
+                @endif
+                @if (Myhelper::can(['view_md']))
                 <li class="menu-item">
-                    <a href="{{route('md')}}" class="menu-link">
+                    <a href="{{route('member', ['type' => 'md'])}}" class=" menu-link">
                         <div data-i18n="Master Distributor">Master Distributor</div>
                     </a>
                 </li>
-
+                @endif
+                @if (Myhelper::can(['view_distributor']))
                 <li class="menu-item">
-                    <a href="{{route('distributor')}}" class="menu-link">
-                        <div data-i18n=" Distributor"> Distributor</div>
+                    <a href="{{route('member', ['type' => 'distributor'])}}" class="menu-link">
+                        <div data-i18n="Distributor">Distributor</div>
                     </a>
                 </li>
-
+                @endif
+                @if (Myhelper::can(['view_retailer']))
                 <li class="menu-item">
-                    <a href="{{route('retailer')}}" class="menu-link">
+                    <a href="{{route('member', ['type' => 'retailer'])}}" class="menu-link">
                         <div data-i18n="Retailer">Retailer</div>
                     </a>
                 </li>
-
+                @endif
+                @if (Myhelper::hasRole('admin') || Myhelper::hasRole('subadmin'))
                 <li class="menu-item">
-                    <a href="{{route('allmember')}}" class="menu-link">
+                    <a href="{{route('member', ['type' => 'web'])}}" class="menu-link">
                         <div data-i18n="All Member">All Member</div>
                     </a>
                 </li>
-
+                @endif
+                @if (Myhelper::hasRole('admin') || Myhelper::hasRole('subadmin'))
                 <li class="menu-item">
-                    <a href="{{route('kycsubmit')}}" class="menu-link">
+                    <a href="{{route('member', ['type' => 'kycsubmitted'])}}" class="menu-link">
                         <div data-i18n="Kycsubmited User">Kycsubmited User</div>
                     </a>
                 </li>
-
+                @endif
+                @if (Myhelper::hasRole('admin') || Myhelper::hasRole('subadmin'))
                 <li class="menu-item">
-                    <a href="{{route('kycreject')}}" class="menu-link">
+                    <a href="{{route('member', ['type' => 'kycrejected'])}}" class="menu-link">
                         <div data-i18n="Kyc Rejected User">Kyc Rejected User</div>
                     </a>
                 </li>
-
+                @endif
+                @if (Myhelper::hasRole('admin') || Myhelper::hasRole('subadmin'))
                 <li class="menu-item">
-                    <a href="{{route('kycpending')}}" class="menu-link">
+                    <a href="{{route('member', ['type' => 'kycpending'])}}" class="menu-link">
                         <div data-i18n="Kyc Pending User">Kyc Pending User</div>
                     </a>
                 </li>
+                @endif
 
                 <!-- <li class="menu-item">
                     <a href="" class="menu-link">
@@ -278,7 +317,9 @@
 
             </ul>
         </li>
+        @endif
 
+        @if (Myhelper::can(['fund_transfer', 'fund_return', 'fund_request_view', 'fund_report', 'fund_request']))
         <li class="menu-item ">
             <a href="#funds" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-id"></i>
@@ -290,39 +331,46 @@
                         <div data-i18n="Run Paisa PG">Run Paisa PG</div>
                     </a>
                 </li>
+                @if (Myhelper::can(['fund_transfer', 'fund_return']))
                 <li class="menu-item">
-                    <a href="{{route('tr')}}" class="menu-link">
+                    <a href="{{route('fund', ['type' => 'tr'])}}" class="menu-link">
                         <div data-i18n="Transfer/Return">Transfer/Return</div>
                     </a>
                 </li>
+                @endif
 
+                @if (Myhelper::can(['setup_bank']))
                 <li class="menu-item">
-                    <a href="{{route('request')}}" class="menu-link">
+                    <a href="{{route('fund', ['type' => 'requestview'])}}" class="menu-link">
                         <div data-i18n="Request">Request</div>
                     </a>
                 </li>
+                @endif
 
+                @if (Myhelper::hasNotRole('admin') && Myhelper::can('fund_request'))
                 <li class="menu-item">
-                    <a href="{{route('loadwallet')}}" class="menu-link">
+                    <a href="{{route('fund', ['type' => 'request'])}}" class="menu-link">
                         <div data-i18n="Load Main Wallet">Load Main Wallet</div>
                     </a>
                 </li>
+                @endif
 
-
+                @if (Myhelper::can(['fund_report']))
                 <li class="menu-item">
-                    <a href="{{route('requestreport')}}" class="menu-link">
+                    <a href="{{route('fund', ['type' => 'requestviewall'])}}" class="menu-link">
                         <div data-i18n="Request Report">Request Report</div>
                     </a>
                 </li>
 
                 <li class="menu-item">
-                    <a href="{{route('allfundreport')}}" class="menu-link">
+                    <a href="{{route('fund', ['type' => 'statement'])}}" class="menu-link">
                         <div data-i18n="All Fund Report">All Fund Report</div>
                     </a>
                 </li>
-
+                @endif
             </ul>
         </li>
+        @endif
 
         <li class="menu-item ">
             <a href="#funds" class="menu-link menu-toggle">
@@ -372,6 +420,7 @@
                 </li>
             </ul>
         </li>
+        @if (Myhelper::can(['aeps_fund_request', 'aeps_fund_view', 'aeps_fund_report']))
 
         <li class="menu-item ">
             <a href="#aepsfund" class="menu-link menu-toggle">
@@ -379,40 +428,44 @@
                 <div data-i18n="AEPS Fund">AEPS Fund</div>
             </a>
             <ul class="menu-sub" id="aepsfund">
+                @if (Myhelper::can(['aeps_fund_request']) && Myhelper::hasNotRole('admin'))
+
                 <li class="menu-item">
-                    <a href="{{route('req')}}" class="menu-link">
+                    <a href="{{route('fund', ['type' => 'aeps'])}}" class="menu-link">
                         <div data-i18n="Request">Request</div>
                     </a>
                 </li>
-                <!--   <li class="menu-item">
-                    <a href="" class="menu-link">
-                        <div data-i18n="Add Bank">Add Bank</div>
-                    </a>
-                </li> -->
+                @endif
 
+                @if (Myhelper::can(['aeps_fund_view']))
 
                 <li class="menu-item">
-                    <a href="{{route('pendingreq')}}" class="menu-link">
+                    <a href="{{route('fund', ['type' => 'aepsrequest'])}}" class="menu-link">
                         <div data-i18n="Pending Request">Pending Request</div>
                     </a>
                 </li>
 
                 <li class="menu-item">
-                    <a href="{{route('pendingpayoutreq')}}" class="menu-link">
+                    <a href="{{route('fund', ['type' => 'payoutrequest'])}}" class="menu-link">
                         <div data-i18n="Pending Payout Request">Pending Payout Request</div>
                     </a>
                 </li>
 
+                @endif
 
+                @if (Myhelper::can(['aeps_fund_report']))
 
                 <li class="menu-item">
-                    <a href="{{route('reqreport')}}" class="menu-link">
+                    <a href="{{route('fund', ['type' => 'aepsrequestall'])}}" class="menu-link">
                         <div data-i18n="Request Report">Request Report</div>
                     </a>
                 </li>
-
+                @endif
             </ul>
         </li>
+        @endif
+
+        @if (Myhelper::can(['microatm_fund_request', 'microatm_fund_view', 'microatm_fund_report']))
 
         <li class="menu-item ">
             <a href="#matmfund" class="menu-link menu-toggle">
@@ -420,29 +473,37 @@
                 <div data-i18n="MATM Fund ">MATM Fund </div>
             </a>
             <ul class="menu-sub" id="matmfund">
+                @if (Myhelper::can(['microatm_fund_request']))
 
                 <li class="menu-item">
-                    <a href="{{route('mrequest')}}" class="menu-link">
+                    <a href="{{route('fund', ['type' => 'microatm'])}}" class="menu-link">
                         <div data-i18n="Request">Request</div>
                     </a>
                 </li>
+                @endif
 
+                @if (Myhelper::can(['microatm_fund_view']))
 
                 <li class="menu-item">
-                    <a href="{{route('mpendingreq')}}" class="menu-link">
+                    <a href="{{route('fund', ['type' => 'microatmrequest'])}}" class="menu-link">
                         <div data-i18n="Pending Request">Pending Request</div>
                     </a>
                 </li>
+                @endif
 
+                @if (Myhelper::can(['microatm_fund_report']))
 
                 <li class="menu-item">
-                    <a href="{{route('mreqreport')}}" class="menu-link">
+                    <a href="{{route('fund', ['type' => 'microatmrequestall'])}}" class="menu-link">
                         <div data-i18n="Request Report">Request Report</div>
                     </a>
                 </li>
-
+                @endif
             </ul>
         </li>
+        @endif
+
+        @if (Myhelper::can(['utiid_statement', 'aepsid_statement']))
 
         <li class="menu-item ">
             <a href="#agentList" class="menu-link menu-toggle">
@@ -450,22 +511,27 @@
                 <div data-i18n="Agent List">Agent List</div>
             </a>
             <ul class="menu-sub" id="agentList">
-
+                @if (Myhelper::can('aepsid_statement'))
                 <li class="menu-item">
-                    <a href="{{route('aeps')}}" class="menu-link">
+                    <a href="{{route('statement', ['type' => 'aepsid'])}}" class="menu-link">
                         <div data-i18n="AePS">AePS</div>
                     </a>
                 </li>
+                @endif
 
+                @if (Myhelper::can('utiid_statement'))
 
                 <li class="menu-item">
-                    <a href="{{route('uti')}}" class="menu-link">
+                    <a href="{{ route('statement', ['type' => 'utiid']) }}" class="menu-link">
                         <div data-i18n="UTI">UTI</div>
                     </a>
                 </li>
-
+                @endif
             </ul>
         </li>
+        @endif
+
+        @if (Myhelper::can(['account_statement', 'utiid_statement', 'utipancard_statement', 'recharge_statement', 'billpayment_statement']))
 
         <li class="menu-item ">
             <a href="#txnreport" class="menu-link menu-toggle">
@@ -473,61 +539,81 @@
                 <div data-i18n="Transaction Report">Transaction Report</div>
             </a>
             <ul class="menu-sub" id="txnreport">
+                @if (Myhelper::can('aeps_statement'))
 
                 <li class="menu-item">
-                    <a href="{{route('aepsstatement')}}" class="menu-link">
+                    <a href="{{route('statement', ['type' => 'aeps'])}}" class="menu-link">
                         <div data-i18n="AePS Statement">AePS Statement</div>
                     </a>
                 </li>
+                @endif
+
+                @if (Myhelper::can('billpayment_statement'))
 
 
                 <li class="menu-item">
-                    <a href="{{route('billpaystatement')}}" class="menu-link">
+                    <a href="{{route('statement', ['type' => 'billpay'])}}" class="menu-link">
                         <div data-i18n="Billpay Statement">Billpay Statement</div>
                     </a>
                 </li>
 
+                @endif
+
+                @if (Myhelper::can('money_statement'))
 
                 <li class="menu-item">
-                    <a href="{{route('dmtstatement')}}" class="menu-link">
+                    <a href="{{route('statement', ['type' => 'money'])}}" class="menu-link">
                         <div data-i18n="DMT Statement">DMT Statement</div>
                     </a>
                 </li>
 
+                @endif
+
+                @if (Myhelper::can('matm_fund_report'))
 
                 <li class="menu-item">
-                    <a href="{{route('matmstatement')}}" class="menu-link">
+                    <a href="{{route('statement', ['type' => 'matm'])}}" class="menu-link">
                         <div data-i18n="Micro ATM Statement">Micro ATM Statement</div>
                     </a>
                 </li>
 
+                @endif
+
+                @if (Myhelper::can('recharge_statement'))
 
                 <li class="menu-item">
-                    <a href="{{route('rechargestatement')}}" class="menu-link">
+                    <a href="{{route('statement', ['type' => 'recharge'])}}" class="menu-link">
                         <div data-i18n="Recharge Statement">Recharge Statement</div>
                     </a>
                 </li>
 
+                @endif
+
+                @if (Myhelper::can('utipancard_statement'))
 
                 <li class="menu-item">
-                    <a href="{{route('panstatement')}}" class="menu-link">
+                    <a href="{{ route('statement', ['type' => 'utipancard']) }}" class="menu-link">
                         <div data-i18n="Uti Pancard Statement">Uti Pancard Statement</div>
                     </a>
                 </li>
-
+                @endif
 
                 <li class="menu-item">
-                    <a href="{{route('loanstatement')}}" class="menu-link">
+                    <a href="{{route('statement', ['type' => 'loanenquiry'])}}" class="menu-link">
                         <div data-i18n="Loanenquiry Statement">Loanenquiry Statement</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{route('cmsreport')}}" class="menu-link">
+                    <a href="{{route('statement', ['type' => 'cmsreport'])}}" class="menu-link">
                         <div data-i18n="CMS Report">CMS Report</div>
                     </a>
                 </li>
             </ul>
         </li>
+        @endif
+
+
+        @if (Myhelper::can(['account_statement', 'awallet_statement']))
 
         <li class="menu-item ">
             <a href="#walletreport" class="menu-link menu-toggle">
@@ -535,86 +621,97 @@
                 <div data-i18n="Wallet History">Wallet History</div>
             </a>
             <ul class="menu-sub" id="walletreport">
-
+                @if (Myhelper::can('account_statement'))
                 <li class="menu-item">
-                    <a href="{{route('mwallet')}}" class="menu-link">
+                    <a href="{{route('statement', ['type' => 'account'])}}" class="menu-link">
                         <div data-i18n="Main Wallet">Main Wallet</div>
                     </a>
                 </li>
-
+                @endif
+                @if (Myhelper::can('awallet_statement'))
                 <li class="menu-item">
-                    <a href="{{route('awallet')}}" class="menu-link">
+                    <a href="{{route('statement', ['type' => 'awallet'])}}" class="menu-link">
                         <div data-i18n="Aeps Wallet">Aeps Wallet</div>
                     </a>
                 </li>
-
+                @endif
             </ul>
         </li>
+        @endif
 
+        @if (Myhelper::can('Complaint'))
         <li class="menu-item">
-            <a href="{{route('complaints')}}" class="menu-link">
+            <a href="{{route('complaint')}}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-layout-navbar"></i>
                 <div data-i18n="Complaints">Complaints</div>
             </a>
         </li>
-
+        @endif
         <!-- <li class="menu-item">
             <a href="" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-smart-home"></i>
                 <div data-i18n="Loan Enquiry">Loan Enquiry</div>
             </a>
         </li> -->
-
+        @if (Myhelper::can(['setup_bank', 'api_manager', 'setup_operator']))
         <li class="menu-item ">
             <a href="#setuptools" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-text-wrap-disabled"></i>
                 <div data-i18n="Setup Tools">Setup Tools</div>
             </a>
             <ul class="menu-sub" id="setuptools">
+                @if (Myhelper::hasRole('admin') || Myhelper::hasRole('subadmin'))
                 <li class="menu-item">
-                    <a href="{{route('muserlogout')}}" class="menu-link">
+                    <a href="{{route('securedata')}}" class="menu-link">
                         <div data-i18n="Mobile User Logout">Mobile User Logout</div>
                     </a>
                 </li>
-
+                @endif
+                @if (Myhelper::can('api_manager'))
                 <li class="menu-item">
-                    <a href="{{route('apimanager')}}" class="menu-link">
+                    <a href="{{route('setup', ['type' => 'api'])}}" class="menu-link">
                         <div data-i18n="API Manager">API Manager</div>
                     </a>
                 </li>
-
+                @endif
+                @if (Myhelper::can('setup_bank'))
                 <li class="menu-item">
-                    <a href="{{route('bankaccount')}}" class="menu-link">
+                    <a href="{{route('setup', ['type' => 'bank'])}}" class="menu-link">
                         <div data-i18n="Bank Account">Bank Account</div>
                     </a>
                 </li>
+                @endif
+                @if (Myhelper::can('complaint_subject'))
 
                 <li class="menu-item">
-                    <a href="{{route('complaintsub')}}" class="menu-link">
+                    <a href="{{route('setup', ['type' => 'complaintsub'])}}" class="menu-link">
                         <div data-i18n="Complaint Subject">Complaint Subject</div>
                     </a>
                 </li>
+                @endif
+                @if (Myhelper::can('setup_operator'))
 
                 <li class="menu-item">
-                    <a href="{{route('operator')}}" class="menu-link">
+                    <a href="{{route('setup', ['type' => 'operator'])}}" class="menu-link">
                         <div data-i18n="Operator Manager">Operator Manager</div>
                     </a>
                 </li>
-
+                @endif
+                @if (Myhelper::hasRole('admin'))
                 <li class="menu-item">
-                    <a href="{{route('portalsetting')}}" class="menu-link">
+                    <a href="{{route('setup', ['type' => 'portalsetting'])}}" class="menu-link">
                         <div data-i18n="Portal Setting">Portal Setting</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{route('quicklink')}}" class="menu-link">
+                    <a href="{{route('setup', ['type' => 'links'])}}" class="menu-link">
                         <div data-i18n="Quick Links">Quick Links</div>
                     </a>
                 </li>
-
+                @endif
             </ul>
         </li>
-
+        @endif
         <!-- <li class="menu-item ">
             <a href="#mappingManager" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-map"></i>
@@ -690,26 +787,29 @@
                 </li>
             </ul>
         </li>
+
+        @if (Myhelper::hasRole('admin'))
         <li class="menu-item ">
             <a href="#roles" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-file"></i>
                 <div data-i18n="Roles & Permissions">Roles & Permissions</div>
             </a>
             <ul class="menu-sub" id="roles">
-
+                {{route('tools' , ['type' => 'roles'])}}
                 <li class="menu-item">
                     <a href="{{route('roles')}}" class="menu-link">
                         <div data-i18n="Roles">Roles</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{route('permission')}}" class="menu-link">
+                    <a href="{{route('tools' , ['type' => 'permissions'])}}" class="menu-link">
                         <div data-i18n="Permission">Permission</div>
                     </a>
                 </li>
             </ul>
         </li>
-
+        @endif
+        @endif
     </ul>
 </aside>
 <!-- / Menu -->

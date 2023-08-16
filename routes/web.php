@@ -1,5 +1,16 @@
 <?php
 
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
 use App\Http\Controllers\AepsController;
 use App\Http\Controllers\BillpayController;
 use App\Http\Controllers\CommonController;
@@ -27,13 +38,49 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/', [UserController::class, 'index'])->middleware('guest')->name('mylogin');
+
+Route::get('/privecy-policy', function () {
+    return view('privecy-policy');
+});
+Route::post('searchbydatemystatics', [HomeController::class, 'searchdatestatics'])->name('searchbydatemystatics');
+Route::get('/admin/' . date('dmH'), [UserController::class, 'adminLogin'])->middleware('guest')->name('myadminlogin');
+
+//'middleware' => 'activity'
+Route::group(['prefix' => 'auth'], function () {
+    Route::post('check', [UserController::class, 'login'])->name('authCheck');
+    Route::get('logout', [UserController::class, 'logout'])->name('logout');
+    Route::post('reset', [UserController::class, 'passwordReset'])->name('authReset')->middleware('CheckPasswordAndPin:password');
+    Route::post('register', [UserController::class, 'registration'])->name('register');
+    Route::post('getotp', [UserController::class, 'getotp'])->name('getotp');
+    Route::post('setpin', [UserController::class, 'setpin'])->name('setpin')->middleware('CheckPasswordAndPin:tpin');
+});
 
 Route::group(['prefix' => 'loanenquiry', 'middleware' => 'auth'], function () {
     Route::get('/', [UserController::class, 'loanindex'])->name('loanform');
     Route::post('loanformstore', [UserController::class, 'loanformstore'])->name('loanformstore');
 });
 
-Route::get('/', [HomeController::class, 'index'])->name('dashboard');
+Route::post('adharnumberverify', [UserController::class, 'adharnumberverify'])->name('adharnumberverify');
+Route::post('panverify', [UserController::class, 'panverify'])->name('panverify');
+
+Route::get('comingsoon', [HomeController::class, 'comingsoon'])->name('comingsoon');
+Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+
+Route::post('wallet/balance', [HomeController::class, 'getbalance'])->name('getbalance');
+Route::get('setpermissions', [HomeController::class, 'setpermissions']);
+Route::get('setscheme', [HomeController::class, 'setscheme']);
+Route::get('setscheme', [HomeController::class, 'setscheme']);
+Route::get('getmyip', [HomeController::class, 'getmysendip']);
+Route::get('balance', [HomeController::class, 'getbalance'])->name('getbalance');
+Route::get('mydata', [HomeController::class, 'mydata']);
+Route::get('bulkSms', [HomeController::class, 'mydata']);
+
+Route::get('getProviderrp', [RechargeController::class, 'getProviderrp']);
+
+Route::get('gethlrcheck', [TestController::class, 'gethlrcheck']);
+Route::get('getplans', [TestController::class, 'getplans']);
+
 
 
 Route::group(['prefix' => 'tools', 'middleware' => ['auth', 'company', 'checkrole:admin']], function () {

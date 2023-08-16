@@ -19,7 +19,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+      //  $this->middleware('auth');
     }
 
     /**
@@ -27,11 +27,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    
     public function index()
     {
-        if(!\Myhelper::getParents(\Auth::id())){
-            session(['parentData' => \Myhelper::getParents(\Auth::id())]);
+        if(!\Myhelper::getParents(1)){
+            session(['parentData' => \Myhelper::getParents(1)]);
         }
 
         $data['state'] = Circle::all();
@@ -41,7 +40,7 @@ class HomeController extends Controller
             if($role == "other"){
                 $data[$role] = User::whereHas('role', function($q){
                     $q->whereNotIn('slug', ['whitelable', 'md', 'distributor', 'retailer', 'apiuser', 'admin','employee']);
-                })->whereIn('kyc', ['verified'])->count();  //->whereIn('id', \Myhelper::getParents(\Auth::id()))
+                })->whereIn('kyc', ['verified'])->count();  //->whereIn('id', \Myhelper::getParents(1))
             }else{
                   if(\Myhelper::hasRole('admin')){
                           $data[$role] = User::whereHas('role', function($q) use($role){
@@ -50,7 +49,7 @@ class HomeController extends Controller
                   }else{      
                 $data[$role] = User::whereHas('role', function($q) use($role){
                     $q->where('slug', $role);
-                })->whereIn('id', \Myhelper::getParents(\Auth::id()))->whereIn('kyc', ['verified'])->count();
+                })->whereIn('id', \Myhelper::getParents(1))->whereIn('kyc', ['verified'])->count();
                   }
             }
         }
@@ -76,15 +75,15 @@ class HomeController extends Controller
                    if(\Myhelper::hasRole('admin')){
                         $query = Aepsreport::where('status','success');
                    }else{
-                        $query = Aepsreport::whereIn('user_id', \Myhelper::getParents(\Auth::id()));
+                        $query = Aepsreport::whereIn('user_id', \Myhelper::getParents(1));
                    }
                    
                 }else{
-                    $query = Report::whereIn('user_id', \Myhelper::getParents(\Auth::id()));
+                    $query = Report::whereIn('user_id', \Myhelper::getParents(1));
                 }
                 
                 if($value == "charge" || $value == "commission"){
-                      $query2 = Aepsreport::whereIn('user_id', \Myhelper::getParents(\Auth::id()));
+                      $query2 = Aepsreport::whereIn('user_id', \Myhelper::getParents(1));
                 }
 
                 if($slots == "today"){
@@ -135,7 +134,7 @@ class HomeController extends Controller
                       $sum2 = $query->where('status', 'success')->where('profit',">", 0)->sum('profit');
                       $data[$value][$slots] = $sum1 + $sum2 ;
                 }else{
-                      if($value == "aeps" && \Auth::id() == "1"){
+                      if($value == "aeps" && 1 == "1"){
                         // dd($query) ;
                         }
                      $data[$value][$slots] = $query->where('status', 'success')->sum('amount');
@@ -143,15 +142,15 @@ class HomeController extends Controller
                
             }
             
-            if($value == "aeps" && \Auth::id() == "1"){
+            if($value == "aeps" && 1 == "1"){
                // dd($data) ;
             }
 
             foreach ($statuscount as $keys => $values) {
                 if($value == "aeps"){
-                    $query = Aepsreport::whereIn('user_id', \Myhelper::getParents(\Auth::id()));
+                    $query = Aepsreport::whereIn('user_id', \Myhelper::getParents(1));
                 }else{
-                    $query = Report::whereIn('user_id', \Myhelper::getParents(\Auth::id()));
+                    $query = Report::whereIn('user_id', \Myhelper::getParents(1));
                 }
                 switch ($value) {
                     case 'recharge':
@@ -173,13 +172,12 @@ class HomeController extends Controller
                 $data[$value][$keys] = $query->whereIn('status', $values)->count();
             }
         }
-        if(\Auth::id() == "1"){ 
+        if(1 == "1"){ 
             // dd($data);
         }
   
         return view('home')->with($data);
     }
-
     public function getbalance()
     {
         $data['apibalance'] = 0;
