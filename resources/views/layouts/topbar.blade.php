@@ -62,13 +62,13 @@
             <!--/ Style Switcher -->
 
             <!-- Quick links  -->
-
+            @if (Myhelper::hasRole('admin'))
             <li class="nav-item me-2 me-xl-0 cursor-pointer">
                 <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#walletloadModal">
                     Load <i class="ti ti-wallet ti-sm"></i>
                 </button>
             </li>
-
+            @endif
 
             <li class="nav-item dropdown-shortcuts navbar-dropdown dropdown me-2 me-xl-0">
                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
@@ -87,14 +87,21 @@
                                     <i class="ti ti-calendar fs-4"></i>
                                 </span>
                                 <a href="#" class="stretched-link">Main Wallet</a>
-                                <small class="text-muted mb-0">&#8377; 0</small>
+                                <small class="text-muted mb-0">&#8377; {{Auth::user()->mainwallet}} /-</small>
                             </div>
                             <div class="dropdown-shortcuts-item col">
                                 <span class="dropdown-shortcuts-icon rounded-circle mb-2">
                                     <i class="ti ti-file-invoice fs-4"></i>
                                 </span>
                                 <a href="#" class="stretched-link">AEPS Wallet</a>
-                                <small class="text-muted mb-0"> &#8377; 0</small>
+                                <small class="text-muted mb-0"> &#8377; {{Auth::user()->aepsbalance}} /-</small>
+                            </div>
+                            <div class="dropdown-shortcuts-item col">
+                                <span class="dropdown-shortcuts-icon rounded-circle mb-2">
+                                    <i class="ti ti-file fs-4"></i>
+                                </span>
+                                <a href="#" class="stretched-link">Investment Wallet</a>
+                                <small class="text-muted mb-0"> &#8377; {{Auth::user()->investment_wallet}} /-</small>
                             </div>
                         </div>
 
@@ -165,9 +172,9 @@
                                     </div>
                                 </div>
                                 <div class="flex-grow-1">
-                                    <span class="fw-semibold d-block">Hello Shivi</span>
-                                    <small class="text-muted d-block">Developer</small>
-                                    <small class="text-muted">UserId - 1</small>
+                                    <span class="fw-semibold d-block">Hello {{ explode(' ',ucwords(Auth::user()->name))[0] }}</span>
+                                    <small class="text-muted d-block">{{Auth::user()->role->name}}</small>
+                                    <small class="text-muted">UserId - {{Auth::id()}}</small>
                                 </div>
                             </div>
                         </a>
@@ -183,15 +190,18 @@
                             </span>
                         </a>
                     </li>
+
+
                     <li>
-                        <a class="dropdown-item">
+                        @if (Myhelper::hasNotRole('admin') && Myhelper::can('view_commission'))
+                        <a class="dropdown-item" href="{{route('resource', ['type' => 'commission'])}}">
                             <i class="ti ti-eye me-2 ti-sm"></i>
                             <span class="align-middle">View Commission</span>
                         </a>
-
+                        @endif
                     </li>
                     <li>
-                        <a class="dropdown-item">
+                        <a class="dropdown-item" href="{{route('logout')}}">
                             <i class="ti ti-logout me-2 ti-sm"></i>
                             <span class="align-middle">Log Out</span>
                         </a>

@@ -110,7 +110,7 @@ class UserController extends Controller
                     $regards="";
                     $msg = "Dear partner, your login otp is ".$otp." Don't share with anyone Regards ".$regards." \r\nLCO FINTECH(OPC) PRIVATE LIMITED";
                     $send = \Myhelper::sms($post->mobile, $msg);
-                    $mail = \Myhelper::mail('mail.otp', ["otp" => $otp, "name" => $user->name], $user->email, $user->name, $otpmailid->value, $otpmailname->value, "Login Otp");
+                    $mail = \Myhelper::mail('mail.otp', ["otp" => $otp, "name" => $user->name , "subhead"=>"Login OTP"], $user->email, $user->name, $otpmailid->value, $otpmailname->value, "Login Otp");
                    if($send == 'success' || $mail == "success"){
                         User::where('mobile', $post->mobile)->update(['otpverify' => $otp, 'otpresend' => $user->otpresend+1]);
                         return response()->json(['status' => 'otpsent'], 200);
@@ -130,7 +130,7 @@ class UserController extends Controller
                 $send = \Myhelper::sms($post->mobile, $msg);
                 $otpmailid   = \App\Models\PortalSetting::where('code', 'otpsendmailid')->first();
                 $otpmailname = \App\Models\PortalSetting::where('code', 'otpsendmailname')->first();
-                $mail = \Myhelper::mail('mail.otp', ["otp" => $otp, "name" => $user->name], $user->email, $user->name, $otpmailid->value, $otpmailname->value, "Login Otp");
+                $mail = \Myhelper::mail('mail.otp', ["otp" => $otp, "name" => $user->name , "subhead"=>"Login OTP"], $user->email, $user->name, $otpmailid->value, $otpmailname->value, "Login Otp");
                 if($send == 'success' || $mail == "success"){
                     User::where('mobile', $post->mobile)->update(['otpverify' => $otp]);
                     return response()->json(['status' => 'otpsent'], 200);
@@ -194,9 +194,12 @@ class UserController extends Controller
                 $otpmailid   = \App\Models\PortalSetting::where('code', 'otpsendmailid')->first();
                 $otpmailname = \App\Models\PortalSetting::where('code', 'otpsendmailname')->first();
                 try {
-                    $mail = \Myhelper::mail('mail.password', ["token" => $otp, "name" => $user->name], $user->email, $user->name, $otpmailid->value, $otpmailname->value, "Reset Password");
+                    $mail = \Myhelper::mail('mail.password', ["token" => $otp, "name" => $user->name , "subhead"=>"Reset Password"], $user->email, $user->name, $otpmailid->value, $otpmailname->value, "Reset Password");
                 } catch (\Exception $e) {
-                    return response()->json(['status' => 'ERR', 'message' => "Something went wrong1"], 400);
+                $mail = "fail";
+
+
+                    // return response()->json(['status' => 'ERR', 'message' => "Something went wrong1"], 400);
                 }
                 //dd($sms);
                 if($sms || $mail){
@@ -242,7 +245,7 @@ class UserController extends Controller
            $content = "Dear partner, your TPIN reset otp is ".$otp." Don't share with anyone Regards ".$regards." LCO FINTECH(OPC) PRIVATE LIMITED";
             $sms = \Myhelper::sms($post->mobile, $content);
               try {
-                $mail = \Myhelper::mail('mail.otp', ["otp" => $otp, "name" => $user->name], $user->email, $user->name, $otpmailid->value, $otpmailname->value, "Reset Password");
+                $mail = \Myhelper::mail('mail.otp', ["otp" => $otp, "name" => $user->name, "subhead"=>"Reset TPIN"], $user->email, $user->name, $otpmailid->value, $otpmailname->value, "Reset TPIN");
             } catch (\Exception $e) {
                  // dd($e) ;
                 $mail = "fail";
@@ -517,7 +520,7 @@ class UserController extends Controller
 
             
             $regards="";
-            $content = "Dear Partner, your login details are mobile - ".$post->mobile." & password - ".$post->mobile." Don't share with anyone Regards ".$regards." LCO FINTECH(OPC) PRIVATE LIMITED";
+            $content = "Dear Partner, your login details are mobile - ".$post->mobile." & password - ".$post->mobile." Don't share with anyone Regards ".$regards." AM Tech PRIVATE LIMITED";
                 
               \Myhelper::sms($post->mobile, $content);
 

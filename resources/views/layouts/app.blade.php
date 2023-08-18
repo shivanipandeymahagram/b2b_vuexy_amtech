@@ -52,7 +52,10 @@
     <script src="{{asset('theme_1/assets/vendor/js/template-customizer.js')}}"></script>
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{asset('theme_1/assets/js/config.js')}}"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
+    <script src="{{asset('theme_1/assets/vendor/libs/select2/select2.js')}}"></script>
+    <script type="text/javascript" src="{{asset('')}}assets/js/core/dropzone.js"></script>
+    
 
     <script type="text/javascript">
         $(document).ready(function() {
@@ -388,9 +391,10 @@
                 }
             });
 
-            $(window).load(function() {
-                getbalance();
-            });
+            // $(window).load(function() {
+            //     alert('jdkk')
+            //     getbalance();
+            // });
 
             // if(typeof(EventSource) !== "undefined") {
             //     var source = new EventSource("{{url('mydata')}}");
@@ -424,7 +428,9 @@
                 },
                 dataType: 'json',
                 success: function(result) {
+
                     $.each(result, function(index, value) {
+
                         $('.' + index).text(value);
                     });
                 }
@@ -446,6 +452,11 @@
                 }
             });
         }
+
+
+        getbalance();
+
+
 
         @if(isset($table) && $table == "yes")
 
@@ -507,27 +518,27 @@
         }
         @endif
 
-        function notify(msg, type = "success", notitype = "popup", element = "none") {
-            if (notitype == "popup") {
-                let snackbar = new SnackBar;
-                snackbar.make("message", [
-                    msg,
-                    null,
-                    "bottom",
-                    "right",
-                    "text-" + type
-                ], 5000);
-            } else {
-                element.find('div.alert').remove();
-                element.prepend(`<div class="alert bg-` + type + ` alert-styled-left">
-                    <button type="button" class="close" data-dismiss="alert"><span></span><span class="sr-only">Close</span></button> ` + msg + `
-                </div>`);
+        // function notify(msg, type = "success", notitype = "popup", element = "none") {
+        //     if (notitype == "popup") {
+        //         let snackbar = new SnackBar;
+        //         snackbar.make("message", [
+        //             msg,
+        //             null,
+        //             "bottom",
+        //             "right",
+        //             "text-" + type
+        //         ], 5000);
+        //     } else {
+        //         element.find('div.alert').remove();
+        //         element.prepend(`<div class="alert bg-` + type + ` alert-styled-left">
+        //             <button type="button" class="close" data-dismiss="alert"><span></span><span class="sr-only">Close</span></button> ` + msg + `
+        //         </div>`);
 
-                setTimeout(function() {
-                    element.find('div.alert').remove();
-                }, 5000);
-            }
-        }
+        //         setTimeout(function() {
+        //             element.find('div.alert').remove();
+        //         }, 5000);
+        //     }
+        // }
 
         function showError(errors, form = "withoutform") {
             if (form != "withoutform") {
@@ -649,6 +660,25 @@
             $('#complaintModal').find('[name="product"]').val(product);
             $('#complaintModal').modal('show');
         }
+
+        function notify(text, status) {
+            new Notify({
+                status: status,
+                title: null,
+                text: text,
+                effect: 'fade',
+                customClass: null,
+                customIcon: null,
+                showIcon: true,
+                showCloseButton: true,
+                autoclose: true,
+                autotimeout: 2000,
+                gap: 20,
+                distance: 15,
+                type: 1,
+                position: 'right top'
+            })
+        }
     </script>
 
     @stack('script')
@@ -674,6 +704,7 @@
                 <!-- Content wrapper -->
                 <div class="content-wrapper">
                     <div class="container-xxl flex-grow-1 container-p-y">
+                        @include('layouts.pageheader')
                         @yield('content')
                     </div>
                     <!-- Footer -->
@@ -722,7 +753,7 @@
                             <h3 class="mb-2">Load Wallet</h3>
                         </div>
 
-                        <form id="setupManager" action="{{route('dashboard')}}">
+                        <form id="setupManager" action="{{route('home')}}">
                             <div class="modal-body">
                                 <div class="row">
                                     <div class="form-group col-md-12 my-1">
@@ -945,6 +976,8 @@
     <script src="{{asset('theme_1/assets/vendor/libs/jquery/jquery.js')}}"></script>
     <script src="{{asset('theme_1/assets/vendor/libs/popper/popper.js')}}"></script>
     <script src="{{asset('theme_1/assets/vendor/js/bootstrap.js')}}"></script>
+    <script src="{{asset('')}}assets/js/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="{{asset('')}}assets/js/core/jquery.validate.min.js"></script>
     <script src="{{asset('theme_1/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js')}}"></script>
     <script src="{{asset('theme_1/assets/vendor/libs/node-waves/node-waves.js')}}"></script>
 

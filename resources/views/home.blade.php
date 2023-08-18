@@ -5,10 +5,13 @@
 <!-- Content -->
 
 
+<div id="loading">
+   <div id="loading-center">
+   </div>
+</div>
+
 <div class="row">
-
-
-   <!-- Main Wallet Balance -->
+<!-- Main Wallet Balance -->
    <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
       <div class="card">
          <div class="card-body pb-0">
@@ -17,7 +20,7 @@
                   <i class="ti ti-wallet ti-sm"></i>
                </span>
             </div>
-            <h5 class="card-title mb-0 mt-2">0</h5>
+            <h5 class="card-title mb-0 mt-2">{{Auth::user()->mainwallet}}</h5>
             <small>Main Wallet Balance</small>
          </div>
          <div id="revenueGenerated1"></div>
@@ -35,7 +38,7 @@
                   <i class="ti ti-brand-paypal ti-sm"></i>
                </span>
             </div>
-            <h5 class="card-title mb-0 mt-2">123</h5>
+            <h5 class="card-title mb-0 mt-2">{{Auth::user()->aepsbalance}}</h5>
             <small>AEPS Balance</small>
          </div>
          <div id="revenueGenerated2"></div>
@@ -351,6 +354,7 @@
          </div>
          <div class="card-body">
             <ul class="p-0 m-0">
+            @if (in_array(Auth::user()->role->slug, ['admin']))
                <li class="d-flex mb-4 pb-1 align-items-center">
                   <div class="badge rounded bg-label-success me-2 p-1">
                      <i class="ti ti-currency-dollar ti-sm "></i>
@@ -368,6 +372,8 @@
                      <div class="chart-progress" data-color="secondary" data-series="85"></div>
                   </div>
                </li>
+               @endif
+
                <li class="d-flex mb-4 pb-1 align-items-center">
                   <div class="badge rounded bg-label-success me-2 p-1">
                      <i class="ti ti-currency-dollar ti-sm "></i>
@@ -379,12 +385,13 @@
                         </div>
 
                         <div class="user-progress d-flex align-items-center gap-2">
-                           <h6 class="mb-0">0</h6>
+                           <h6 class="mb-0">{{Auth::user()->investment_wallet}}</h6>
                         </div>
                      </div>
                      <div class="chart-progress" data-color="secondary" data-series="85"></div>
                   </div>
                </li>
+               @if (in_array(Auth::user()->role->slug, ['admin']))
                <li class="d-flex mb-4 pb-1 align-items-center">
                   <div class="badge rounded bg-label-success me-2 p-1">
                      <i class="ti ti-currency-dollar ti-sm "></i>
@@ -402,6 +409,7 @@
                      <div class="chart-progress" data-color="secondary" data-series="85"></div>
                   </div>
                </li>
+               @endif
             </ul>
          </div>
       </div>
