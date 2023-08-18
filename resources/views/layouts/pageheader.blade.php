@@ -121,11 +121,11 @@
                     <tbody>
                         <tr>
                             <th>Support Number</th>
-                            <td>1234567890</td>
+                            <td>{{$mydata['supportnumber']}}</td>
                         </tr>
                         <tr>
                             <th>Support Email</th>
-                            <td>abc@gmail.com</td>
+                            <td>{{$mydata['supportemail']}}</td>
                         </tr>
                     </tbody>
                 </table>
