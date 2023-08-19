@@ -19,7 +19,7 @@
             <div class="card-body">
                 <div class=" rounded mt-5">
                     <div class="row gap-4 gap-sm-0">
-                        <div class="">
+                        <div>
                             <ul class="nav nav-tabs nav-pills" role="tablist">
                                 <li class="nav-item">
                                     <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab" data-bs-target="#navs-justified-profile" aria-controls="navs-justified-profile" aria-selected="true">
@@ -49,18 +49,18 @@
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane fade my-2 show active" id="navs-justified-profile" role="tabpanel">
-                                    <form id="profileForm">
-
-                                        <input type="hidden" name="id" value="">
+                                    <form id="profileForm" action="{{route('resourceupdate')}}" method="post">
+                                        {{ csrf_field() }}
+                                        <input type="hidden" name="id" value="{{$company->id}}">
                                         <input type="hidden" name="actiontype" value="company">
                                         <div class="row">
                                             <div class="form-group col-md-4">
                                                 <label>Company Name</label>
-                                                <input type="text" name="companyname" class="form-control mt-1" value="Vuexy" required="" placeholder="Enter Value">
+                                                <input type="text" name="companyname" class="form-control mt-1" value="{{$company->companyname}}" required="" placeholder="Enter Value">
                                             </div>
                                             <div class="form-group  col-md-4">
                                                 <label>Company Website</label>
-                                                <input type="text" name="website" class="form-control mt-1" value="Vuexy.com" required="" placeholder="Enter Value">
+                                                <input type="text" name="website" class="form-control mt-1" value="{{$company->website}}" required="" placeholder="Enter Value">
                                             </div>
                                             <div class="col-sm-4">
                                                 <button class="btn btn-primary mt-4" type="submit" data-loading-text="<i class='fa fa-spin fa-spinner'></i> Updating...">Update Info</button>
@@ -71,30 +71,32 @@
                                     </form>
                                 </div>
                                 <div class="tab-pane fade my-2" id="navs-justified-logo" role="tabpanel">
-                                    <div class="col-sm-3">
-                                        <form class="dropzone" id="logoupload"  enctype="multipart/form-data">
-                                            <input type="file" class="form-control my-3 bg-light" />
+                                    <div class="col-sm-12 cursor-pointer" style="border: 2px dashed grey;border-radius: 20px;text-align: center;padding: 30px;">
+                                        <form class="dropzone" id="logoupload" action="{{route('resourceupdate')}}" method="post" enctype="multipart/form-data">
+                                            {{ csrf_field() }}
                                             <input type="hidden" name="actiontype" value="company">
-                                            <input type="hidden" name="id" value="">
+
+                                            <input type="hidden" name="id" value="{{$company->id}}">
                                         </form>
+                                        
                                     </div>
-                                    <p><b>Note :</b> Prefered image size is 260px * 56px</p>
+                                    <p class="text-center my-2"><b>Note :</b> Prefered image size is 260px * 56px</p>
                                 </div>
                                 <div class="tab-pane fade my-2" id="navs-justified-news" role="tabpanel">
-                                    <form id="newsForm" >
-
-                                        <input type="hidden" name="id" value="">
-                                        <input type="hidden" name="company_id" value="">
+                                    <form id="newsForm" action="{{route('resourceupdate')}}" method="post">
+                                        {{ csrf_field() }}
+                                        <input type="hidden" name="id" value="{{$companydata->id ?? 'new'}}">
+                                        <input type="hidden" name="company_id" value="{{$company->id}}">
                                         <input type="hidden" name="actiontype" value="companydata">
                                         <div class="row">
                                             <div class="form-group col-md-6">
                                                 <label>News</label>
-                                                <textarea name="news" class="form-control" cols="30" rows="3" placeholder="Enter News">Hello, Everyone</textarea>
+                                                <textarea name="news" class="form-control" cols="30" rows="3" placeholder="Enter News">{{$companydata->news ?? ""}}</textarea>
                                             </div>
 
                                             <div class="form-group col-md-6">
                                                 <label>Bill Notice</label>
-                                                <textarea name="billnotice" class="form-control" cols="30" rows="3" placeholder="Enter News">Something Else Here</textarea>
+                                                <textarea name="billnotice" class="form-control" cols="30" rows="3" placeholder="Enter News">{{$companydata->billnotice ?? ""}}</textarea>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -107,10 +109,10 @@
                                     </form>
                                 </div>
                                 <div class="tab-pane fade my-2" id="navs-justified-notice" role="tabpanel">
-                                    <form id="noticeForm" >
-
-                                        <input type="hidden" name="id" value="">
-                                        <input type="hidden" name="company_id" value="">
+                                    <form id="noticeForm" action="{{route('resourceupdate')}}" method="post">
+                                        {{ csrf_field() }}
+                                        <input type="hidden" name="id" value="{{$companydata->id ?? 'new'}}">
+                                        <input type="hidden" name="company_id" value="{{$company->id}}">
                                         <input type="hidden" name="actiontype" value="companydata">
                                         <input type="hidden" name="notice">
 
@@ -128,20 +130,21 @@
                                     </form>
                                 </div>
                                 <div class="tab-pane fade my-1" id="navs-justified-support" role="tabpanel">
-                                    <form id="supportForm" >
+                                    <form id="supportForm" action="{{route('resourceupdate')}}" method="post">
 
-                                        <input type="hidden" name="company_id" value="">
+                                        {{ csrf_field() }}
+                                        <input type="hidden" name="company_id" value="{{$company->id}}">
                                         <input type="hidden" name="actiontype" value="companydata">
 
                                         <div class="row">
                                             <div class="form-group col-md-6">
                                                 <label>Contact Number</label>
-                                                <textarea name="number" class="form-control" cols="30" rows="3" placeholder="Enter Value" required="">9876543221</textarea>
+                                                <textarea name="number" class="form-control" cols="30" rows="3" placeholder="Enter Value" required="">{{$companydata->number ?? ""}}</textarea>
                                             </div>
 
                                             <div class="form-group col-md-6">
                                                 <label>Contact Email</label>
-                                                <textarea name="email" class="form-control" cols="30" rows="3" placeholder="Enter Value" required="">abc@gmail.com</textarea>
+                                                <textarea name="email" class="form-control" cols="30" rows="3" placeholder="Enter Value" required="">{{$companydata->email ?? ""}}</textarea>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -183,4 +186,217 @@
         margin-top: 100px;
     }
 </style>
+@endpush
+
+@push('script')
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#profileForm").validate({
+            rules: {
+                companyname: {
+                    required: true,
+                }
+            },
+            messages: {
+                companyname: {
+                    required: "Please enter name",
+                }
+            },
+            errorElement: "p",
+            errorPlacement: function(error, element) {
+                if (element.prop("tagName").toLowerCase().toLowerCase() === "select") {
+                    error.insertAfter(element.closest(".form-group").find(".select2"));
+                } else {
+                    error.insertAfter(element);
+                }
+            },
+            submitHandler: function() {
+                var form = $('form#profileForm');
+                form.find('span.text-danger').remove();
+                $('form#profileForm').ajaxSubmit({
+                    dataType: 'json',
+                    beforeSubmit: function() {
+                        form.find('button:submit').button('loading');
+                    },
+                    complete: function() {
+                        form.find('button:submit').button('reset');
+                    },
+                    success: function(data) {
+                        if (data.status == "success") {
+                            notify("Company Profile Successfully Updated", 'success');
+                        } else {
+                            notify(data.status, 'warning');
+                        }
+                    },
+                    error: function(errors) {
+                        showError(errors, form.find('.panel-body'));
+                    }
+                });
+            }
+        });
+
+        $("#newsForm").validate({
+            rules: {
+                company_id: {
+                    required: true,
+                }
+            },
+            messages: {
+                company_id: {
+                    required: "Please enter id",
+                }
+            },
+            errorElement: "p",
+            errorPlacement: function(error, element) {
+                if (element.prop("tagName").toLowerCase().toLowerCase() === "select") {
+                    error.insertAfter(element.closest(".form-group").find(".select2"));
+                } else {
+                    error.insertAfter(element);
+                }
+            },
+            submitHandler: function() {
+                var form = $('form#newsForm');
+                form.find('span.text-danger').remove();
+                form.ajaxSubmit({
+                    dataType: 'json',
+                    beforeSubmit: function() {
+                        form.find('button:submit').button('loading');
+                    },
+                    complete: function() {
+                        form.find('button:submit').button('reset');
+                    },
+                    success: function(data) {
+                        if (data.status == "success") {
+                            notify("Company News Successfully Updated", 'success');
+                        } else {
+                            notify(data.status, 'warning');
+                        }
+                    },
+                    error: function(errors) {
+                        showError(errors, form.find('.panel-body'));
+                    }
+                });
+            }
+        });
+
+        $("#supportForm").validate({
+            rules: {
+                number: {
+                    required: true,
+                },
+                email: {
+                    required: true,
+                }
+            },
+            messages: {
+                number: {
+                    required: "Number value is required",
+                },
+                email: {
+                    required: "Email value is required",
+                }
+            },
+            errorElement: "p",
+            errorPlacement: function(error, element) {
+                if (element.prop("tagName").toLowerCase().toLowerCase() === "select") {
+                    error.insertAfter(element.closest(".form-group").find(".select2"));
+                } else {
+                    error.insertAfter(element);
+                }
+            },
+            submitHandler: function() {
+                var form = $('form#supportForm');
+                form.find('span.text-danger').remove();
+                form.ajaxSubmit({
+                    dataType: 'json',
+                    beforeSubmit: function() {
+                        form.find('button:submit').button('loading');
+                    },
+                    complete: function() {
+                        form.find('button:submit').button('reset');
+                    },
+                    success: function(data) {
+                        if (data.status == "success") {
+                            notify("Company Support Details Successfully Updated", 'success');
+                        } else {
+                            notify(data.status, 'warning');
+                        }
+                    },
+                    error: function(errors) {
+                        showError(errors, form.find('.panel-body'));
+                    }
+                });
+            }
+        });
+
+        $("#noticeForm").validate({
+            rules: {
+                news: {
+                    required: true,
+                }
+            },
+            messages: {
+                news: {
+                    required: "Please enter name",
+                }
+            },
+            errorElement: "p",
+            errorPlacement: function(error, element) {
+                if (element.prop("tagName").toLowerCase().toLowerCase() === "select") {
+                    error.insertAfter(element.closest(".form-group").find(".select2"));
+                } else {
+                    error.insertAfter(element);
+                }
+            },
+            submitHandler: function() {
+                var form = $('form#noticeForm');
+                $('input[name="notice"]').val($('.note-editable').html());
+                form.find('span.text-danger').remove();
+                form.ajaxSubmit({
+                    dataType: 'json',
+                    beforeSubmit: function() {
+                        form.find('button:submit').button('loading');
+                    },
+                    complete: function() {
+                        form.find('button:submit').button('reset');
+                    },
+                    success: function(data) {
+                        if (data.status == "success") {
+                            notify("Company Notice Successfully Updated", 'success');
+                        } else {
+                            notify(data.status, 'warning');
+                        }
+                    },
+                    error: function(errors) {
+                        showError(errors, form.find('.panel-body'));
+                    }
+                });
+            }
+        });
+
+        $('.summernote').summernote({
+            height: 350, // set editor height
+            minHeight: null, // set minimum height of editor
+            maxHeight: null, // set maximum height of editor
+            focus: false // set focus to editable area after initializing summernote
+        });
+
+        Dropzone.options.logoupload = {
+            paramName: "logos", // The name that will be used to transfer the file
+            maxFilesize: .5, // MB
+            complete: function(file) {
+                this.removeFile(file);
+            },
+            success: function(file, data) {
+                console.log(file);
+                if (data.status == "success") {
+                    notify("Company Logo Successfully Uploaded", 'success');
+                } else {
+                    notify("Something went wrong, please try again.", 'warning');
+                }
+            }
+        };
+    });
+</script>
 @endpush

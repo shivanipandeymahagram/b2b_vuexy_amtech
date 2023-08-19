@@ -184,6 +184,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
         'Myhelper' => App\Helpers\Permission::class,
+        'Company' => App\Model\Company::class
     ])->toArray(),
 
 ];

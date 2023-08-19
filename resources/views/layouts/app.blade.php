@@ -55,7 +55,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
     <script src="{{asset('theme_1/assets/vendor/libs/select2/select2.js')}}"></script>
     <script type="text/javascript" src="{{asset('')}}assets/js/core/dropzone.js"></script>
-    
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>    
 
     <script type="text/javascript">
         $(document).ready(function() {

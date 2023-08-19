@@ -135,7 +135,7 @@ Route::group(['prefix' => 'setup', 'middleware' => ['auth', 'company']], functio
     Route::post('update', [SetupController::class,'update'])->name('setupupdate'); //->middleware('activity');;
 });
 
-Route::group(['prefix' => 'resources', 'middleware' => ['auth', 'company']], function () {
+Route::group(['prefix' => 'resources', 'middleware' => ['auth']], function () {
     Route::get('{type}', [ResourceController::class,'index'])->name('resource');
     Route::post('update', [ResourceController::class,'update'])->name('resourceupdate'); //->middleware('activity');;
     Route::post('get/{type}/commission', [ResourceController::class,'getCommission']);

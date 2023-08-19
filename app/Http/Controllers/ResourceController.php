@@ -94,9 +94,8 @@ class ResourceController extends Controller
             abort(403);
         }
         $data['type'] = $type;
-// dd($data);
-        return view("theme_1.resource.".$type)->with($data);
-        
+
+        return view("resource.".$type)->with($data);
     }
 
     public function update(Request $post)
