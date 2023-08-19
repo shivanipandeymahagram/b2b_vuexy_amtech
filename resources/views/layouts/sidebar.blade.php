@@ -320,19 +320,13 @@
         @endif
 
         @if (Myhelper::can(['fund_transfer', 'fund_return', 'fund_request_view', 'fund_report', 'fund_request']))
-        <li class="menu-item {{(Request::is('fund/tr') || Request::is('fund/requestview') || Request::is('fund/request') || Request::is('fund/requestviewall') || Request::is('fund/statement')) ? 'active' : '' }}">
+        <li class="menu-item {{(Request::is('fund/tr') || Request::is('fund/requestview') || Request::is('fund/request') || Request::is('fund/requestviewall') || Request::is('fund/statement')) ? 'active open' : '' }}">
             <a href="#funds" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-id"></i>
                 <div data-i18n="Fund">Fund</div>
             </a>
             <ul class="menu-sub {{(Request::is('fund/tr') || Request::is('fund/requestview') || Request::is('fund/request') || Request::is('fund/requestviewall') || Request::is('fund/statement')) ? 'show' : '' }}" id="funds">
-                @if (Myhelper::can(['runpaisa_service']))
-                <li class="menu-item {{Request::is('fund/runpaisapg') ? 'active' : '' }}">
-                    <a href="{{route('fund', ['type' => 'runpaisapg'])}}" class="menu-link">
-                        <div data-i18n="Run Paisa PG">Run Paisa PG</div>
-                    </a>
-                </li>
-                @endif
+
                 @if (Myhelper::can(['fund_transfer', 'fund_return']))
                 <li class="menu-item {{Request::is('fund/tr') ? 'active' : '' }}">
                     <a href="{{route('fund', ['type' => 'tr'])}}" class="menu-link">
@@ -340,7 +334,13 @@
                     </a>
                 </li>
                 @endif
-
+                @if (Myhelper::can(['runpaisa_service']))
+                <li class="menu-item {{Request::is('fund/runpaisapg') ? 'active' : '' }}">
+                    <a href="{{route('fund', ['type' => 'runpaisapg'])}}" class="menu-link">
+                        <div data-i18n="Run Paisa PG">Run Paisa PG</div>
+                    </a>
+                </li>
+                @endif
                 @if (Myhelper::can(['setup_bank']))
                 <li class="menu-item {{Request::is('fund/requestview') ? 'active' : '' }}">
                     <a href="{{route('fund', ['type' => 'requestview'])}}" class="menu-link">
