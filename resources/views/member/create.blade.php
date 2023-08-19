@@ -1,6 +1,6 @@
 @extends('layouts.app')
-@section('title', 'Create Member')
-@section('pagetitle', 'Create Member')
+@section('title', 'Create '.$type)
+@section('pagetitle', 'Create '.$type)
 @section('content')
 
 <div class="row">
@@ -16,27 +16,27 @@
 
             <div class="card-body">
                 <div class=" rounded mt-5">
-                    <form class="memberForm" action="{{ route('create') }}">
+                    <form class="memberForm" action="{{ route('memberstore') }}" method="post">
                         {{ csrf_field() }}
                         <div class="row">
-
-                            <!-- <div class="col-md-12">
+                            @if (!$role)
+                            <div class="col-md-12">
                                 <h5>Member Type Information</h5>
                                 <div class="row">
                                     <div class="form-group col-md-4">
                                         <label>Mamber Type</label>
-                                        <select name="role_id" class="form-control select" required="">
+                                        <select name="role_id" class="form-control my-1" required="">
                                             <option value="">Select Role</option>
-                                            <option value="1">Admin</option>
-                                            <option value="2">Retailer</option>
-                                            <option value="3">User</option>
-
+                                            @foreach ($roles as $role)
+                                            <option value="{{$role->id}}">{{$role->name}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
-                            </div> -->
-
-                            <input type="hidden" name="role_id" value="1">
+                            </div>
+                            @else
+                            <input type="hidden" name="role_id" value="{{$role->id}}">
+                            @endif
 
                             <div class="form-group col-md-6 my-1">
                                 <label for="fname">Name : <span class="text-danger fw-bold h6">*</span></label>
@@ -55,34 +55,9 @@
                                 <label for="cname">State : <span class="text-danger fw-bold h6">*</span></label>
                                 <select name="state" class="form-control my-1" required="">
                                     <option value="">Select State</option>
-                                    <option value="Uttar Pradesh">Uttar Pradesh</option>
-                                    <option value="Assam">Assam</option>
-                                    <option value="Bihar">Bihar</option>
-                                    <option value="Australia">Australia</option>
-                                    <option value="Bangladesh">Bangladesh</option>
-                                    <option value="Belarus">Belarus</option>
-                                    <option value="Brazil">Brazil</option>
-                                    <option value="Canada">Canada</option>
-                                    <option value="China">China</option>
-                                    <option value="France">France</option>
-                                    <option value="Germany">Germany</option>
-                                    <option value="India">India</option>
-                                    <option value="Indonesia">Indonesia</option>
-                                    <option value="Israel">Israel</option>
-                                    <option value="Italy">Italy</option>
-                                    <option value="Japan">Japan</option>
-                                    <option value="Korea">Korea, Republic of</option>
-                                    <option value="Mexico">Mexico</option>
-                                    <option value="Philippines">Philippines</option>
-                                    <option value="Russia">Russian Federation</option>
-                                    <option value="South Africa">South Africa</option>
-                                    <option value="Thailand">Thailand</option>
-                                    <option value="Turkey">Turkey</option>
-                                    <option value="Ukraine">Ukraine</option>
-                                    <option value="United Arab Emirates">United Arab Emirates</option>
-                                    <option value="United Kingdom">United Kingdom</option>
-                                    <option value="United States">United States</option>
-
+                                    @foreach ($state as $state)
+                                    <option value="{{$state->state}}">{{$state->state}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group col-md-6 my-1">
@@ -113,21 +88,22 @@
                                 <input type="text" name="aadharcard" id="aadharcard" class="form-control my-1" value="" required="" placeholder="Aadhar Card Number" maxlength="12" minlength="12">
 
                             </div>
+                            @if(Myhelper::hasRole('admin') || (isset($mydata['schememanager']) && $mydata['schememanager']->value == "all"))
                             <div class="form-group col-md-6 my-1">
                                 <label>Scheme</label>
                                 <select name="scheme_id" class="form-control my-1" required="">
                                     <option value="">Select Scheme</option>
-
-                                    <option value="1136">1136</option>
-                                    <option value="Special">Special</option>
-
+                                    @foreach ($scheme as $scheme)
+                                    <option value="{{$scheme->id}}">{{$scheme->name}}</option>
+                                    @endforeach
                                 </select>
                             </div>
-
+                            @endif
                         </div>
-                        <hr>
 
-                        {{--
+
+                        @if($role->slug == "retailer")
+                        <hr>
                         <h5 class="mb-3">Upload Your Documents</h5>
                         <div class="row">
                             <div class="form-group col-md-4">
@@ -175,9 +151,9 @@
 
 
                         </div>
-                        --}}
+                        @endif
 
-
+                        @if ($role->slug == "whitelable")
                         <h5 class="mb-3">Whitelable Information</h5>
                         <div class="row">
                             <div class="form-group col-md-6 my-1">
@@ -189,6 +165,7 @@
                                 <input type="url" name="website" class="form-control my-1" value="" required="" placeholder="Enter Value">
                             </div>
                         </div>
+                        @endif
                         <button type="submit" class="btn btn-primary mt-2">Add New User</button>
                     </form>
                 </div>
@@ -200,3 +177,330 @@
 </div>
 
 @endsection
+
+@push('script')
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".memberForm").validate({
+            rules: {
+                name: {
+                    required: true,
+                },
+                mobile: {
+                    required: true,
+                    minlength: 10,
+                    number: true,
+                    maxlength: 10
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                state: {
+                    required: true,
+                },
+                city: {
+                    required: true,
+                },
+                pincode: {
+                    required: true,
+                    minlength: 6,
+                    number: true,
+                    maxlength: 6
+                },
+                address: {
+                    required: true,
+                },
+                aadharcard: {
+                    required: true,
+                    minlength: 12,
+                    number: true,
+                    maxlength: 12
+                }
+                @if($role -> slug == "whitelable"),
+                companyname: {
+                    required: true,
+                },
+                website: {
+                    required: true,
+                    url: true
+                }
+                @endif
+            },
+            messages: {
+                name: {
+                    required: "Please enter name",
+                },
+                mobile: {
+                    required: "Please enter mobile",
+                    number: "Mobile number should be numeric",
+                    minlength: "Your mobile number must be 10 digit",
+                    maxlength: "Your mobile number must be 10 digit"
+                },
+                email: {
+                    required: "Please enter email",
+                    email: "Please enter valid email address",
+                },
+                state: {
+                    required: "Please select state",
+                },
+                city: {
+                    required: "Please enter city",
+                },
+                pincode: {
+                    required: "Please enter pincode",
+                    number: "Mobile number should be numeric",
+                    minlength: "Your pincode must be 6 digit",
+                    maxlength: "Your pincode must be 6 digit"
+                },
+                address: {
+                    required: "Please enter address",
+                },
+                aadharcard: {
+                    required: "Please enter aadharcard",
+                    number: "Aadhar should be numeric",
+                    minlength: "Your aadhar number must be 12 digit",
+                    maxlength: "Your aadhar number must be 12 digit"
+                }
+                @if($role -> slug == "whitelable"),
+                companyname: {
+                    required: "Please enter company name",
+                },
+                website: {
+                    required: "Please enter company website",
+                    url: "Please enter valid company url"
+                }
+                @endif
+            },
+            errorElement: "p",
+            errorPlacement: function(error, element) {
+                if (element.prop("tagName").toLowerCase() === "select") {
+                    error.insertAfter(element.closest(".form-group").find(".select2"));
+                } else {
+                    error.insertAfter(element);
+                }
+            },
+            submitHandler: function() {
+                var form = $('form.memberForm');
+                form.find('span.text-danger').remove();
+                $('form.memberForm').ajaxSubmit({
+                    dataType: 'json',
+                    beforeSubmit: function() {
+                        form.find('button:submit').button('loading');
+                    },
+                    complete: function() {
+                        form.find('button:submit').button('reset');
+                    },
+                    success: function(data) {
+                        if (data.status == "success") {
+                            form[0].reset();
+                            $('select').val('');
+                            $('select').trigger('change');
+                            notify("Member Successfully Created", 'success');
+                        } else {
+                            notify(data.status, 'warning');
+                        }
+                    },
+                    error: function(errors) {
+                        showError(errors, form);
+                    }
+                });
+            }
+        });
+
+        // Pan Verify keyup function
+
+        /*$('#pancard').keyup(function() {
+               // alert("");
+              var pancard= $('#pancard').val();
+              if(pancard.length >= 10){  
+                  swal({
+                        title: 'Wait!',
+                        text: 'We are working on request.',
+                        onOpen: () => {
+                            swal.showLoading()
+                        },
+                        allowOutsideClick: () => !swal.isLoading()
+                    });
+                  $.ajax({
+                          url:"{{ route('adharnumberverify') }}",
+                               type:"POST",
+                               data: {
+                                  type:'panverify',
+                                   pancard : pancard,
+                                   _token: '{{csrf_token()}}'
+                                },
+                               success:function (data) {
+                                   swal.close();
+                                    if(data.status == 'TXN'){
+                                        swal("Verified","Your Pan Card is Verified " + data.full_name, "success");
+
+                                    }else{
+                                         $('#pancard'). val('');
+                                         swal({
+                                                 type: 'warning',
+                                                 title: '!ERROR',
+                                                 text: data.message,
+                                                 showConfirmButton: true
+                                             });  
+                                    }
+                               }
+                           })
+              }else{
+                  
+              }
+            
+         
+        });*/
+
+
+        $("#otpForm").validate({
+            rules: {
+                otp: {
+                    required: true,
+                    number: true
+                }
+
+            },
+            messages: {
+                otp: {
+                    required: "Please enter otp",
+                    number: "Reset otp should be numeric",
+                }
+
+            },
+            errorElement: "p",
+            errorPlacement: function(error, element) {
+                if (element.prop("tagName").toLowerCase() === "select") {
+                    error.insertAfter(element.closest(".form-group").find(".select2"));
+                } else {
+                    error.insertAfter(element);
+                }
+            },
+            submitHandler: function() {
+                var form = $('#otpForm');
+                form.ajaxSubmit({
+                    dataType: 'json',
+                    beforeSubmit: function() {
+                        swal({
+                            title: 'Wait!',
+                            text: 'We are checking your details',
+                            onOpen: () => {
+                                swal.showLoading()
+                            },
+                            allowOutsideClick: () => !swal.isLoading()
+                        });
+                    },
+                    success: function(data) {
+                        swal.close();
+                        if (data.status == "TXN") {
+                            $('#otpModal').modal('hide');
+
+                            // $('#registerForm').find(':input[type=submit]').removeAttr('disabled');
+                            $('#registerForm').find('[name="address"]').val(data.address);
+                            $("#address").prop('readonly', true);
+                            $('#registerForm').find('[name="name"]').val(data.name);
+                            $("#name").prop('readonly', true);
+                            $('#registerForm').find('[name="city"]').val(data.city);
+                            $("#city").prop('readonly', true);
+                            $('#registerForm').find('[name="pincode"]').val(data.pin);
+                            $("#pincode").prop('readonly', true);
+                            $('#registerForm').find('[name="state"]').select2().val(data.state).trigger('change');
+                            $("state").prop('readonly', true);
+                            // $('#registerForm').find('[name="state"]').val();
+                            swal("Verified", "Your Adhar Card is Verified " + data.full_name, "success");
+
+                        } else {
+                            $('#aadharcard').val('');
+                            swal({
+                                type: 'warning',
+                                title: '!ERROR',
+                                text: data.message,
+                                showConfirmButton: true
+                            });
+                        }
+                    },
+                    error: function(errors) {
+                        swal.close();
+                        if (errors.status == '400') {
+                            notify(errors.responseJSON.status, 'warning');
+                        } else {
+                            notify('Something went wrong, try again later.', 'warning');
+                        }
+                    }
+                });
+            }
+        });
+
+        // For Aadhar Verification Keyup Function
+
+
+        /* $('#aadharcard').keyup(function() {
+               // alert("");
+              var aadharcard= $('#aadharcard').val();
+              if(aadharcard.length >= 12){  
+                  swal({
+                        title: 'Wait!',
+                        text: 'We are working on request.',
+                        onOpen: () => {
+                            swal.showLoading()
+                        },
+                        allowOutsideClick: () => !swal.isLoading()
+                    });
+                  $.ajax({
+                        url:"{{ route('adharnumberverify') }}",
+                               type:"POST",
+                               data: {
+                                  type:'getotp',
+                                   aadharcard : aadharcard,
+                                   _token: '{{csrf_token()}}'
+                                },
+                                
+                              
+                               success:function (data) {
+                                   swal.close();
+                                    if(data.status == 'TXNOTP'){
+                                        $('#otpModal').find('[name="aadharcard"]').val(aadharcard);
+                                        $('#otpModal').find('[name="refid"]').val(data.refid);
+                                        
+                                        $('#otpModal').modal('show');
+                                    }else{
+                                         
+                                         swal({
+                                                 type: 'warning',
+                                                 title: '!ERROR',
+                                                 text: data.message,
+                                                 showConfirmButton: true
+                                             });  
+                                    }
+                               }
+                           })
+              }else{
+                  
+              }
+            
+         
+        });*/
+
+    });
+
+    function adharnumbercheck() {
+        alert("hfhgf");
+    }
+
+
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('#blah')
+                    .attr('src', e.target.result);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+@endpush
