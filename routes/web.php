@@ -85,7 +85,7 @@ Route::get('getplans', [TestController::class,'getplans']);
 
 
 
-Route::group(['prefix' => 'tools', 'middleware' => ['auth', 'checkrole:admin']], function () {
+Route::group(['prefix' => 'tools', 'middleware' => ['auth']], function () {
     Route::get('{type}', [RoleController::class,'index'])->name('tools');
     Route::post('{type}/store', [RoleController::class,'store'])->name('toolsstore');
     Route::post('setpermissions', [RoleController::class,'assignPermissions'])->name('toolssetpermission');

@@ -46,7 +46,7 @@
     <link rel="stylesheet" href="{{asset('theme_1/assets/vendor/css/pages/cards-advance.css')}}" />
     <!-- Helpers -->
     <script src="{{asset('theme_1/assets/vendor/js/helpers.js')}}"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" type="text/javascript"></script>
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
     <script src="{{asset('theme_1/assets/vendor/js/template-customizer.js')}}"></script>
@@ -56,7 +56,40 @@
     <script src="{{asset('theme_1/assets/vendor/libs/select2/select2.js')}}"></script>
     <script type="text/javascript" src="{{asset('')}}assets/js/core/dropzone.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>    
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote.js"></script>
+
+    @if (isset($table) && $table == "yes")
+    <script type="text/javascript" src="{{asset('')}}assets/js/plugins/tables/datatables/datatables.min.js"></script>
+    @endif
+
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="{{asset('theme_1/assets/vendor/libs/jquery/jquery.js')}}"></script>
+    <script src="{{asset('theme_1/assets/vendor/libs/popper/popper.js')}}"></script>
+    <script src="{{asset('theme_1/assets/vendor/js/bootstrap.js')}}"></script>
+    <script src="{{asset('')}}assets/js/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="{{asset('')}}assets/js/core/jquery.validate.min.js"></script>
+    <script src="{{asset('theme_1/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js')}}"></script>
+    <script src="{{asset('theme_1/assets/vendor/libs/node-waves/node-waves.js')}}"></script>
+
+    <script src="{{asset('theme_1/assets/vendor/libs/hammer/hammer.js')}}"></script>
+    <script src="{{asset('theme_1/assets/vendor/libs/i18n/i18n.js')}}"></script>
+    <script src="{{asset('theme_1/assets/vendor/libs/typeahead-js/typeahead.js')}}"></script>
+
+    <script src="{{asset('theme_1/assets/vendor/js/menu.js')}}"></script>
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+    <script src="{{asset('theme_1/assets/vendor/libs/apex-charts/apexcharts.js')}}"></script>
+    <script src="{{asset('theme_1/assets/vendor/libs/swiper/swiper.js')}}"></script>
+    <script src="{{asset('theme_1/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js')}}"></script>
+
+    <!-- Main JS -->
+    <script src="{{asset('theme_1/assets/js/main.js')}}"></script>
+
+    <!-- Page JS -->
+    <script src="{{asset('theme_1/assets/js/dashboards-analytics.js')}}"></script>
 
     <script type="text/javascript">
         $(document).ready(function() {
@@ -532,7 +565,7 @@
         //     } else {
         //         element.find('div.alert').remove();
         //         element.prepend(`<div class="alert bg-` + type + ` alert-styled-left">
-        //             <button type="button" class="close" data-dismiss="alert"><span></span><span class="sr-only">Close</span></button> ` + msg + `
+        //             <button type="button" class="btn-close" data-dismiss="alert"><span></span><span class="sr-only">Close</span></button> ` + msg + `
         //         </div>`);
 
         //         setTimeout(function() {
@@ -557,12 +590,12 @@
                 } else if (errors.status == 400) {
                     if (errors.responseJSON.message) {
                         form.prepend(`<div class="alert bg-danger alert-styled-left">
-                            <button type="button" class="close" data-dismiss="alert"><span></span><span class="sr-only">Close</span></button>
+                            <button type="button" class="btn-close" data-dismiss="alert"><span></span><span class="sr-only">Close</span></button>
                             <span class="text-semibold">Oops !</span> ` + errors.responseJSON.message + `
                         </div>`);
                     } else {
                         form.prepend(`<div class="alert bg-danger alert-styled-left">
-                            <button type="button" class="close" data-dismiss="alert"><span></span><span class="sr-only">Close</span></button>
+                            <button type="button" class="btn-close" data-dismiss="alert"><span></span><span class="sr-only">Close</span></button>
                             <span class="text-semibold">Oops !</span> ` + errors.responseJSON.status + `
                         </div>`);
                     }
@@ -754,7 +787,7 @@
                             <h3 class="mb-2">Load Wallet</h3>
                         </div>
 
-                        <form id="setupManager" action="{{route('home')}}">
+                        <form id="walletLoadForm" action="{{route('fundtransaction')}}" method="post">
                             <div class="modal-body">
                                 <div class="row">
                                     <div class="form-group col-md-12 my-1">
@@ -783,7 +816,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Edit Report</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -842,7 +875,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -879,7 +912,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Wallet Fund Request</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -970,36 +1003,6 @@
 
     </div>
     <!-- / Layout wrapper -->
-
-
-    <!-- Core JS -->
-    <!-- build:js assets/vendor/js/core.js -->
-    <script src="{{asset('theme_1/assets/vendor/libs/jquery/jquery.js')}}"></script>
-    <script src="{{asset('theme_1/assets/vendor/libs/popper/popper.js')}}"></script>
-    <script src="{{asset('theme_1/assets/vendor/js/bootstrap.js')}}"></script>
-    <script src="{{asset('')}}assets/js/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
-    <script type="text/javascript" src="{{asset('')}}assets/js/core/jquery.validate.min.js"></script>
-    <script src="{{asset('theme_1/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js')}}"></script>
-    <script src="{{asset('theme_1/assets/vendor/libs/node-waves/node-waves.js')}}"></script>
-
-    <script src="{{asset('theme_1/assets/vendor/libs/hammer/hammer.js')}}"></script>
-    <script src="{{asset('theme_1/assets/vendor/libs/i18n/i18n.js')}}"></script>
-    <script src="{{asset('theme_1/assets/vendor/libs/typeahead-js/typeahead.js')}}"></script>
-
-    <script src="{{asset('theme_1/assets/vendor/js/menu.js')}}"></script>
-    <!-- endbuild -->
-
-    <!-- Vendors JS -->
-    <script src="{{asset('theme_1/assets/vendor/libs/apex-charts/apexcharts.js')}}"></script>
-    <script src="{{asset('theme_1/assets/vendor/libs/swiper/swiper.js')}}"></script>
-    <script src="{{asset('theme_1/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js')}}"></script>
-
-    <!-- Main JS -->
-    <script src="{{asset('theme_1/assets/js/main.js')}}"></script>
-
-    <!-- Page JS -->
-    <script src="{{asset('theme_1/assets/js/dashboards-analytics.js')}}"></script>
-    @yield('custom_Script')
 </body>
 
 </html>

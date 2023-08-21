@@ -32,16 +32,19 @@ class AppServiceProvider extends ServiceProvider
                 $mydata['sidebariconcolor']  = PortalSetting::where('code', "sidebariconcolor")->first();
                 $mydata['sidebarchildhrefcolor'] = PortalSetting::where('code', "sidebarchildhrefcolor")->first();
                 $mydata['schememanager'] = PortalSetting::where('code', "schememanager")->first();
-              
+            
                 $mydata['company'] = Company::where('website', $_SERVER['HTTP_HOST'])->first();
-                
+               
+               
+             
                 if($mydata['company']){
                     $news = Companydata::where('company_id', $mydata['company']->id)->first();
+
                 }else{
                     $news = null;
                 }
                 
-
+           
                 if($news){
                     $mydata['news'] = $news->news;
                     $mydata['notice'] = $news->notice;
@@ -55,6 +58,7 @@ class AppServiceProvider extends ServiceProvider
                     $mydata['supportnumber'] = "";
                     $mydata['supportemail'] = "";
                 }
+              
 
                 $view->with('mydata', $mydata);    
             }); 

@@ -1,6 +1,7 @@
 @extends('layouts.app')
-@section('title', 'Complaints')
-@section('pagetitle', 'Complaints')
+@section('title', "Complaints")
+@section('pagetitle', "Complaints")
+
 @php
 $table = "yes";
 
@@ -16,14 +17,13 @@ $product['type'] = "Service";
 
 @section('content')
 
-@include('layouts.pageheader')
 <div class="row mt-4">
     <div class="col-12 col-xl-12 col-sm-12 order-1 order-lg-2 mb-4 mb-lg-0">
         <div class="card">
             <div class="card-header pb-0 d-flex justify-content-between mb-lg-n4 ">
                 <div class="card-title mb-5">
                     <h5 class="mb-0">
-                        <span>@yield('pagetitle') - Table</span>
+                        <span>@yield('pagetitle') </span>
                     </h5>
                 </div>
             </div>
@@ -57,7 +57,7 @@ $product['type'] = "Service";
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Transaction Details</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -119,7 +119,7 @@ $product['type'] = "Service";
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Close</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-hidden="true">Close</button>
             </div>
         </div>
     </div>
@@ -130,7 +130,7 @@ $product['type'] = "Service";
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Edit Report</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -138,17 +138,17 @@ $product['type'] = "Service";
                 <div class="modal-body">
                     <input type="hidden" name="id">
                     {{ csrf_field() }}
-                    <div class="form-group">
+                    <div class="form-group my-1">
                         <label>Status</label>
-                        <select name="status" class="form-control select">
+                        <select name="status" class="form-control my-1 select">
                             <option value="">Select Status</option>
                             <option value="pending">Pending</option>
                             <option value="resolved">Resolved</option>
                         </select>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group my-1">
                         <label>Solution</label>
-                        <textarea name="solution" cols="30" class="form-control" rows="3" required></textarea>
+                        <textarea name="solution" cols="30" class="form-control my-1" rows="3" required></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">

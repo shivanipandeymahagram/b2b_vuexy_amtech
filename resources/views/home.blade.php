@@ -393,7 +393,6 @@
       </div>
    </div>
 
-
    @if (in_array(Auth::user()->role->slug, ['whitelable', 'md', 'distributor', 'admin']))
    <div class="col-xl-4 col-md-6 mb-4">
       <div class="card h-100">
@@ -507,7 +506,7 @@
             <div class="form-group mb-3">
                <span class="text-semibold">
                   <h5><i class="fa fa-phone"></i></h5>
-                <small>  {{$mydata['supportnumber']}}</small>
+                  <small> {{$mydata['supportnumber']}}</small>
                </span>
             </div>
 
@@ -533,15 +532,15 @@
       <div class="modal-content">
          <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Complete your profile with kyc</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-               <span aria-hidden="true">&times;</span>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+
             </button>
          </div>
 
          @if (Auth::user()->kyc == "rejected")
          <div class="alert text-white bg-danger" role="alert">
             <div class="iq-alert-text">Kyc Rejected! —{{ Auth::user()->remark }}</div>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
                <i class="ri-close-line"></i>
             </button>
          </div>
@@ -621,8 +620,8 @@
       <div class="modal-content">
          <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-               <span aria-hidden="true">&times;</span>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+
             </button>
          </div>
          <form id="passwordForm" action="{{route('profileUpdate')}}" method="post">
@@ -664,15 +663,15 @@
       <div class="modal-content">
          <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Necessary Notice ( आवश्यक सूचना )</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-               <span aria-hidden="true">&times;</span>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+
             </button>
          </div>
          <div class="modal-body">
             {!! nl2br($mydata['notice']) !!}
          </div>
          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 
          </div>
       </div>
@@ -681,17 +680,23 @@
 @endsection
 
 @push('script')
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js" defer></script>
+
 <script>
+   $(window).on('load', function() {
+      $('#noticeModal').modal('show');
+   });
+
    $(document).ready(function() {
-      // $('#noticeModal').modal('show');
 
       @if(Myhelper::hasNotRole('admin'))
-      @if(Auth::user()->kyc == "pending" || Auth::user()->kyc == "rejected")
+      @if(Auth::user() -> kyc == "pending" || Auth::user() -> kyc == "rejected")
       $('#kycModal').modal();
       @endif
       @endif
 
-      @if(Myhelper::hasNotRole('admin') && Auth::user()-> resetpwd == "default")
+      @if(Myhelper::hasNotRole('admin') && Auth::user() -> resetpwd == "default")
       $('#pwdModal').modal();
       @endif
 
@@ -1013,7 +1018,5 @@
 
    });
 </script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
 @endpush

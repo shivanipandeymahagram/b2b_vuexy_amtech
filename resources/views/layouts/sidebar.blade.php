@@ -33,7 +33,7 @@
 
         @if (Myhelper::hasNotRole('admin'))
         @if (Myhelper::can(['recharge_service']))
-        <li class="menu-item {{ Request::is('recharge/*') ? 'active' : '' }}">
+        <li class="menu-item {{ Request::is('recharge/*') ? 'active open' : '' }}">
             <a href="#menu-design" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-file-dollar"></i>
                 <div data-i18n="Utility Recharge">Utility Recharge</div>
@@ -56,7 +56,7 @@
         @endif
 
         @if (Myhelper::can(['billpayment_service']))
-        <li class="menu-item {{ Request::is('billpay/*') ? 'active' : '' }}">
+        <li class="menu-item {{ Request::is('billpay/*') ? 'active open' : '' }}">
             <a href="#userinfo" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-smart-home"></i>
                 <div data-i18n="Bill Payment">Bill Payment</div>
@@ -135,7 +135,7 @@
         @endif
 
         @if (Myhelper::can(['utipancard_service', 'nsdl_service']))
-        <li class="menu-item {{ Request::is('pancard/*') ? 'active' : '' }}">
+        <li class="menu-item {{ Request::is('pancard/*') ? 'active open' : '' }}">
             <a href="#utiPan" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-id"></i>
                 <div data-i18n="PAN Card">PAN Card</div>
@@ -153,7 +153,7 @@
         @endif
 
         @if (Myhelper::can(['dmt1_service', 'aeps_service']))
-        <li class="menu-item {{ (Request::is('dmt') || Request::is('aeps') ) ? 'active' : '' }}">
+        <li class="menu-item {{ (Request::is('dmt') || Request::is('aeps') ) ? 'active open' : '' }}">
             <a href="#bankingService" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-file-dollar"></i>
                 <div data-i18n="Banking Service">Banking Service</div>
@@ -199,7 +199,7 @@
         @endif
 
         @if ((Myhelper::can(['company_manager', 'change_company_profile'])) || (Myhelper::hasNotRole('retailer') && isset($mydata['schememanager']) && $mydata['schememanager']->value == "all"))
-        <li class="menu-item {{Request::is('resources/*') ? 'active' : '' }}">
+        <li class="menu-item {{Request::is('resources/*') ? 'active open' : '' }}">
             <a href="#tables" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-file"></i>
                 <div data-i18n="Resources">Resources</div>
@@ -239,7 +239,7 @@
         @endif
 
         @if (Myhelper::can(['view_whitelable', 'view_md', 'view_distributor', 'view_retailer', 'view_apiuser', 'view_other', 'view_kycpending', 'view_kycsubmitted', 'view_kycrejected']))
-        <li class="menu-item {{Request::is('member/*') ? 'active' : '' }}">
+        <li class="menu-item {{Request::is('member/*') ? 'active open' : '' }}">
             <a href="#member" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-users"></i>
                 <div data-i18n="Member">Member</div>
@@ -303,29 +303,18 @@
                 </li>
                 @endif
 
-                <!-- <li class="menu-item">
-                    <a href="" class="menu-link">
-                        <div data-i18n="Other User">Other User</div>
-                    </a>
-                </li>
-
-                <li class="menu-item">
-                    <a href="" class="menu-link">
-                        <div data-i18n="Employee">Employee</div>
-                    </a>
-                </li> -->
 
             </ul>
         </li>
         @endif
 
         @if (Myhelper::can(['fund_transfer', 'fund_return', 'fund_request_view', 'fund_report', 'fund_request']))
-        <li class="menu-item {{(Request::is('fund/tr') || Request::is('fund/requestview') || Request::is('fund/request') || Request::is('fund/requestviewall') || Request::is('fund/statement')) ? 'active open' : '' }}">
+        <li class="menu-item {{(Request::is('fund/tr') ||  Request::is('fund/runpaisapg') || Request::is('fund/requestview') || Request::is('fund/request') || Request::is('fund/requestviewall') || Request::is('fund/statement')) ? 'active open' : '' }}">
             <a href="#funds" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-id"></i>
                 <div data-i18n="Fund">Fund</div>
             </a>
-            <ul class="menu-sub {{(Request::is('fund/tr') || Request::is('fund/requestview') || Request::is('fund/request') || Request::is('fund/requestviewall') || Request::is('fund/statement')) ? 'show' : '' }}" id="funds">
+            <ul class="menu-sub {{(Request::is('fund/tr') || Request::is('fund/runpaisapg') || Request::is('fund/requestview') || Request::is('fund/request') || Request::is('fund/requestviewall') || Request::is('fund/statement')) ? 'show' : '' }}" id="funds">
 
                 @if (Myhelper::can(['fund_transfer', 'fund_return']))
                 <li class="menu-item {{Request::is('fund/tr') ? 'active' : '' }}">
@@ -376,20 +365,20 @@
 
         @if (Myhelper::can([ 'investment_fund_report', 'investment_fund_request']))
 
-        <li class="menu-item ">
+        <li class="menu-item {{(Request::is('admin/investment/show') || Request::is('admin/investment/statement') || Request::is('investment/fund_req')) ? 'active open' : '' }}">
             <a href="#invfunds" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-id"></i>
                 <div data-i18n="Investment Fund">Investment Fund</div>
             </a>
-            <ul class="menu-sub" id="invfunds">
+            <ul class="menu-sub {{(Request::is('admin/investment/*') || Request::is('investment/fund_req')) ? 'show' : '' }}" id="invfunds">
                 @if (Myhelper::hasRole('admin'))
-                <li class="menu-item">
+                <li class="menu-item {{Request::is('admin/investment/show') ? 'active ' : '' }}">
                     <a href="{{url('admin/investment/show')}}" class="menu-link">
                         <div data-i18n="Request">Request</div>
                     </a>
                 </li>
 
-                <li class="menu-item">
+                <li class="menu-item {{Request::is('admin/investment/statement') ? 'active ' : '' }}">
                     <a href="{{url('admin/investment/statement')}}" class="menu-link">
                         <div data-i18n="All Fund Report">All Fund Report</div>
                     </a>
@@ -397,7 +386,7 @@
                 @endif
 
                 @if (Myhelper::can(['investment_fund_request']) && !Myhelper::hasRole('admin'))
-                <li class="menu-item">
+                <li class="menu-item {{Request::is('investment/fund_req') ? 'active ' : '' }}">
                     <a href="{{url('investment/fund_req')}}" class="menu-link">
                         <div data-i18n="All Fund Report">Request</div>
                     </a>
@@ -409,14 +398,14 @@
 
 
         @if (\Myhelper::can('invesment_show') && !Myhelper::hasRole('admin'))
-        <li class="menu-item ">
+        <li class="menu-item {{Request::is('investment') ? 'active open' : '' }}">
             <a href="#investment" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-id"></i>
                 <div data-i18n="Investment Service">Investment Service</div>
             </a>
-            <ul class="menu-sub" id="investment">
+            <ul class="menu-sub {{Request::is('investment') ? 'show' : '' }}" id="investment">
 
-                <li class="menu-item">
+                <li class="menu-item {{Request::is('investment') ? 'active ' : '' }}">
                     <a href="{{url('investment/show')}}" class=" menu-link">
                         <div data-i18n="Banner">Investment</div>
                     </a>
@@ -428,26 +417,26 @@
 
 
         @if (Myhelper::hasRole('admin'))
-        <li class="menu-item ">
+        <li class="menu-item {{(Request::is('banners') || Request::is('video') || Request::is('investment')) ? 'active open' : '' }}">
             <a href="#investment" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-id"></i>
                 <div data-i18n="Investment Service">Investment Service</div>
             </a>
-            <ul class="menu-sub" id="investment">
+            <ul class="menu-sub {{(Request::is('banners') || Request::is('video') || Request::is('investment')) ? 'show' : '' }}" id="investment">
 
-                <li class="menu-item">
+                <li class="menu-item {{Request::is('banners') ? 'active ' : '' }}">
                     <a href="{{route('banner')}}" class="menu-link">
                         <div data-i18n="Banner">Banner</div>
                     </a>
                 </li>
 
-                <li class="menu-item">
+                <li class="menu-item {{Request::is('video') ? 'active ' : '' }}">
                     <a href="{{route('video')}}" class="menu-link">
                         <div data-i18n="Video">Video</div>
                     </a>
                 </li>
 
-                <li class="menu-item">
+                <li class="menu-item {{Request::is('investment') ? 'active ' : '' }}">
                     <a href="{{route('investment')}}" class="menu-link">
                         <div data-i18n="Investment">Investment</div>
                     </a>
@@ -458,7 +447,7 @@
         @endif
         @if (Myhelper::can(['aeps_fund_request', 'aeps_fund_view', 'aeps_fund_report']))
 
-        <li class="menu-item {{(Request::is('fund/aeps') || Request::is('fund/addaccount') || Request::is('fund/aepsrequest') || Request::is('fund/payoutrequest') || Request::is('fund/aepsrequestall')) ? 'active' : '' }}">
+        <li class="menu-item {{(Request::is('fund/aeps') || Request::is('fund/addaccount') || Request::is('fund/aepsrequest') || Request::is('fund/payoutrequest') || Request::is('fund/aepsrequestall')) ? 'active open' : '' }}">
             <a href="#aepsfund" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-square"></i>
                 <div data-i18n="AEPS Fund">AEPS Fund</div>
@@ -503,7 +492,7 @@
 
         @if (Myhelper::can(['microatm_fund_request', 'microatm_fund_view', 'microatm_fund_report']))
 
-        <li class="menu-item {{(Request::is('fund/microatm') || Request::is('fund/microatmrequest') || Request::is('fund/microatmrequestall')) ? 'active' : '' }}">
+        <li class="menu-item {{(Request::is('fund/microatm') || Request::is('fund/microatmrequest') || Request::is('fund/microatmrequestall')) ? 'active open' : '' }}">
             <a href="#matmfund" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-file-description"></i>
                 <div data-i18n="MATM Fund ">MATM Fund </div>
@@ -541,7 +530,7 @@
 
         @if (Myhelper::can(['utiid_statement', 'aepsid_statement']))
 
-        <li class="menu-item {{(Request::is('statement/aepsid') || Request::is('statement/utiid'))? 'active' : '' }}">
+        <li class="menu-item {{(Request::is('statement/aepsid') || Request::is('statement/utiid'))? 'active open' : '' }}">
             <a href="#agentList" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-id"></i>
                 <div data-i18n="Agent List">Agent List</div>
@@ -569,7 +558,7 @@
 
         @if (Myhelper::can(['account_statement', 'utiid_statement', 'utipancard_statement', 'recharge_statement', 'billpayment_statement']))
 
-        <li class="menu-item {{(Request::is('statement/aeps') || Request::is('statement/billpay') || Request::is('statement/money') || Request::is('statement/matm') || Request::is('statement/recharge') || Request::is('statement/utipancard') || Request::is('statement/loanenquiry') || Request::is('statement/cmsreport')) ? 'active' : '' }}">
+        <li class="menu-item {{(Request::is('statement/aeps') || Request::is('statement/billpay') || Request::is('statement/money') || Request::is('statement/matm') || Request::is('statement/recharge') || Request::is('statement/utipancard') || Request::is('statement/loanenquiry') || Request::is('statement/cmsreport')) ? 'active open' : '' }}">
             <a href="#txnreport" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-file"></i>
                 <div data-i18n="Transaction Report">Transaction Report</div>
@@ -651,7 +640,7 @@
 
         @if (Myhelper::can(['account_statement', 'awallet_statement']))
 
-        <li class="menu-item {{(Request::is('statement/account') || Request::is('statement/awallet')) ? 'active' : '' }}">
+        <li class="menu-item {{(Request::is('statement/account') || Request::is('statement/awallet')) ? 'active open' : '' }}">
             <a href="#walletreport" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-id"></i>
                 <div data-i18n="Wallet History">Wallet History</div>
@@ -685,14 +674,14 @@
         @endif
 
         @if (Myhelper::can(['setup_bank', 'api_manager', 'setup_operator']))
-        <li class="menu-item {{Request::is('setup/*') ? 'active' : '' }}">
+        <li class="menu-item {{(Request::is('setup/*') || Request::is('token')) ? 'active open' : '' }}">
             <a href="#setuptools" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-text-wrap-disabled"></i>
                 <div data-i18n="Setup Tools">Setup Tools</div>
             </a>
             <ul class="menu-sub {{Request::is('setup/*') ? 'show' : '' }}" id="setuptools">
                 @if (Myhelper::hasRole('admin') || Myhelper::hasRole('subadmin'))
-                <li class="menu-item {{Request::is('securedata') ? 'active' : '' }}">
+                <li class="menu-item {{Request::is('token') ? 'active' : '' }}">
                     <a href="{{route('securedata')}}" class="menu-link">
                         <div data-i18n="Mobile User Logout">Mobile User Logout</div>
                     </a>
@@ -743,32 +732,19 @@
             </ul>
         </li>
         @endif
-        <!-- <li class="menu-item ">
-            <a href="#mappingManager" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons ti ti-map"></i>
-                <div data-i18n="Mapping Manager">Mapping Manager</div>
-            </a>
-            <ul class="menu-sub" id="mappingManager">
-                <li class="menu-item">
-                    <a href="" class="menu-link">
-                        <div data-i18n="Mapping Manager">Mapping Manager</div>
-                    </a>
-                </li>
-            </ul>
-        </li> -->
-
-        <li class="menu-item {{(Request::is('profile') || Request::is('certificate') )? 'active' : '' }}">
+  
+        <li class="menu-item {{Request::is('profile/*')? 'active open' : '' }}">
             <a href="#accountSetting" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-file-description"></i>
                 <div data-i18n="Account Settings">Account Settings</div>
             </a>
-            <ul class="menu-sub {{(Request::is('profile') || Request::is('certificate') )? 'show' : '' }}" id="accountSetting">
-                <li class="menu-item {{Request::is('profile') ? 'active' : '' }}">
+            <ul class="menu-sub {{Request::is('profile/*')? 'show' : '' }}" id="accountSetting">
+                <li class="menu-item {{Request::is('profile/view') ? 'active' : '' }}">
                     <a href="{{route('profile')}}" class="menu-link">
                         <div data-i18n="Profile Setting">Profile Setting</div>
                     </a>
                 </li>
-                <li class="menu-item {{Request::is('certificate') ? 'active' : '' }}">
+                <li class="menu-item {{Request::is('profile/certificate') ? 'active' : '' }}">
                     <a href="{{route('certificate')}}" class="menu-link">
                         <div data-i18n="Certificate">Certificate</div>
                     </a>
@@ -777,7 +753,7 @@
         </li>
 
         @if (Myhelper::hasRole('apiuser') && Myhelper::can('apiuser_acc_manager'))
-        <li class="menu-item {{Request::is('apisetup/*') ? 'active' : '' }}">
+        <li class="menu-item {{Request::is('apisetup/*') ? 'active open' : '' }}">
             <a href="#apiSetting" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-settings"></i>
                 <div data-i18n="Api Settings">Api Settings</div>
@@ -823,13 +799,13 @@
         </li>
 
         @if (Myhelper::hasRole('admin'))
-        <li class="menu-item {{Request::is('tools/*') ? 'active' : '' }}">
+        <li class="menu-item {{Request::is('tools/*') ? 'active open' : '' }}">
             <a href="#roles" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-file"></i>
                 <div data-i18n="Roles & Permissions">Roles & Permissions</div>
             </a>
             <ul class="menu-sub {{Request::is('tools/*') ? 'show' : '' }}" id="roles">
-                {{route('tools' , ['type' => 'roles'])}}
+                
                 <li class="menu-item {{Request::is('tools/roles') ? 'active' : '' }}">
                     <a href="{{route('tools' , ['type' => 'roles'])}}" class="menu-link">
                         <div data-i18n="Roles">Roles</div>

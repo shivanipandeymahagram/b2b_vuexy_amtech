@@ -15,7 +15,7 @@ $export = "fund";
             <div class="card-header pb-0 d-flex justify-content-between mb-lg-n4 ">
                 <div class="card-title mb-5">
                     <h5 class="mb-0">
-                        <span>@yield('pagetitle') - Table</span>
+                        <span>@yield('pagetitle') </span>
                     </h5>
                 </div>
             </div>

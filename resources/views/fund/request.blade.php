@@ -54,7 +54,7 @@ $status['data'] = [
             <div class="card-header pb-0 d-flex justify-content-between mb-lg-n4">
                 <div class="card-title mb-0">
                     <h5 class="mb-0">
-                        <span>@yield('pagetitle') - Table</span>
+                        <span>@yield('pagetitle') </span>
                     </h5>
                 </div>
                 <div class="col-sm-12 col-md-2 mb-5">
