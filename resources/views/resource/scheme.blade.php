@@ -74,7 +74,7 @@ $status['data'] = [
 
                         <div class="form-group col-md-10 m-auto">
                             <label>Name</label>
-                            <input type="text" name="name" class="form-control" placeholder="Enter Scheme Name" required="">
+                            <input type="text" name="name" class="form-control my-1" placeholder="Enter Scheme Name" required="">
                         </div>
 
                     </div>
@@ -95,23 +95,24 @@ $status['data'] = [
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Mobile Recharge Commission</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true"></span>
                 </button>
             </div>
-            <form class="commissionForm">
+            <form class="commissionForm" method="post" action="{{ route('resourceupdate') }}">
 
                 <div class="modal-body">
 
-
+                    {!! csrf_field() !!}
                     <input type="hidden" name="actiontype" value="commission">
                     <input type="hidden" name="scheme_id" value="">
                     <table class="table table-bordered m-0">
                         <thead class="bg-light">
                             <tr>
                                 <th>Operator</th>
+                                @if (Myhelper::hasRole('admin'))
                                 <th>Commission Type</th>
-
+                                @endif
                                 <th>Whitelable</th>
                                 <th>Master Distributor</th>
                                 <th>Distributor</th>
@@ -119,39 +120,41 @@ $status['data'] = [
                             </tr>
                         </thead>
                         <tbody>
+
+                            @foreach ($mobileOperator as $element)
                             <tr>
                                 <td>
-                                    <input type="hidden" name="slab[]" value="1">
-                                    Shivi
+                                    <input type="hidden" name="slab[]" value="{{$element->id}}">
+                                    {{$element->name}}
                                 </td>
-
+                                @if (Myhelper::hasRole('admin'))
                                 <td class="p-t-0 p-b-0">
-                                    <select class="form-control" name="type[]" required="">
+                                    <select class="form-control my-1" name="type[]" required="">
                                         <option value="">Select Type</option>
                                         <option value="percent">Percent (%)</option>
                                         <option value="flat">Flat (Rs)</option>
                                     </select>
                                 </td>
-
+                                @endif
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                             </tr>
-
+                            @endforeach
                         </tbody>
                     </table>
 
                     <div class="modal-footer">
-                        <button class="btn b-primary btn-raised legitRipple" type="submit" data-loading-text="<i class='fa fa-spin fa-spinner'></i> Submitting">Submit</button>
+                        <button class="btn btn-primary" type="submit" data-loading-text="<i class='fa fa-spin fa-spinner'></i> Submitting">Submit</button>
                     </div>
 
                 </div>
@@ -165,18 +168,22 @@ $status['data'] = [
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">DTH Recharge Commission</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true"></span>
                 </button>
             </div>
-            <form class="commissionForm">
-                <div class="modal-body"> <input type="hidden" name="actiontype" value="commission">
+            <form class="commissionForm" method="post" action="{{ route('resourceupdate') }}">
+                <div class="modal-body">
+                    {!! csrf_field() !!}
+                    <input type="hidden" name="actiontype" value="commission">
                     <input type="hidden" name="scheme_id" value="">
                     <table class="table table-bordered m-0">
                         <thead class="bg-light">
                             <tr>
                                 <th>Operator</th>
+                                @if (Myhelper::hasRole('admin'))
                                 <th>Commission Type</th>
+                                @endif
                                 <th>Whitelable</th>
                                 <th>Master Distributor</th>
                                 <th>Distributor</th>
@@ -184,30 +191,35 @@ $status['data'] = [
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($dthOperator as $element)
                             <tr>
                                 <td>
-                                    <input type="hidden" name="slab[]">
+                                    <input type="hidden" name="slab[]" value="{{$element->id}}">
+                                    {{$element->name}}
                                 </td>
+                                @if (Myhelper::hasRole('admin'))
                                 <td class="p-t-0 p-b-0">
-                                    <select class="form-control" name="type[]" required="">
+                                    <select class="form-control my-1" name="type[]" required="">
                                         <option value="">Select Type</option>
                                         <option value="percent">Percent (%)</option>
                                         <option value="flat">Flat (Rs)</option>
                                     </select>
                                 </td>
+                                @endif
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                     <div class="modal-footer">
@@ -224,23 +236,22 @@ $status['data'] = [
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Electricity Bill Commission</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true"></span>
                 </button>
             </div>
-            <form class="commissionForm">
+            <form class="commissionForm" method="post" action="{{ route('resourceupdate') }}">
                 <div class="modal-body">
-
-
+                    {!! csrf_field() !!}
                     <input type="hidden" name="actiontype" value="commission">
                     <input type="hidden" name="scheme_id" value="">
                     <table class="table table-bordered m-0">
                         <thead class="bg-light">
                             <tr>
                                 <th>Operator</th>
-
+                                @if (Myhelper::hasRole('admin'))
                                 <th>Commission Type</th>
-
+                                @endif
                                 <th>Whitelable</th>
                                 <th>Master Distributor</th>
                                 <th>Distributor</th>
@@ -249,33 +260,35 @@ $status['data'] = [
                         </thead>
                         <tbody>
 
+                            @foreach ($ebillOperator as $element)
                             <tr>
                                 <td>
-                                    <input type="hidden" name="slab[]">
-                                    Dummy
+                                    <input type="hidden" name="slab[]" value="{{$element->id}}">
+                                    {{$element->name}}
                                 </td>
-
+                                @if (Myhelper::hasRole('admin'))
                                 <td class="p-t-0 p-b-0">
-                                    <select class="form-control" name="type[]" required="">
+                                    <select class="form-control my-1" name="type[]" required="">
                                         <option value="">Select Type</option>
                                         <option value="percent">Percent (%)</option>
                                         <option value="flat">Flat (Rs)</option>
                                     </select>
                                 </td>
-
+                                @endif
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                             </tr>
+                            @endforeach
 
 
                         </tbody>
@@ -296,72 +309,74 @@ $status['data'] = [
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Offline Electricity Bill Commission</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true"></span>
                 </button>
             </div>
-            <form class="commissionForm">
-                <div class="modal-body">
+            <form class="commissionForm" method="post" action="{{ route('resourceupdate') }}" <div class="modal-body">
 
 
-                    <input type="hidden" name="actiontype" value="commission">
-                    <input type="hidden" name="scheme_id" value="">
-                    <table class="table table-bordered m-0">
-                        <thead class="bg-light">
-                            <tr>
-                                <th>Operator</th>
+                {!! csrf_field() !!}
+                <input type="hidden" name="actiontype" value="commission">
+                <input type="hidden" name="scheme_id" value="">
+                <table class="table table-bordered m-0">
+                    <thead class="bg-light">
+                        <tr>
+                            <th>Operator</th>
+                            @if (Myhelper::hasRole('admin'))
+                            <th>Commission Type</th>
+                            @endif
+                            <th>Whitelable</th>
+                            <th>Master Distributor</th>
+                            <th>Distributor</th>
+                            <th>Retailer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                                <th>Commission Type</th>
-
-                                <th>Whitelable</th>
-                                <th>Master Distributor</th>
-                                <th>Distributor</th>
-                                <th>Retailer</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            <tr>
-                                <td>
-                                    <input type="hidden" name="slab[]">
-                                    Dummy
-                                </td>
-
-                                <td class="p-t-0 p-b-0">
-                                    <select class="form-control" name="type[]" required="">
-                                        <option value="">Select Type</option>
-                                        <option value="percent">Percent (%)</option>
-                                        <option value="flat">Flat (Rs)</option>
-                                    </select>
-                                </td>
-
-                                <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control" required="">
-                                </td>
-                                <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control" required="">
-                                </td>
-                                <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control" required="">
-                                </td>
-                                <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control" required="">
-                                </td>
-                            </tr>
+                        @foreach ($ebillOperatorOffiline as $element)
+                        <tr>
+                            <td>
+                                <input type="hidden" name="slab[]" value="{{$element->id}}">
+                                {{$element->name}}
+                            </td>
+                            @if (Myhelper::hasRole('admin'))
+                            <td class="p-t-0 p-b-0">
+                                <select class="form-control my-1" name="type[]" required="">
+                                    <option value="">Select Type</option>
+                                    <option value="percent">Percent (%)</option>
+                                    <option value="flat">Flat (Rs)</option>
+                                </select>
+                            </td>
+                            @endif
+                            <td class="p-t-0 p-b-0">
+                                <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control my-1" required="">
+                            </td>
+                            <td class="p-t-0 p-b-0">
+                                <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control my-1" required="">
+                            </td>
+                            <td class="p-t-0 p-b-0">
+                                <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control my-1" required="">
+                            </td>
+                            <td class="p-t-0 p-b-0">
+                                <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control my-1" required="">
+                            </td>
+                        </tr>
+                        @endforeach
 
 
-                        </tbody>
-                    </table>
+                    </tbody>
+                </table>
 
-                    <div class="modal-footer">
+                <div class="modal-footer">
 
-                        <button class="btn btn-primary" type="submit" data-loading-text="<i class='fa fa-spin fa-spinner'></i> Submitting">Submit</button>
-                    </div>
-
+                    <button class="btn btn-primary" type="submit" data-loading-text="<i class='fa fa-spin fa-spinner'></i> Submitting">Submit</button>
                 </div>
-            </form>
+
         </div>
+        </form>
     </div>
+</div>
 </div>
 
 
@@ -370,23 +385,22 @@ $status['data'] = [
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">LPG GAS Bill Commission</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true"></span>
                 </button>
             </div>
-            <form class="commissionForm">
+            <form class="commissionForm" method="post" action="{{ route('resourceupdate') }}">
                 <div class="modal-body">
-
-
+                    {!! csrf_field() !!}
                     <input type="hidden" name="actiontype" value="commission">
                     <input type="hidden" name="scheme_id" value="">
                     <table class="table table-bordered m-0">
                         <thead class="bg-light">
                             <tr>
                                 <th>Operator</th>
-
+                                @if (Myhelper::hasRole('admin'))
                                 <th>Commission Type</th>
-
+                                @endif
                                 <th>Whitelable</th>
                                 <th>Master Distributor</th>
                                 <th>Distributor</th>
@@ -394,36 +408,35 @@ $status['data'] = [
                             </tr>
                         </thead>
                         <tbody>
-
+                            @foreach ($lpggasOperator as $element)
                             <tr>
                                 <td>
-                                    <input type="hidden" name="slab[]">
-                                    Dummy
+                                    <input type="hidden" name="slab[]" value="{{$element->id}}">
+                                    {{$element->name}}
                                 </td>
-
+                                @if (Myhelper::hasRole('admin'))
                                 <td class="p-t-0 p-b-0">
-                                    <select class="form-control" name="type[]" required="">
+                                    <select class="form-control my-1" name="type[]" required="">
                                         <option value="">Select Type</option>
                                         <option value="percent">Percent (%)</option>
                                         <option value="flat">Flat (Rs)</option>
                                     </select>
                                 </td>
-
+                                @endif
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                             </tr>
-
-
+                            @endforeach
                         </tbody>
                     </table>
 
@@ -442,59 +455,56 @@ $status['data'] = [
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Water Bill Commission</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"></span>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+
                 </button>
             </div>
-            <form class="commissionForm">
+            <form class="commissionForm" method="post" action="{{ route('resourceupdate') }}">
                 <div class="modal-body">
-
+                    {!! csrf_field() !!}
                     <input type="hidden" name="actiontype" value="commission">
                     <input type="hidden" name="scheme_id" value="">
                     <table class="table table-bordered m-0">
-                        <thead class="bg-light">
-                            <tr>
-                                <th>Operator</th>
-
-                                <th>Commission Type</th>
-
-                                <th>Whitelable</th>
-                                <th>Master Distributor</th>
-                                <th>Distributor</th>
-                                <th>Retailer</th>
-                            </tr>
+                        <thead class="thead-light">
+                            <th>Operator</th>
+                            @if (Myhelper::hasRole('admin'))
+                            <th>Commission Type</th>
+                            @endif
+                            <th>Whitelable</th>
+                            <th>Master Distributor</th>
+                            <th>Distributor</th>
+                            <th>Retailer</th>
                         </thead>
                         <tbody>
-
+                            @foreach ($waterOperator as $element)
                             <tr>
                                 <td>
-                                    <input type="hidden" name="slab[]">
-                                    Dummy
+                                    <input type="hidden" name="slab[]" value="{{$element->id}}">
+                                    {{$element->name}}
                                 </td>
-
+                                @if (Myhelper::hasRole('admin'))
                                 <td class="p-t-0 p-b-0">
-                                    <select class="form-control" name="type[]" required="">
+                                    <select class="form-control my-1" name="type[]" required="">
                                         <option value="">Select Type</option>
                                         <option value="percent">Percent (%)</option>
                                         <option value="flat">Flat (Rs)</option>
                                     </select>
                                 </td>
-
+                                @endif
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                             </tr>
-
-
+                            @endforeach
                         </tbody>
                     </table>
 
@@ -514,59 +524,56 @@ $status['data'] = [
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Loanrepay Bill Commission</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"></span>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+
                 </button>
             </div>
-            <form class="commissionForm">
+            <form class="commissionForm" method="post" action="{{ route('resourceupdate') }}">
                 <div class="modal-body">
-
+                    {!! csrf_field() !!}
                     <input type="hidden" name="actiontype" value="commission">
                     <input type="hidden" name="scheme_id" value="">
                     <table class="table table-bordered m-0">
-                        <thead class="bg-light">
-                            <tr>
-                                <th>Operator</th>
-
-                                <th>Commission Type</th>
-
-                                <th>Whitelable</th>
-                                <th>Master Distributor</th>
-                                <th>Distributor</th>
-                                <th>Retailer</th>
-                            </tr>
+                        <thead class="thead-light">
+                            <th>Operator</th>
+                            @if (Myhelper::hasRole('admin'))
+                            <th>Commission Type</th>
+                            @endif
+                            <th>Whitelable</th>
+                            <th>Master Distributor</th>
+                            <th>Distributor</th>
+                            <th>Retailer</th>
                         </thead>
                         <tbody>
-
+                            @foreach ($loanrepayOperator as $element)
                             <tr>
                                 <td>
-                                    <input type="hidden" name="slab[]">
-                                    Dummy
+                                    <input type="hidden" name="slab[]" value="{{$element->id}}">
+                                    {{$element->name}}
                                 </td>
-
+                                @if (Myhelper::hasRole('admin'))
                                 <td class="p-t-0 p-b-0">
-                                    <select class="form-control" name="type[]" required="">
+                                    <select class="form-control my-1" name="type[]" required="">
                                         <option value="">Select Type</option>
                                         <option value="percent">Percent (%)</option>
                                         <option value="flat">Flat (Rs)</option>
                                     </select>
                                 </td>
-
+                                @endif
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                             </tr>
-
-
+                            @endforeach
                         </tbody>
                     </table>
                     <div class="modal-footer">
@@ -583,59 +590,56 @@ $status['data'] = [
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Fasttag Bill Commission</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"></span>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+
                 </button>
             </div>
-            <form class="commissionForm">
+            <form class="commissionForm" method="post" action="{{ route('resourceupdate') }}">
                 <div class="modal-body">
-
+                    {!! csrf_field() !!}
                     <input type="hidden" name="actiontype" value="commission">
                     <input type="hidden" name="scheme_id" value="">
                     <table class="table table-bordered m-0">
-                        <thead class="bg-light">
-                            <tr>
-                                <th>Operator</th>
-
-                                <th>Commission Type</th>
-
-                                <th>Whitelable</th>
-                                <th>Master Distributor</th>
-                                <th>Distributor</th>
-                                <th>Retailer</th>
-                            </tr>
+                        <thead class="thead-light">
+                            <th>Operator</th>
+                            @if (Myhelper::hasRole('admin'))
+                            <th>Commission Type</th>
+                            @endif
+                            <th>Whitelable</th>
+                            <th>Master Distributor</th>
+                            <th>Distributor</th>
+                            <th>Retailer</th>
                         </thead>
                         <tbody>
-
+                            @foreach ($fasttagOperator as $element)
                             <tr>
                                 <td>
-                                    <input type="hidden" name="slab[]">
-                                    Dummy
+                                    <input type="hidden" name="slab[]" value="{{$element->id}}">
+                                    {{$element->name}}
                                 </td>
-
+                                @if (Myhelper::hasRole('admin'))
                                 <td class="p-t-0 p-b-0">
-                                    <select class="form-control" name="type[]" required="">
+                                    <select class="form-control my-1" name="type[]" required="">
                                         <option value="">Select Type</option>
                                         <option value="percent">Percent (%)</option>
                                         <option value="flat">Flat (Rs)</option>
                                     </select>
                                 </td>
-
+                                @endif
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                             </tr>
-
-
+                            @endforeach
                         </tbody>
                     </table>
                     <div class="modal-footer">
@@ -652,61 +656,57 @@ $status['data'] = [
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Cable Bill Commission</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"></span>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+
                 </button>
             </div>
-            <form class="commissionForm">
+            <form class="commissionForm" method="post" action="{{ route('resourceupdate') }}">
 
                 <div class="modal-body">
-
+                    {!! csrf_field() !!}
                     <input type="hidden" name="actiontype" value="commission">
                     <input type="hidden" name="scheme_id" value="">
                     <table class="table table-bordered m-0">
-                        <thead class="bg-light">
-                            <tr>
-                                <th>Operator</th>
-
-                                <th>Commission Type</th>
-
-                                <th>Whitelable</th>
-                                <th>Master Distributor</th>
-                                <th>Distributor</th>
-                                <th>Retailer</th>
-                            </tr>
+                        <thead class="thead-light">
+                            <th>Operator</th>
+                            @if (Myhelper::hasRole('admin'))
+                            <th>Commission Type</th>
+                            @endif
+                            <th>Whitelable</th>
+                            <th>Master Distributor</th>
+                            <th>Distributor</th>
+                            <th>Retailer</th>
                         </thead>
-
                         <tbody>
-
+                            @foreach ($cableOperator as $element)
                             <tr>
                                 <td>
-                                    <input type="hidden" name="slab[]">
-                                    Dummy
+                                    <input type="hidden" name="slab[]" value="{{$element->id}}">
+                                    {{$element->name}}
                                 </td>
-
+                                @if (Myhelper::hasRole('admin'))
                                 <td class="p-t-0 p-b-0">
-                                    <select class="form-control" name="type[]" required="">
+                                    <select class="form-control my-1" name="type[]" required="">
                                         <option value="">Select Type</option>
                                         <option value="percent">Percent (%)</option>
                                         <option value="flat">Flat (Rs)</option>
                                     </select>
                                 </td>
-
+                                @endif
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                             </tr>
-
-
+                            @endforeach
                         </tbody>
                     </table>
                     <div class="modal-footer">
@@ -728,59 +728,56 @@ $status['data'] = [
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Postpaid Bill Commission</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"></span>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+
                 </button>
             </div>
-            <form class="commissionForm">
+            <form class="commissionForm" method="post" action="{{ route('resourceupdate') }}">
                 <div class="modal-body">
-
+                    {!! csrf_field() !!}
                     <input type="hidden" name="actiontype" value="commission">
                     <input type="hidden" name="scheme_id" value="">
                     <table class="table table-bordered m-0">
-                        <thead class="bg-light">
-                            <tr>
-                                <th>Operator</th>
-
-                                <th>Commission Type</th>
-
-                                <th>Whitelable</th>
-                                <th>Master Distributor</th>
-                                <th>Distributor</th>
-                                <th>Retailer</th>
-                            </tr>
+                        <thead class="thead-light">
+                            <th>Operator</th>
+                            @if (Myhelper::hasRole('admin'))
+                            <th>Commission Type</th>
+                            @endif
+                            <th>Whitelable</th>
+                            <th>Master Distributor</th>
+                            <th>Distributor</th>
+                            <th>Retailer</th>
                         </thead>
                         <tbody>
-
+                            @foreach ($postpaidOperator as $element)
                             <tr>
                                 <td>
-                                    <input type="hidden" name="slab[]">
-                                    Dummy
+                                    <input type="hidden" name="slab[]" value="{{$element->id}}">
+                                    {{$element->name}}
                                 </td>
-
+                                @if (Myhelper::hasRole('admin'))
                                 <td class="p-t-0 p-b-0">
-                                    <select class="form-control" name="type[]" required="">
+                                    <select class="form-control my-1" name="type[]" required="">
                                         <option value="">Select Type</option>
                                         <option value="percent">Percent (%)</option>
                                         <option value="flat">Flat (Rs)</option>
                                     </select>
                                 </td>
-
+                                @endif
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                             </tr>
-
-
+                            @endforeach
                         </tbody>
                     </table>
                     <div class="modal-footer">
@@ -797,47 +794,45 @@ $status['data'] = [
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">MATM Commission</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"></span>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+
                 </button>
             </div>
-            <form class="commissionForm">
+            <form class="commissionForm" method="post" action="{{ route('resourceupdate') }}">
                 <div class="modal-body">
-
+                    {!! csrf_field() !!}
                     <input type="hidden" name="actiontype" value="commission">
                     <input type="hidden" name="scheme_id" value="">
                     <table class="table table-bordered m-0">
-                        <thead class="bg-light">
-                            <tr>
-                                <th>Operator</th>
-                                <th>Whitelable</th>
-                                <th>Master Distributor</th>
-                                <th>Distributor</th>
-                                <th>Retailer</th>
-                            </tr>
+                        <thead class="thead-light">
+                            <th>Operator</th>
+                            <th>Whitelable</th>
+                            <th>Master Distributor</th>
+                            <th>Distributor</th>
+                            <th>Retailer</th>
                         </thead>
                         <tbody>
+                            @foreach ($matmOperator as $element)
                             <tr>
                                 <td>
-                                    <input type="hidden" name="slab[]">
+                                    <input type="hidden" name="slab[]" value="{{$element->id}}">
                                     <input type="hidden" name="type[]" value="flat">
-                                    Dummy
+                                    {{$element->name}}
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                             </tr>
-
-
+                            @endforeach
                         </tbody>
                     </table>
                     <div class="modal-footer">
@@ -854,61 +849,59 @@ $status['data'] = [
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">AePS Commission</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"></span>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+
                 </button>
             </div>
-            <form class="commissionForm">
+            <form class="commissionForm" method="post" action="{{ route('resourceupdate') }}">
 
                 <div class="modal-body">
 
-
+                    {!! csrf_field() !!}
                     <input type="hidden" name="actiontype" value="commission">
                     <input type="hidden" name="scheme_id" value="">
                     <table class="table table-bordered m-0">
-                        <thead class="bg-light">
-                            <tr>
-                                <th>Operator</th>
-
-                                <th>Commission Type</th>
-
-                                <th>Whitelable</th>
-                                <th>Master Distributor</th>
-                                <th>Distributor</th>
-                                <th>Retailer</th>
-                            </tr>
+                        <thead class="thead-light">
+                            <th>Operator</th>
+                            @if (Myhelper::hasRole('admin'))
+                            <th>Commission Type</th>
+                            @endif
+                            <th>Whitelable</th>
+                            <th>Master Distributor</th>
+                            <th>Distributor</th>
+                            <th>Retailer</th>
                         </thead>
                         <tbody>
+                            @foreach ($aepsOperator as $element)
                             <tr>
                                 <td>
-                                    <input type="hidden" name="slab[]">
-                                    Dummy
+                                    <input type="hidden" name="slab[]" value="{{$element->id}}">
+                                    {{$element->name}}
                                 </td>
-
+                                @if (Myhelper::hasRole('admin'))
                                 <td class="p-t-0 p-b-0">
-                                    <select class="form-control" name="type[]" required="">
+                                    <select class="form-control my-1" name="type[]" required="">
                                         <option value="">Select Type</option>
                                         <option value="percent">Percent (%)</option>
                                         <option value="flat">Flat (Rs)</option>
                                     </select>
                                 </td>
+                                @endif
 
-
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                             </tr>
-
-
+                            @endforeach
                         </tbody>
                     </table>
                     <div class="modal-footer">
@@ -925,64 +918,62 @@ $status['data'] = [
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Money Transfer</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"></span>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+
                 </button>
             </div>
-            <form class="commissionForm">
+            <form class="commissionForm" method="post" action="{{ route('resourceupdate') }}">
 
                 <div class="modal-body">
-
+                    {!! csrf_field() !!}
                     <input type="hidden" name="actiontype" value="commission">
                     <input type="hidden" name="scheme_id" value="">
                     <table class="table table-bordered m-0">
-                        <thead class="bg-light">
-                            <tr>
-                                <th>Operator</th>
-
-                                <th>Type</th>
-
-                                <th>Whitelable</th>
-                                <th>Master Distributor</th>
-                                <th>Distributor</th>
-                                <th>Retailer</th>
-                            </tr>
+                        <thead class="thead-light">
+                            <th>Operator</th>
+                            @if(Myhelper::hasRole('admin'))
+                            <th>Type</th>
+                            @endif
+                            <th>Whitelable</th>
+                            <th>Master Distributor</th>
+                            <th>Distributor</th>
+                            <th>Retailer</th>
                         </thead>
                         <tbody>
+                            @foreach ($dmtOperator as $element)
                             <tr>
                                 <td>
-                                    <input type="hidden" name="slab[]">
-                                    Dummy
+                                    <input type="hidden" name="slab[]" value="{{$element->id}}">
+                                    {{$element->name}}
                                 </td>
-
+                                @if(Myhelper::hasRole('admin'))
                                 <td>
-
+                                    @if($element->recharge1 == "dmt1accverify")
                                     <input type="hidden" name="type[]" value="flat">
                                     Flat
-
-                                    <select class="form-control" name="type[]" required="">
+                                    @else
+                                    <select class="form-control my-1" name="type[]" required="">
                                         <option value="">Select Type</option>
                                         <option value="percent">Percent (%)</option>
                                         <option value="flat">Flat (Rs)</option>
                                     </select>
-
+                                    @endif
                                 </td>
-
+                                @endif
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control" required="">
-                                </td>
-                                <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control my-1" required="">
+                                </td>
+                                <td class="p-t-0 p-b-0">
+                                    <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                             </tr>
-
-
+                            @endforeach
                         </tbody>
                     </table>
                     <div class="modal-footer">
@@ -1000,68 +991,65 @@ $status['data'] = [
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Aadharpay Charge</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"></span>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+
                 </button>
             </div>
-            <form class="commissionForm">
+            <form class="commissionForm" method="post" action="{{ route('resourceupdate') }}">
 
                 <div class="modal-body">
 
-
+                    {!! csrf_field() !!}
                     <input type="hidden" name="actiontype" value="commission">
                     <input type="hidden" name="scheme_id" value="">
                     <table class="table table-bordered m-0">
-                        <thead class="bg-light">
-                            <tr>
-                                <th>Operator</th>
+                        <thead class="thead-light">
+                            <th>Operator</th>
+                            @if(Myhelper::hasRole('admin'))
+                            <th>Type</th>
+                            @endif
+                            <th>Whitelable</th>
 
-                                <th>Type</th>
-
-                                <th>Whitelable</th>
-
-                                <th>Master Distributor</th>
-                                <th>Distributor</th>
-                                <th>Retailer</th>
-                            </tr>
+                            <th>Master Distributor</th>
+                            <th>Distributor</th>
+                            <th>Retailer</th>
                         </thead>
                         <tbody>
-
+                            @foreach ($aadharpayOperator as $element)
                             <tr>
                                 <td>
-                                    <input type="hidden" name="slab[]">
-                                    Dummy
+                                    <input type="hidden" name="slab[]" value="{{$element->id}}">
+                                    {{$element->name}}
                                 </td>
-
+                                @if(Myhelper::hasRole('admin'))
                                 <td>
-
+                                    @if($element->recharge1 == "dmt1accverify")
                                     <input type="hidden" name="type[]" value="flat">
                                     Flat
-
-                                    <select class="form-control" name="type[]" required="">
+                                    @else
+                                    <select class="form-control my-1" name="type[]" required="">
                                         <option value="">Select Type</option>
                                         <option value="percent">Percent (%)</option>
                                         <option value="flat">Flat (Rs)</option>
                                     </select>
-
+                                    @endif
+                                </td>
+                                @endif
+                                <td class="p-t-0 p-b-0">
+                                    <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
 
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control" required="">
-                                </td>
-
-                                <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                             </tr>
-
-
+                            @endforeach
                         </tbody>
                     </table>
 
@@ -1080,65 +1068,63 @@ $status['data'] = [
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">CMS Charge</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"></span>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+
                 </button>
             </div>
-            <form class="commissionForm">
+            <form class="commissionForm" method="post" action="{{ route('resourceupdate') }}">
                 <div class="modal-body">
-
+                    {!! csrf_field() !!}
                     <input type="hidden" name="actiontype" value="commission">
                     <input type="hidden" name="scheme_id" value="">
                     <table class="table table-bordered m-0">
-                        <thead class="bg-light">
-                            <tr>
-                                <th>Operator</th>
+                        <thead class="thead-light">
+                            <th>Operator</th>
+                            @if(Myhelper::hasRole('admin'))
+                            <th>Type</th>
+                            @endif
+                            <th>Whitelable</th>
 
-                                <th>Type</th>
-
-                                <th>Whitelable</th>
-
-                                <th>Master Distributor</th>
-                                <th>Distributor</th>
-                                <th>Retailer</th>
-                            </tr>
+                            <th>Master Distributor</th>
+                            <th>Distributor</th>
+                            <th>Retailer</th>
                         </thead>
                         <tbody>
+                            @foreach ($cmsOperator as $element)
                             <tr>
                                 <td>
-                                    <input type="hidden" name="slab[]">
-                                    Dummy
+                                    <input type="hidden" name="slab[]" value="{{$element->id}}">
+                                    {{$element->name}}
                                 </td>
-
+                                @if(Myhelper::hasRole('admin'))
                                 <td>
-
+                                    @if($element->recharge1 == "cms")
                                     <input type="hidden" name="type[]" value="flat">
                                     Flat
-
-                                    <select class="form-control" name="type[]" required="">
+                                    @else
+                                    <select class="form-control my-1" name="type[]" required="">
                                         <option value="">Select Type</option>
                                         <option value="percent">Percent (%)</option>
                                         <option value="flat">Flat (Rs)</option>
                                     </select>
-
+                                    @endif
+                                </td>
+                                @endif
+                                <td class="p-t-0 p-b-0">
+                                    <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
 
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="whitelable[]" placeholder="Enter Value" class="form-control" required="">
-                                </td>
-
-                                <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="md[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="distributor[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                                 <td class="p-t-0 p-b-0">
-                                    <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control" required="">
+                                    <input type="number" step="any" name="retailer[]" placeholder="Enter Value" class="form-control my-1" required="">
                                 </td>
                             </tr>
-
-
+                            @endforeach
                         </tbody>
                     </table>
                     <div class="modal-footer">
@@ -1158,8 +1144,8 @@ $status['data'] = [
                     <span class="schemename"></span>
 
                 </h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"></span>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+
                 </button>
             </div>
             <div class="modal-body commissioData">
@@ -1173,7 +1159,6 @@ $status['data'] = [
 </div>
 
 @endsection
-
 
 @push('script')
 <script type="text/javascript">
@@ -1191,19 +1176,18 @@ $status['data'] = [
                 }
 
                 $.ajax({
-                        url: `{{route('resourceupdate')}}`,
-                        type: 'post',
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        },
-                        dataType: 'json',
-                        data: {
-                            'id': id,
-                            'status': status,
-                            "actiontype": "scheme"
-                        }
-                    })
-                    .done(function(data) {
+                    url: `{{route('resourceupdate')}}`,
+                    type: 'post',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    dataType: 'json',
+                    data: {
+                        'id': id,
+                        'status': status,
+                        "actiontype": "scheme"
+                    },
+                    done: function(data) {
                         if (data.status == "success") {
                             notify("Scheme Updated", 'success');
                             $('#datatable').dataTable().api().ajax.reload();
@@ -1215,15 +1199,17 @@ $status['data'] = [
                             }
                             notify("Something went wrong, Try again.", 'warning');
                         }
-                    })
-                    .fail(function(errors) {
+                    },
+                    fail: function(errors) {
                         if (status == "1") {
                             ele.prop('checked', false);
                         } else {
                             ele.prop('checked', true);
                         }
                         showError(errors, "withoutform");
-                    });
+                    }
+                })
+
             });
         };
 
@@ -1267,10 +1253,10 @@ $status['data'] = [
                     menu += `<a href="javascript:void(0)"  class="dropdown-item" onclick="commission(` + full.id + `, 'Aadharpay','AadharpayModal')">Aadharpay</a>`;
 
 
-                    var out = `<button type="button" class="btn btn-primary btn-xs" onclick="editSetup(this)">Edit</button>
-                                <button type="button" class="btn btn-primary btn-xs" onclick="viewCommission(` + full.id + `, '` + full.name + `')"> View Commission</button>
+                    var out = `<button type="button" class="btn btn-primary" onclick="editSetup(this)">Edit</button>
+                                <button type="button" class="btn btn-primary" onclick="viewCommission(` + full.id + `, '` + full.name + `')"> View Commission</button>
                                 <div class="btn-group" role="group">
-                                    <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-bs-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Commission/Charge 
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
@@ -1308,8 +1294,9 @@ $status['data'] = [
             submitHandler: function() {
                 var form = $('#setupManager');
                 var id = form.find('[name="id"]').val();
-                form.ajaxSubmit({
+                    form.ajaxSubmit({
                     dataType: 'json',
+                    type:'get',
                     beforeSubmit: function() {
                         form.find('button[type="submit"]').button('loading');
                     },
@@ -1335,7 +1322,7 @@ $status['data'] = [
         $('form.commissionForm').submit(function() {
             var form = $(this);
             form.closest('.modal').find('tbody').find('span.pull-right').remove();
-            $(this).ajaxSubmit({
+            $.ajaxSubmit({
                 dataType: 'json',
                 beforeSubmit: function() {
                     form.find('button[type="submit"]').button('loading');
@@ -1429,36 +1416,37 @@ $status['data'] = [
     function viewCommission(id, name) {
         if (id != '') {
             $.ajax({
-                    url: '{{route("getMemberPackageCommission")}}',
-                    type: 'post',
-                    dataType: 'json',
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    data: {
-                        "scheme_id": id
-                    },
-                    beforeSend: function() {
-                        swal({
-                            title: 'Wait!',
-                            text: 'Please wait, we are fetching commission details',
-                            onOpen: () => {
-                                swal.showLoading()
-                            },
-                            allowOutsideClick: () => !swal.isLoading()
-                        });
-                    }
-                })
-                .success(function(data) {
+                url: '{{route("getMemberPackageCommission")}}',
+                type: 'post',
+                dataType: 'json',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: {
+                    "scheme_id": id
+                },
+                beforeSend: function() {
+                    swal({
+                        title: 'Wait!',
+                        text: 'Please wait, we are fetching commission details',
+                        onOpen: () => {
+                            swal.showLoading()
+                        },
+                        allowOutsideClick: () => !swal.isLoading()
+                    });
+                },
+                success: function(data) {
                     swal.close();
                     $('#commissionModal').find('.schemename').text(name);
                     $('#commissionModal').find('.commissioData').html(data);
                     $('#commissionModal').modal('show');
-                })
-                .fail(function() {
+                },
+                fail: function() {
                     swal.close();
                     notify('Somthing went wrong', 'warning');
-                });
+                }
+            })
+
         }
     }
     @else
@@ -1466,36 +1454,37 @@ $status['data'] = [
     function viewCommission(id, name) {
         if (id != '') {
             $.ajax({
-                    url: '{{route("getMemberCommission")}}',
-                    type: 'post',
-                    dataType: 'json',
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    data: {
-                        "scheme_id": id
-                    },
-                    beforeSend: function() {
-                        swal({
-                            title: 'Wait!',
-                            text: 'Please wait, we are fetching commission details',
-                            onOpen: () => {
-                                swal.showLoading()
-                            },
-                            allowOutsideClick: () => !swal.isLoading()
-                        });
-                    }
-                })
-                .success(function(data) {
+                url: '{{route("getMemberCommission")}}',
+                type: 'post',
+                dataType: 'json',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: {
+                    "scheme_id": id
+                },
+                beforeSend: function() {
+                    swal({
+                        title: 'Wait!',
+                        text: 'Please wait, we are fetching commission details',
+                        onOpen: () => {
+                            swal.showLoading()
+                        },
+                        allowOutsideClick: () => !swal.isLoading()
+                    });
+                },
+                success: function(data) {
                     swal.close();
                     $('#commissionModal').find('.schemename').text(name);
                     $('#commissionModal').find('.commissioData').html(data);
                     $('#commissionModal').modal('show');
-                })
-                .fail(function() {
+                },
+                fail: function() {
                     swal.close();
                     notify('Somthing went wrong', 'warning');
-                });
+                }
+            })
+
         }
     }
     @endif

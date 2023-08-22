@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 
-<html lang="en" class="light-style layout-navbar-fixed layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="{{asset('theme_1/assets')}}/" data-template="vertical-menu-template">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="light-style layout-navbar-fixed layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="{{asset('theme_1/assets')}}/" data-template="vertical-menu-template">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-    <title>@yield('title')</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>@yield('title') - {{Auth::user()->company->companyname}}</title>
 
     <meta name="description" content="" />
 
@@ -46,7 +47,7 @@
     <link rel="stylesheet" href="{{asset('theme_1/assets/vendor/css/pages/cards-advance.css')}}" />
     <!-- Helpers -->
     <script src="{{asset('theme_1/assets/vendor/js/helpers.js')}}"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
     <script src="{{asset('theme_1/assets/vendor/js/template-customizer.js')}}"></script>
@@ -57,39 +58,19 @@
     <script type="text/javascript" src="{{asset('')}}assets/js/core/dropzone.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote.js"></script>
+    <script type="text/javascript" src="{{asset('')}}assets/js/core/sweetalert2.min.js"></script>
+    <script type="text/javascript" src="{{asset('')}}assets/js/core/jquery.form.min.js"></script>
+    <script src="{{asset('')}}theme/js/jquery.min.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.css" />
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.js"></script>
 
     @if (isset($table) && $table == "yes")
     <script type="text/javascript" src="{{asset('')}}assets/js/plugins/tables/datatables/datatables.min.js"></script>
     @endif
 
-
-    <!-- Core JS -->
-    <!-- build:js assets/vendor/js/core.js -->
-    <script src="{{asset('theme_1/assets/vendor/libs/jquery/jquery.js')}}"></script>
-    <script src="{{asset('theme_1/assets/vendor/libs/popper/popper.js')}}"></script>
-    <script src="{{asset('theme_1/assets/vendor/js/bootstrap.js')}}"></script>
-    <script src="{{asset('')}}assets/js/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
-    <script type="text/javascript" src="{{asset('')}}assets/js/core/jquery.validate.min.js"></script>
-    <script src="{{asset('theme_1/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js')}}"></script>
-    <script src="{{asset('theme_1/assets/vendor/libs/node-waves/node-waves.js')}}"></script>
-
-    <script src="{{asset('theme_1/assets/vendor/libs/hammer/hammer.js')}}"></script>
-    <script src="{{asset('theme_1/assets/vendor/libs/i18n/i18n.js')}}"></script>
-    <script src="{{asset('theme_1/assets/vendor/libs/typeahead-js/typeahead.js')}}"></script>
-
-    <script src="{{asset('theme_1/assets/vendor/js/menu.js')}}"></script>
-    <!-- endbuild -->
-
-    <!-- Vendors JS -->
-    <script src="{{asset('theme_1/assets/vendor/libs/apex-charts/apexcharts.js')}}"></script>
-    <script src="{{asset('theme_1/assets/vendor/libs/swiper/swiper.js')}}"></script>
-    <script src="{{asset('theme_1/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js')}}"></script>
-
-    <!-- Main JS -->
-    <script src="{{asset('theme_1/assets/js/main.js')}}"></script>
-
-    <!-- Page JS -->
-    <script src="{{asset('theme_1/assets/js/dashboards-analytics.js')}}"></script>
 
     <script type="text/javascript">
         $(document).ready(function() {
@@ -193,11 +174,6 @@
 
             $(".navigation-menu a").each(function() {
                 alert();
-                // if (this.href == window.location.href) {
-                //     alert();
-                //     $(this).parent().addClass("active");
-                //     $(this).parent().parent().parent().addClass("active");
-                // }
             });
 
             $('select').change(function(event) {
@@ -424,33 +400,6 @@
                     });
                 }
             });
-
-            // $(window).load(function() {
-            //     alert('jdkk')
-            //     getbalance();
-            // });
-
-            // if(typeof(EventSource) !== "undefined") {
-            //     var source = new EventSource("{{url('mydata')}}");
-            //     source.onmessage = function(event) {
-            //         var data = jQuery.parseJSON(event.data);
-            //         $('.apibalance').text(data.apibalance);
-            //         $('.downlinebalance').text(data.downlinebalance);
-            //         $('.fundCount').text(data.fundrequest);
-            //         $('.aepsfundCount').text(data.aepsfundrequest);
-            //         $('.utiidCount').text(data.utiid);
-
-            //         $('.aeps').text(data.aeps);
-            //         $('.utipan').text(data.utipan);
-            //         $('.billpay').text(data.billpay);
-            //         $('.money').text(data.money);
-            //         $('.recharge').text(data.recharge);
-
-            //         $('.transactionCount').text(data.aeps + data.money + data.money + data.utipan + data.recharge);
-
-            //         $('.member').text(data.member);
-            //     };                
-            // }
         });
 
         function getbalance() {
@@ -714,8 +663,6 @@
             })
         }
     </script>
-
-    @stack('script')
 
 </head>
 
@@ -1003,6 +950,37 @@
 
     </div>
     <!-- / Layout wrapper -->
+
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="{{asset('theme_1/assets/vendor/libs/jquery/jquery.js')}}"></script>
+    <script src="{{asset('theme_1/assets/vendor/libs/popper/popper.js')}}"></script>
+    <script src="{{asset('theme_1/assets/vendor/js/bootstrap.js')}}"></script>
+    <script src="{{asset('')}}assets/js/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+
+    <script src="{{asset('theme_1/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js')}}"></script>
+    <script src="{{asset('theme_1/assets/vendor/libs/node-waves/node-waves.js')}}"></script>
+
+    <script src="{{asset('theme_1/assets/vendor/libs/hammer/hammer.js')}}"></script>
+    <script src="{{asset('theme_1/assets/vendor/libs/i18n/i18n.js')}}"></script>
+    <script src="{{asset('theme_1/assets/vendor/libs/typeahead-js/typeahead.js')}}"></script>
+
+    <script src="{{asset('theme_1/assets/vendor/js/menu.js')}}"></script>
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+    <script src="{{asset('theme_1/assets/vendor/libs/apex-charts/apexcharts.js')}}"></script>
+    <script src="{{asset('theme_1/assets/vendor/libs/swiper/swiper.js')}}"></script>
+    <script src="{{asset('theme_1/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js')}}"></script>
+
+    <!-- Main JS -->
+    <script src="{{asset('theme_1/assets/js/main.js')}}"></script>
+
+    <script type="text/javascript" src="{{asset('')}}assets/js/core/jquery.validate.min.js"></script>
+    <!-- Page JS -->
+    <script src="{{asset('theme_1/assets/js/dashboards-analytics.js')}}"></script>
+    @stack('script')
 </body>
 
 </html>
