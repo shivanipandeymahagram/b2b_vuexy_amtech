@@ -25,6 +25,7 @@ class TransactionActivity
         //  $t = ($post->all());
         //   dd($t->old());
         $geodata   = geoip($post->ip());
+        
         $log['ip'] = $post->ip();
         $log['user_agent']   = $post->server('HTTP_USER_AGENT');
         if(\Auth::check()){

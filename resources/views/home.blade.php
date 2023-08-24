@@ -194,7 +194,6 @@
                      <div class="d-flex gap-2 align-items-center">
                         <div class="badge rounded bg-label-danger p-1">
                            <i class="ti ti-clock-x ti-sm"></i>
-                           <!-- <i class="ti ti-brand-paypal ti-sm"></i> -->
                         </div>
                         <h6 class="mb-0">Failed</h6>
                      </div>
@@ -511,7 +510,6 @@
             </div>
 
             <div class="form-group mb-3">
-
                <span class="text-semibold">
                   <h5><i class="fa fa-envelope"></i></h5>
                   <small>{{$mydata['supportemail']}}</small>

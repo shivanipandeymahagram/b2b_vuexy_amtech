@@ -524,7 +524,7 @@ break;
                     @endif
 
                     out += ` <div class="btn-group" role="group">
-                                    <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button id="btnGroupDrop1" type="button" class="btn btn-primary my-1 dropdown-bs-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Action
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
@@ -568,7 +568,7 @@ break;
                     @endif
 
                     out2 += `<div class="btn-group mx-1" role="group">
-                                    <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button id="btnGroupDrop1" type="button" class="btn btn-primary my-1 dropdown-bs-toggle" data-bs-toggle="dropdown"  aria-expanded="false">
                                     Reports
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
@@ -827,7 +827,7 @@ break;
 
     function transfer(id) {
         $('#transferForm').find('[name="user_id"]').val(id);
-        $('#transferModal').modal();
+        $('#transferModal').modal('show');
     }
 
     function getPermission(id) {
@@ -848,7 +848,7 @@ break;
                     $.each(data, function(index, val) {
                         $('#permissionForm').find('input[value=' + val.permission_id + ']').prop('checked', true);
                     });
-                    $('#permissionModal').modal();
+                    $('#permissionModal').modal('show');
                 })
                 .fail(function() {
                     notify('Somthing went wrong', 'warning');
@@ -860,7 +860,7 @@ break;
         $('#kycUpdateForm').find('[name="id"]').val(id);
         $('#kycUpdateForm').find('[name="kyc"]').val(kyc).trigger('change');
         $('#kycUpdateForm').find('[name="remark"]').val(remark);
-        $('#kycUpdateModal').modal();
+        $('#kycUpdateModal').modal('show');
     }
 
     function scheme(id, scheme) {
@@ -868,12 +868,12 @@ break;
         if (scheme != '' && scheme != null && scheme != 'null') {
             $('#schemeForm').find('[name="scheme_id"]').val(scheme).trigger('change');
         }
-        $('#commissionModal').modal();
+        $('#commissionModal').modal('show');
     }
 
     function addStock(id) {
         $('#idModal').find('input[name="id"]').val(id);
-        $('#idModal').modal();
+        $('#idModal').modal('show');
     }
 
     @if(isset($mydata['schememanager']) && $mydata['schememanager'] -> value == "all")

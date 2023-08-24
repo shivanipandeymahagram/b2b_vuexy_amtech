@@ -223,7 +223,7 @@ $table = "yes";
                     @endif
 
                     out = ` <div class="btn-group" role="group">
-                                    <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle"  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                    More
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">

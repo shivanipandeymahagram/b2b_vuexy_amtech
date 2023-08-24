@@ -61,7 +61,7 @@ $status['data'] = [
                 <h5 class="modal-title" id="exampleModalLabel1">Add Company</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form id="setupManager" action="{{route('resourceupdate')}}" method="post" onsubmit="event.preventDefault()">
+            <form id="setupManager" action="{{route('resourceupdate')}}" method="post">
                 <div class="modal-body">
                     <div class="row">
                         <input type="hidden" name="id">
@@ -181,11 +181,11 @@ $status['data'] = [
                 "data": "action",
                 render: function(data, type, full, meta) {
                     var menu = ``;
-                    menu += `<li class="dropdown-header">Setting</li>
-                    <a class="dropdown-item" href="javascript:void(0)" onclick="editSetup('` + full.id + `', '` + full.companyname + `', '` + full.website + `', '` + full.senderid + `', '` + full.smsuser + `', '` + full.smspwd + `')">Edit</a>`;
+                    menu += `<li class="dropdown-item">Setting</li>
+                    <li><a class="dropdown-item" href="javascript:void(0)" onclick="editSetup('` + full.id + `', '` + full.companyname + `', '` + full.website + `', '` + full.senderid + `', '` + full.smsuser + `', '` + full.smspwd + `')">Edit</a></li>`;
                     var out = `<div class="btn-group" role="group" aria-label="Button group with nested dropdown">
                                  <div class="btn-group" role="group">
-                                    <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-bs-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Action
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">

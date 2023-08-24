@@ -247,7 +247,7 @@ $table = "yes";
 
     function transfer(id) {
         $('#transferForm').find('[name="user_id"]').val(id);
-        $('#transferModal').modal();
+        $('#transferModal').modal('show');
     }
 </script>
 @endpush

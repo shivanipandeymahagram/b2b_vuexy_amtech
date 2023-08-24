@@ -1294,7 +1294,7 @@ $status['data'] = [
             submitHandler: function() {
                 var form = $('#setupManager');
                 var id = form.find('[name="id"]').val();
-                    form.ajaxSubmit({
+                form.ajaxSubmit({
                     dataType: 'json',
                     type:'get',
                     beforeSubmit: function() {
@@ -1408,7 +1408,7 @@ $status['data'] = [
             });
 
         $('#' + modal).find('input[name="scheme_id"]').val(id);
-        $('#' + modal).modal();
+        $('#' + modal).modal('show');
     }
 
     @if(isset($mydata['schememanager']) && $mydata['schememanager'] -> value == "all")

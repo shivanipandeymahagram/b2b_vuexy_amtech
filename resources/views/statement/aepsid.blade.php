@@ -238,7 +238,7 @@ $status['data'] = [
 
 
                     return `<div class="btn-group" role="group">
-                                    <span id="btnGroupDrop1" class="badge ${full.status=='success'? 'badge-success' : full.status=='pending'? 'badge-warning':full.status=='approved'? 'badge-success':full.status=='refund'? 'badge-dark':'badge-danger'} dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span id="btnGroupDrop1" class="badge ${full.status=='success'? 'badge-success' : full.status=='pending'? 'badge-warning':full.status=='approved'? 'badge-success':full.status=='refund'? 'badge-dark':'badge-danger'} dropdown-toggle"  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     ` + full.status + `
                                     </span>
                                     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">

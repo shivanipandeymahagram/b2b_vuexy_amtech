@@ -231,7 +231,7 @@ $product['type'] = "Service";
 
                     out += `<ul class="icons-list">
                                 <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <a href="#" class="dropdown-toggle"  data-bs-toggle="dropdown">
                                         <i class="icon-menu9"></i>
                                     </a>
 

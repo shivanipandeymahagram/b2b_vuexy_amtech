@@ -1,7 +1,7 @@
 <ul class="nav nav-pills nav-tabs mb-3" id="pills-tab" role="tablist">
     @foreach ($commission as $key => $value)
     <li class="nav-item">
-        <a class="nav-link {{($key == 'mobile') ? 'active' : ''}}" id="pills-home-tab" data-toggle="pill" href="#{{$key}}" role="tab" aria-controls="pills-home" aria-selected="true">{{ucfirst($key)}}</a>
+        <a class="nav-link {{($key == 'mobile') ? 'active' : ''}}" id="pills-home-tab" data-bs-toggle="pill" href="#{{$key}}" role="tab" aria-controls="pills-home" aria-selected="true">{{ucfirst($key)}}</a>
     </li>
     @endforeach
 </ul>

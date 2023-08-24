@@ -17,7 +17,7 @@
                     <ul class="nav nav-tabs nav-pills" role="tablist">
                     @foreach ($commission as $key => $value)
                         <li class="nav-item">
-                            <button type="button" class="nav-link {{($key == 'mobile') ? 'active' : ''}}" role="tab" data-bs-toggle="tab" data-bs-target="#navs-justified-{{$key}}" aria-controls="navs-justified-home" aria-selected="true">
+                            <button type="button" class="nav-link {{($key == 'mobile') ? 'active' : ''}}" role="tab" data-bs-toggle="tab" data-bs-target="#navs-justified-{{$key}}" aria-controls="navs-justified-{{$key}}" aria-selected="true">
                                 <i class="tf-icons ti ti-home ti-xs me-1"></i> {{ucfirst($key)}}
                             </button>
                         </li>

@@ -547,7 +547,7 @@ $status['data'] = [
                                 <div class="btn-group btn-group-fade">
                                     <button type="button" class="btn btn-primary btn-xs m-r-10" onclick="editSetup(this)">Edit</button>
                                     <button type="button" class="btn btn-primary btn-xs m-r-10" onclick="viewCommission(` + full.id + `, '` + full.name + `')"> View Commission</button>
-                                    <button type="button" class="btn btn-primary btn-xs" data-toggle="dropdown" aria-expanded="false">Commission/Charge <span class="caret"></span></button>
+                                    <button type="button" class="btn btn-primary btn-xs"  data-bs-toggle="dropdown" aria-expanded="false">Commission/Charge <span class="caret"></span></button>
                                     <ul class="dropdown-menu">
                                         ` + menu + `
                                     </ul>
