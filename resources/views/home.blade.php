@@ -64,7 +64,7 @@
                         </div>
                         <h6 class="mb-0">Success</h6>
                      </div>
-                     <h6 class="my-2 pt-1">140 | ₹4.85 Lac</h6>
+                     <h6 class="my-2 pt-1"><span id="aeps_successCount" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="140">140</span> | <span id="aeps_success" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="₹4.85 L"> ₹4.85 Lac</span></h6>
                      <div class="progress w-75" style="height: 4px">
                         <div class="progress-bar bg-success" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
                      </div>
@@ -76,7 +76,7 @@
                         </div>
                         <h6 class="mb-0">Pending</h6>
                      </div>
-                     <h6 class="my-2 pt-1">0 | ₹0.00</h6>
+                     <h6 class="my-2 pt-1"><span id="aeps_pendingCount" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="0">0</span> | <span id="aeps_pending" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="₹0">₹0.00</span></h6>
                      <div class="progress w-75" style="height: 4px">
                         <div class="progress-bar bg-warning" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                      </div>
@@ -89,7 +89,7 @@
                         </div>
                         <h6 class="mb-0">Failed</h6>
                      </div>
-                     <h6 class="my-2 pt-1">98 | ₹2.91 Lac</h6>
+                     <h6 class="my-2 pt-1"><span id="aeps_failedCount" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="98">98</span> | <span id="aeps_failed" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="₹2.91 L">₹2.91 Lac</span></h6>
                      <div class="progress w-75" style="height: 4px">
                         <div class="progress-bar bg-danger" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
                      </div>
@@ -119,7 +119,7 @@
                         </div>
                         <h6 class="mb-0">Success</h6>
                      </div>
-                     <h6 class="my-2 pt-1">157 | ₹5.74 Lac</h6>
+                     <h6 class="my-2 pt-1"><span id="bbps_successCount" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="157">157</span> | <span id="bbps_success" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="₹5.74 L">₹5.74 Lac</span></h6>
                      <div class="progress w-75" style="height: 4px">
                         <div class="progress-bar bg-success" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
                      </div>
@@ -131,7 +131,7 @@
                         </div>
                         <h6 class="mb-0">Pending</h6>
                      </div>
-                     <h6 class="my-2 pt-1">1 | ₹3.50 K</h6>
+                     <h6 class="my-2 pt-1"><span id="bbps_pendingCount" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="1">1</span> | <span id="bbps_pending" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="₹3.50 K">₹3.50 K</span></h6>
                      <div class="progress w-75" style="height: 4px">
                         <div class="progress-bar bg-warning" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                      </div>
@@ -143,7 +143,7 @@
                         </div>
                         <h6 class="mb-0">Failed</h6>
                      </div>
-                     <h6 class="my-2 pt-1">47 | ₹3.02 Lac</h6>
+                     <h6 class="my-2 pt-1"><span id="bbps_failedCount" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="47">47</span> | <span id="bbps_failed" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="₹3.02 L">₹3.02 Lac</span></h6>
                      <div class="progress w-75" style="height: 4px">
                         <div class="progress-bar bg-danger" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
                      </div>
@@ -173,7 +173,7 @@
                         </div>
                         <h6 class="mb-0">Success</h6>
                      </div>
-                     <h6 class="my-2 pt-1">0 | ₹0.00</h6>
+                     <h6 class="my-2 pt-1"><span id="money_successCount" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="0">0</span> | <span id="money_success" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="₹0">₹0.00</span></h6>
                      <div class="progress w-75" style="height: 4px">
                         <div class="progress-bar bg-success" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
                      </div>
@@ -185,7 +185,7 @@
                         </div>
                         <h6 class="mb-0">Pending</h6>
                      </div>
-                     <h6 class="my-2 pt-1">0 | ₹0.00</h6>
+                     <h6 class="my-2 pt-1"><span id="money_pendingCount" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="0">0</span> | <span id="money_pending" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="₹0">₹0.00</span></h6>
                      <div class="progress w-75" style="height: 4px">
                         <div class="progress-bar bg-warning" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                      </div>
@@ -197,7 +197,7 @@
                         </div>
                         <h6 class="mb-0">Failed</h6>
                      </div>
-                     <h6 class="my-2 pt-1">0 | ₹0.00</h6>
+                     <h6 class="my-2 pt-1"><span id="money_failedCount" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="0">0</span> | <span id="money_failed" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="₹0">₹0.00</span></h6>
                      <div class="progress w-75" style="height: 4px">
                         <div class="progress-bar bg-danger" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
                      </div>
@@ -229,7 +229,7 @@
                         </div>
                         <h6 class="mb-0">Success</h6>
                      </div>
-                     <h6 class="my-2 pt-1">64 | ₹15.69 K</h6>
+                     <h6 class="my-2 pt-1"><span id="recharge_successCount" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="64">64</span> | <span id="recharge_success" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="₹15.69">₹15.69 K</span></h6>
                      <div class="progress w-75" style="height: 4px">
                         <div class="progress-bar bg-success" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
                      </div>
@@ -241,7 +241,7 @@
                         </div>
                         <h6 class="mb-0">Pending</h6>
                      </div>
-                     <h6 class="my-2 pt-1">0 | ₹0.00</h6>
+                     <h6 class="my-2 pt-1"><span id="recharge_pendingCount" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="0">0</span> | <span id="recharge_pending" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="₹0">₹0.00</span></h6>
                      <div class="progress w-75" style="height: 4px">
                         <div class="progress-bar bg-warning" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                      </div>
@@ -254,7 +254,7 @@
                         </div>
                         <h6 class="mb-0">Failed</h6>
                      </div>
-                     <h6 class="my-2 pt-1">238 | ₹80.09 K</h6>
+                     <h6 class="my-2 pt-1"><span id="recharge_failedCount" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="238">238</span> | <span id="recharge_failed" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="₹80.09">₹80.09 K</span></h6>
                      <div class="progress w-75" style="height: 4px">
                         <div class="progress-bar bg-danger" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
                      </div>
@@ -284,7 +284,7 @@
                         </div>
                         <h6 class="mb-0">Success</h6>
                      </div>
-                     <h6 class="my-2 pt-1">0 | ₹0.00</h6>
+                     <h6 class="my-2 pt-1"><span id="utipancard_successCount" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="0">0</span> | <span id="utipancard_success" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="₹0">₹0.00</span></h6>
                      <div class="progress w-75" style="height: 4px">
                         <div class="progress-bar bg-success" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
                      </div>
@@ -296,7 +296,7 @@
                         </div>
                         <h6 class="mb-0">Pending</h6>
                      </div>
-                     <h6 class="my-2 pt-1">0 | ₹0.00</h6>
+                     <h6 class="my-2 pt-1"><span id="utipancard_pendingCount" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="0">0</span> | <span id="utipancard_pending" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="₹0">₹0.00</span></h6>
                      <div class="progress w-75" style="height: 4px">
                         <div class="progress-bar bg-warning" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                      </div>
@@ -309,7 +309,7 @@
                         </div>
                         <h6 class="mb-0">Failed</h6>
                      </div>
-                     <h6 class="my-2 pt-1">195 | ₹11.75 Lac</h6>
+                     <h6 class="my-2 pt-1"><span id="utipancard_failedCount" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="195">195</span> | <span id="utipancard_failed" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="₹11.75 L">₹11.75 Lac</span></h6>
                      <div class="progress w-75" style="height: 4px">
                         <div class="progress-bar bg-danger" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
                      </div>
@@ -690,16 +690,16 @@
 
       @if(Myhelper::hasNotRole('admin'))
       @if(Auth::user() -> kyc == "pending" || Auth::user() -> kyc == "rejected")
-      $('#kycModal').modal();
+      $('#kycModal').modal('show');
       @endif
       @endif
 
       @if(Myhelper::hasNotRole('admin') && Auth::user() -> resetpwd == "default")
-      $('#pwdModal').modal();
+      $('#pwdModal').modal('show');
       @endif
 
       // @if($mydata['notice'] != null || $mydata['notice'] != '')
-      // $('#noticeModal').modal();
+      // $('#noticeModal').modal('show');
       // @endif
 
 
@@ -946,8 +946,7 @@
             toDate: end.format('YYYY-MM-DD') || '',
          },
          success: function(resp) {
-
-            $(`#aeps_success`).html(`<span data-bs-toggle="tooltip" data-bs-placement="top" title="">` + '₹' + resp.aeps.success.toFixed(2) + `</span>`);
+            $(`#aeps_success`).html(`<span data-bs-toggle="tooltip" data-bs-placement="top" title="">` + '₹' + resp.aeps.success.toFixed(2)+ `</span>`);
             $(`#aeps_successCount`).html(`<span data-bs-toggle="tooltip" data-bs-placement="top" title="">` + resp.aeps.successCount + `</span>`);
             $(`#aeps_pending`).html(`<span data-bs-toggle="tooltip" data-bs-placement="top" title="">` + '₹' + resp.aeps.pending.toFixed(2) + `</span>`);
             $(`#aeps_pendingCount`).html(`<span data-bs-toggle="tooltip" data-bs-placement="top" title="">` + resp.aeps.pendingCount + `</span>`);
