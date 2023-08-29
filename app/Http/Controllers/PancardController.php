@@ -170,7 +170,7 @@ class PancardController extends Controller
                 $url = $provider->api->url."UATInsUTIAgent";
 
                 $result = \Myhelper::curl($url, "POST", json_encode($parameter), ["Content-Type: application/json", "Accept: application/json"], "yes", 'App\Models\Utiid' , $post->txnid);
-                // dd([$url, $result, $parameter]);
+              
                 if(!$result['error'] || $result['response'] != ''){
                     $doc = json_decode($result['response']);
                     if(isset($doc[0]->StatusCode) && $doc[0]->StatusCode == "000"){

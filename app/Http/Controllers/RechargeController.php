@@ -27,7 +27,7 @@ class RechargeController extends Controller
         }
         $data['type'] = $type;
         $data['providers'] = Provider::where('type', $type)->where('status', "1")->orderBy('name')->get();
-        $data['circle'] = Circle::where('maha_circle_name', '!=', '')->get();
+        $data['circles'] = Circle::where('maha_circle_name', '!=', '')->get();
         return view('service.recharge')->with($data);
     }
 

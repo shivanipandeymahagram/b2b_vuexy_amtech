@@ -1,7 +1,7 @@
 <!-- Menu -->
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
-        <a href="{{route('home')}}" class="app-brand-link">
+        <span class="app-brand-link">
             <span class="app-brand-logo demo">
                 <svg width="32" height="22" viewBox="0 0 32 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M0.00172773 0V6.85398C0.00172773 6.85398 -0.133178 9.01207 1.98092 10.8388L13.6912 21.9964L19.7809 21.9181L18.8042 9.88248L16.4951 7.17289L9.23799 0H0.00172773Z" fill="#7367F0" />
@@ -11,7 +11,7 @@
                 </svg>
             </span>
             <span class="app-brand-text demo menu-text fw-bold">Vuexy</span>
-        </a>
+        </span>
 
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
             <i class="ti menu-toggle-icon d-none d-xl-block ti-sm align-middle"></i>
@@ -398,16 +398,16 @@
 
 
         @if (\Myhelper::can('invesment_show') && !Myhelper::hasRole('admin'))
-        <li class="menu-item {{Request::is('investment') ? 'active open' : '' }}">
+        <li class="menu-item {{Request::is('investment/*') ? 'active open' : '' }}">
             <a href="#investment" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-id"></i>
                 <div data-i18n="Investment Service">Investment Service</div>
             </a>
-            <ul class="menu-sub {{Request::is('investment') ? 'show' : '' }}" id="investment">
+            <ul class="menu-sub {{Request::is('investment/*') ? 'show' : '' }}" id="investment">
 
-                <li class="menu-item {{Request::is('investment') ? 'active ' : '' }}">
+                <li class="menu-item {{Request::is('investment/*') ? 'active ' : '' }}">
                     <a href="{{url('investment/show')}}" class=" menu-link">
-                        <div data-i18n="Banner">Investment</div>
+                        <div data-i18n="Investment">Investment</div>
                     </a>
                 </li>
             </ul>
@@ -732,7 +732,7 @@
             </ul>
         </li>
         @endif
-  
+
         <li class="menu-item {{Request::is('profile/*')? 'active open' : '' }}">
             <a href="#accountSetting" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-file-description"></i>
@@ -805,7 +805,7 @@
                 <div data-i18n="Roles & Permissions">Roles & Permissions</div>
             </a>
             <ul class="menu-sub {{Request::is('tools/*') ? 'show' : '' }}" id="roles">
-                
+
                 <li class="menu-item {{Request::is('tools/roles') ? 'active' : '' }}">
                     <a href="{{route('tools' , ['type' => 'roles'])}}" class="menu-link">
                         <div data-i18n="Roles">Roles</div>
